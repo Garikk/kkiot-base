@@ -5,13 +5,14 @@
  */
 package kkdev.kksystem.base.classes;
 
+import java.io.Serializable;
 import kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_TYPE;
 
 /**
  *
  * @author blinov_is
  */
-public class PluginInfo {
+public class PluginInfo implements Serializable {
     public String PluginName;
     public String PluginDescription;
     public String PluginJarName;
@@ -19,4 +20,5 @@ public class PluginInfo {
     public int PluginVersion;
     public String[] ReceivePins;
     public String[] TransmitPins;
+    public String ConnectorClass;
 }
