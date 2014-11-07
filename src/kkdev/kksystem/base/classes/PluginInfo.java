@@ -21,4 +21,5 @@ public class PluginInfo implements Serializable {
     public String[] ReceivePins;
     public String[] TransmitPins;
     public String ConnectorClass;
+    public boolean Enabled;
 }
