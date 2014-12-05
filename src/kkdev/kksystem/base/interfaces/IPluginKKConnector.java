@@ -16,7 +16,10 @@ public interface IPluginKKConnector {
     public PluginInfo GetPluginInfo();
     public PluginPin[] GetPinsForRegister();
 
-    public void PluginInit();
+    
+    public PluginPin ExecutePin(PluginPin Pin);
+    
+    public void PluginInit(IKKConnector BaseConnector);
     public void PluginStart();
     public void PluginStop();
 }

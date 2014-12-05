@@ -10,6 +10,7 @@ package kkdev.kksystem.base.classes;
  * @author blinov_is
  */
 public class PluginPin {
+    public String PinSenderPlugin;
     public String PinName;
     public String PinType;
     public Object PinValueObj;

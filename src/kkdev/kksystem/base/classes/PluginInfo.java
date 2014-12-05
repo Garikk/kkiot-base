@@ -15,7 +15,6 @@ import kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_TYPE;
 public class PluginInfo implements Serializable {
     public String PluginName;
     public String PluginDescription;
-    public String PluginJarName;
     public KK_PLUGIN_TYPE PluginType;
     public int PluginVersion;
     public String[] ReceivePins;
