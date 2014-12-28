@@ -13,7 +13,6 @@ import kkdev.kksystem.base.classes.PluginPin;
  * @author blinov_is
  */
 public interface IPluginKKConnector {
-    public void SetPluginInfo_FOR_DEBUG_(PluginInfo PI);
     public PluginInfo GetPluginInfo();
     public PluginPin[] GetPinsForRegister();
 

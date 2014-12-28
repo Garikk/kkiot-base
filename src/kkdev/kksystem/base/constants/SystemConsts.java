@@ -15,4 +15,6 @@ public final class SystemConsts {
     public static String KK_BASE_EXCHANGEPATH="../exchange";
     
     public static String KK_BASE_SETTINGS_FILE="kksystem.xml.conf";
+    
+    public static String KK_BASE_PLUGINS_CONNECTOR_FILE="kkconnector";
 }
