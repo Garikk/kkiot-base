@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.interfaces;
-
-import kkdev.kksystem.base.classes.PluginMessage;
+package kkdev.kksystem.base.classes.defpins.base;
 
 /**
  *
  * @author blinov_is
  */
-public interface IKKConnector {
-    PluginMessage ExecutePinCommand(PluginMessage PP);
+public class PinBaseData {
+    
 }

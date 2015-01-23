@@ -6,7 +6,7 @@
 package kkdev.kksystem.base.interfaces;
 
 import kkdev.kksystem.base.classes.PluginInfo;
-import kkdev.kksystem.base.classes.PluginPin;
+import kkdev.kksystem.base.classes.PluginMessage;
 
 /**
  *
@@ -14,10 +14,8 @@ import kkdev.kksystem.base.classes.PluginPin;
  */
 public interface IPluginKKConnector {
     public PluginInfo GetPluginInfo();
-    public PluginPin[] GetPinsForRegister();
-
     
-    public PluginPin ExecutePin(PluginPin Pin);
+    public PluginMessage ExecutePin(PluginMessage Pin);
     
     public void PluginInit(IKKConnector BaseConnector);
     public void PluginStart();

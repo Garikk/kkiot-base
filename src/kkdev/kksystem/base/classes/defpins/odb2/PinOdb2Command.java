@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.interfaces;
+package kkdev.kksystem.base.classes.defpins.odb2;
 
-import kkdev.kksystem.base.classes.PluginMessage;
 
 /**
  *
  * @author blinov_is
  */
-public interface IKKConnector {
-    PluginMessage ExecutePinCommand(PluginMessage PP);
+public class PinOdb2Command {
+    
 }

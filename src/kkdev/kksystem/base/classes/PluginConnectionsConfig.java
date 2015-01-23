@@ -5,16 +5,14 @@
  */
 package kkdev.kksystem.base.classes;
 
+import kkdev.kksystem.base.classes.PluginConnection;
+
 /**
  *
  * @author blinov_is
  */
-public class PluginPin {
-    public String PinSenderPlugin;
-    public String PinName;
-    public String PinType;
-    public Object PinValueObj;
-    public int PinValueInt;
-    public String PinValueStr;
-    
+public class PluginConnectionsConfig {
+    public String ConfigName;
+    public String ConfigUUID;
+    public PluginConnection[] Connections;
 }
