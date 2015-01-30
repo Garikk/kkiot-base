@@ -11,6 +11,6 @@ import kkdev.kksystem.base.classes.PluginMessage;
  *
  * @author blinov_is
  */
-public interface IKKConnector {
-    PluginMessage ExecutePinCommand(PluginMessage PP);
+public interface IPluginBaseInterface {
+    public PluginMessage ExecutePinCommand(PluginMessage PP);
 }

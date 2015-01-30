@@ -17,7 +17,7 @@ public interface IPluginKKConnector {
     
     public PluginMessage ExecutePin(PluginMessage Pin);
     
-    public void PluginInit(IKKConnector BaseConnector);
+    public void PluginInit(IPluginBaseInterface BaseConnector);
     public void PluginStart();
     public void PluginStop();
 }
