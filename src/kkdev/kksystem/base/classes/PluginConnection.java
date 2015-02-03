@@ -15,7 +15,7 @@ public class PluginConnection{
    public String TargetPluginName;    //target plugin name for info
    public String SourcePluginUID;     //UUID srource plugin
    public String TargetPluginUID;     //UUID target plugin
-   public String[] PinName;             //Pin Name
+   public String PinName[];             //Pin Name
    boolean Enabled;
     
 }
