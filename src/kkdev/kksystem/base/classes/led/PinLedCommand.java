@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes.defpins.odb2;
+package kkdev.kksystem.base.classes.led;
 
+import kkdev.kksystem.base.classes.led.DisplayConstants.KK_DISPLAY_COMMAND;
 
 /**
  *
  * @author blinov_is
  */
-public class PinOdb2RawData {
-    
+public class PinLedCommand {
+
+    public PinLedData Data;
+    public KK_DISPLAY_COMMAND Command;
 }

@@ -5,14 +5,14 @@
  */
 package kkdev.kksystem.base.classes;
 
-import kkdev.kksystem.base.classes.defpins.base.PinBaseCommand;
+import kkdev.kksystem.base.classes.base.PinBaseCommand;
 
 /**
  *
  * @author blinov_is
  */
 public class PluginMessage {
-    public String Sender;
-    public PinBaseCommand Command;
-    public Object[] PluginPins;
+    public String SenderUID;
+    public String PinName;
+    public Object PinData;
 }
