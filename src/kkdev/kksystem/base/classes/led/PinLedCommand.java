@@ -12,7 +12,12 @@ import kkdev.kksystem.base.classes.led.DisplayConstants.KK_DISPLAY_COMMAND;
  * @author blinov_is
  */
 public class PinLedCommand {
-
-    public PinLedData Data;
     public KK_DISPLAY_COMMAND Command;
+//
+    public int[] INT;
+    public String[] STRING;
+    public boolean[] BOOL;
+    //
+    
+    
 }

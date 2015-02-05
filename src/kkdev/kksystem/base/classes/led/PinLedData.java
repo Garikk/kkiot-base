@@ -5,14 +5,18 @@
  */
 package kkdev.kksystem.base.classes.led;
 
+import kkdev.kksystem.base.classes.led.DisplayConstants.KK_DISPLAY_DATA;
+
 /**
  *
  * @author blinov_is
  */
 public class PinLedData {
-    public DisplayInfo Info;
-    public String[] DisplayText;
-    public String DisplayTextUpdate;
-    public int StartPositionColumn;
-    public int StartPositionLine;
+    public KK_DISPLAY_DATA DataType;
+    public String[] DisplayText;        //Text for display
+    public String DisplayTextUpdate;    //Updated text (using positions)
+    public int StartPositionColumn;     //Position for update text
+    public int StartPositionLine;       //Position for update text
+    public String TargetPage;           //Target page
+    public DisplayInfo[] DisplayState;    //
 }

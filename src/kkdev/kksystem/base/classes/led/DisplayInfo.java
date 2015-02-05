@@ -22,4 +22,5 @@ public class DisplayInfo {
     public int Graphic_Height_px;
     public int MaxBackLight;
     public int MaxContrast;
+    public String DisplayID;
 }

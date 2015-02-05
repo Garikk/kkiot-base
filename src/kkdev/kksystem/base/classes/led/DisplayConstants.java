@@ -14,9 +14,19 @@ public final class DisplayConstants {
     {
         DISPLAY_KKSYS_GETINFO,
         DISPLAY_KKSYS_POWER,
-        DISPLAY_KKSYS_CONTRAST_LIGHT,
-        DISPLAY_KKSYS_TXT_DISPLAY_TEXT,
+        DISPLAY_KKSYS_CHANGE_SETTINGS,
+        DISPLAY_KKSYS_CREATE_PAGE,
+        DISPLAY_KKSYS_SELECT_PAGE,
         DISPLAY_RAW_EXEC_DISPLAY_COMMAND
+        
+    }
+       public static enum KK_DISPLAY_DATA
+    {
+        DISPLAY_KKSYS_TEXT,
+        DISPLAY_KKSYS_TEXT_UPDATE,
+        DISPLAY_KKSYS_DISPLAY_STATE,
+        DISPLAY_RAW_EXEC_DISPLAY_DATA,
+        
         
     }
 }
