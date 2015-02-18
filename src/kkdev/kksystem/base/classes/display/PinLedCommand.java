@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes.led;
+package kkdev.kksystem.base.classes.display;
 
-import kkdev.kksystem.base.classes.led.DisplayConstants.KK_DISPLAY_COMMAND;
+import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_COMMAND;
 
 /**
  *
@@ -13,7 +13,8 @@ import kkdev.kksystem.base.classes.led.DisplayConstants.KK_DISPLAY_COMMAND;
  */
 public class PinLedCommand {
     public KK_DISPLAY_COMMAND Command;
-//
+    
+    public String PageID;
     public int[] INT;
     public String[] STRING;
     public boolean[] BOOL;
