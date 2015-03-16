@@ -25,17 +25,17 @@ public final class PluginConsts {
     //
     //
     // Default system PINS
-    public final static String KK_PLUGIN_BASE_PLUGIN_DEF_PIN_COMMAND="PIN_KK_COMMAND";
+    public final static String KK_PLUGIN_BASE_PIN_COMMAND="PIN_KK_COMMAND";
     //
     // Default ODB2 Pins
-    public final static String KK_PLUGIN_BASE_PLUGIN_DEF_PIN_ODB2_COMMAND="PIN_KK_ODB2_COMMAND";
-    public final static String KK_PLUGIN_BASE_PLUGIN_DEF_PIN_ODB2_DATA="PIN_KK_ODB2_DATA";
-    public final static String KK_PLUGIN_BASE_PLUGIN_DEF_PIN_ODB2_RAW="PIN_KK_ODB2_RAW";
+    public final static String KK_PLUGIN_BASE_PIN_ODB2_COMMAND="PIN_KK_ODB2_COMMAND";
+    public final static String KK_PLUGIN_BASE_PIN_ODB2_DATA="PIN_KK_ODB2_DATA";
+    public final static String KK_PLUGIN_BASE_PIN_ODB2_RAW="PIN_KK_ODB2_RAW";
     
 
-    public final static String KK_PLUGIN_BASE_PLUGIN_DEF_PIN_LED_COMMAND="PIN_KK_LED_COMMAND";
-    public final static String KK_PLUGIN_BASE_PLUGIN_DEF_PIN_LED_DATA="PIN_KK_LED_DATA";
-    public final static String KK_PLUGIN_BASE_PLUGIN_DEF_PIN_LED_RAW="PIN_KK_LED_RAW";
+    public final static String KK_PLUGIN_BASE_LED_COMMAND="PIN_KK_LED_COMMAND";
+    public final static String KK_PLUGIN_BASE_LED_DATA="PIN_KK_LED_DATA";
+    public final static String KK_PLUGIN_BASE_LED_RAW="PIN_KK_LED_RAW";
 
     
     public static String KK_PLUGIN_BASE_PLUGIN_ODB2="KKODB2Reader";
