@@ -5,14 +5,14 @@
  */
 package kkdev.kksystem.base.classes;
 
-import java.io.Serializable;
+
 import kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_TYPE;
 
 /**
  *
  * @author blinov_is
  */
-public class PluginInfo implements Serializable {
+public class PluginInfo  {
     public String PluginUUID;
     public String PluginName;
     public String PluginDescription;
