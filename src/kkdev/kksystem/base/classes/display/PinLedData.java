@@ -13,10 +13,16 @@ import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
  */
 public class PinLedData {
     public KK_DISPLAY_DATA DataType;
-    public String[] DisplayText;        //Text for display
-    public String DisplayTextUpdate;    //Updated text (using positions)
-    public int StartPositionColumn;     //Position for update text
-    public int StartPositionLine;       //Position for update text
+    //
     public String TargetPage;           //Target page
+    //
+    public String[] OnFrame_DataKeys;
+    public String[] OnFrame_DataValues;
+    //
+    public String[] Direct_DisplayText;        //Text for display
+    public String Direct_DisplayTextUpdate;    //Updated text (using positions)
+    public int Direct_StartPositionColumn;     //Position for update text
+    public int Direct_StartPositionLine;       //Position for update text
+    //
     public DisplayInfo[] DisplayState;    //
 }

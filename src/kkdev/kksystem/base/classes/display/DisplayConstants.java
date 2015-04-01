@@ -21,15 +21,12 @@ public final class DisplayConstants {
     }
        public static enum KK_DISPLAY_DATA
     {
-        DISPLAY_KKSYS_TEXT,
-        DISPLAY_KKSYS_TEXT_UPDATE,
+        DISPLAY_KKSYS_TEXT_SIMPLE_OUT,         //Simple text output
+        DISPLAY_KKSYS_TEXT_UPDATE_DIRECT,      //Updated text with positions
+        DISPLAY_KKSYS_TEXT_UPDATE_FRAME,       //Updated Frame constants
         DISPLAY_KKSYS_DISPLAY_STATE,
-        DISPLAY_RAW_EXEC_DISPLAY_DATA,
+        DISPLAY_RAW_EXEC_DISPLAY_DATA
     }
-       //
-       //public final int DISPLAY_CMD_SETTINGS_INT_POS_POWER=0;
-       //public final int DISPLAY_CMD_SETTINGS_INT_POS_BRIGHTNESS=1;
-       //public final int DISPLAY_CMD_SETTINGS_INT_POS_CONTRAST=2;
-       //
        
+      
 }
