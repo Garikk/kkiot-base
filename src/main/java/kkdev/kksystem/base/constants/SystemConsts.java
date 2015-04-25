@@ -10,7 +10,8 @@ package kkdev.kksystem.base.constants;
  * @author blinov_is
  */
 public final class SystemConsts {
-    public static String KK_BASE_CONFPATH="./etc";
+    public static String KK_BASE_CONFPATH="../etc";
+    public static String KK_BASE_FORPLUGINS_CONFPATH="./etc";
     public static String KK_BASE_CONFPATH_CONNECTIONS="./etc/pluginconnections";
     public static String KK_BASE_PLUGINPATH="./plugins";
     public static String KK_BASE_EXCHANGEPATH="./exchange";
