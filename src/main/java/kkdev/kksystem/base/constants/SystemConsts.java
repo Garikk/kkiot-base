@@ -17,5 +17,5 @@ public final class SystemConsts {
     
     public static String KK_BASE_SETTINGS_FILE="kksystem.xml.conf";
     
-    public static String KK_BASE_PLUGINS_CONNECTOR_FILE="kkconnector";
+    public static String KK_BASE_PLUGINS_MANIFEST_CONNECTOR_ATTR="kksystem-connector";
 }
