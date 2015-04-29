@@ -6,6 +6,7 @@
 package kkdev.kksystem.base.classes.odb2;
 
 import kkdev.kksystem.base.classes.odb2.ODBConstants.KK_ODB_COMMANDTYPE;
+import kkdev.kksystem.base.classes.odb2.ODBConstants.KK_ODB_DATAPACKET;
 
 
 /**
@@ -13,7 +14,9 @@ import kkdev.kksystem.base.classes.odb2.ODBConstants.KK_ODB_COMMANDTYPE;
  * @author blinov_is
  */
 public class PinOdb2Command {
-    public KK_ODB_COMMANDTYPE Command;
-    public PinOdb2Data CommandData;
-    public Object ObjectData;
+    public KK_ODB_COMMANDTYPE Command;      //Type of command for ODB Plugin
+    public KK_ODB_DATAPACKET CommandData;   //Type of Data
+    public int[] RequestPIDs;               //pid numbers
+    public int[] DynamicRequestInterval;    //0 - one request, other - seconds for dynamic requests
+    public Object ObjectData;               //any raw data for plugin interconnection
 }

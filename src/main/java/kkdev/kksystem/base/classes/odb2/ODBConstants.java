@@ -12,7 +12,8 @@ package kkdev.kksystem.base.classes.odb2;
 public final class ODBConstants {
        public static enum KK_ODB_DATAPACKET
     {
-        ODB_PIDINFO,
+        ODB_SIMPLEDATA,
+        ODB_EXTENDEDDATA,
         ODB_RAWINFO,
         ODB_OTHERCMD
     }
