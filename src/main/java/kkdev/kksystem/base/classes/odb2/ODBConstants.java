@@ -19,22 +19,19 @@ public final class ODBConstants {
     }
     public static enum KK_ODB_DATATYPE
     {
-        ODB_PID_COOLIANT_TEMP,
-        ODB_PID_ENGINE_RPM,
-        ODB_PID_VEHICLE_SPEED,
-        ODB_PID_VOLTAGE,
-        ODB_PID_MIL_STATE,
-        ODB_PID_DTC_CODE
+        ODB_BASE_CONNECTOR,
+        ODB_DIAG_DATA
     }
     
     public static enum KK_ODB_COMMANDTYPE
     {
-        ODB_KKSYS_CONNECT,
-        ODB_KKSYS_GETINFO,
-        ODB_KKSYS_DISCONNECT,
-        ODB_KKSYS_EXEC_COMMAND,
+        ODB_KKSYS_ADAPTER_CONNECT,
+        ODB_KKSYS_CAR_GETINFO,
+        ODB_KKSYS_CAR_GETINFO_STOP,
+        ODB_KKSYS_ADAPTER_DISCONNECT,
+        ODB_KKSYS_CAR_EXEC_COMMAND,
         ODB_RAW_EXEC_ODB_COMMAND
         
-    }
+       }
 }
 

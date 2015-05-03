@@ -7,13 +7,10 @@ package kkdev.kksystem.base.classes.odb2;
 
 /**
  *
- * @author blinov_is
+ * @author sayma_000
  */
-public class PinOdb2Data_ExtendedMonitoringInfo {
-    //
-    public int[] PIDs;
-    public int[] Values;
-    
-    //
-    
+public class PinOdb2ConnectorInfo {
+    public boolean OdbAdapterConnected;
+    public boolean OdbAdapterError;
+    public String OdbAdapterErrorDescripton;
 }

@@ -28,9 +28,9 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_PIN_COMMAND="PIN_KK_COMMAND";
     //
     // Default ODB2 Pins
-    public final static String KK_PLUGIN_BASE_PIN_ODB2_COMMAND="PIN_KK_ODB2_COMMAND";
-    public final static String KK_PLUGIN_BASE_PIN_ODB2_DATA="PIN_KK_ODB2_DATA";
-    public final static String KK_PLUGIN_BASE_PIN_ODB2_RAW="PIN_KK_ODB2_RAW";
+    public final static String KK_PLUGIN_BASE_ODB2_COMMAND="PIN_KK_ODB2_COMMAND";
+    public final static String KK_PLUGIN_BASE_ODB2_DATA="PIN_KK_ODB2_DATA";
+    public final static String KK_PLUGIN_BASE_ODB2_RAW="PIN_KK_ODB2_RAW";
     
 
     public final static String KK_PLUGIN_BASE_LED_COMMAND="PIN_KK_LED_COMMAND";

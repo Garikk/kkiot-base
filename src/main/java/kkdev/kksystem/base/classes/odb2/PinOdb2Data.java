@@ -15,4 +15,5 @@ public class PinOdb2Data {
     public KK_ODB_DATATYPE DataType;
     public PinOdb2Data_SimpleMonitoringInfo SimpleData;
     public PinOdb2Data_ExtendedMonitoringInfo ExtendedData;
+    public PinOdb2ConnectorInfo AdapterInfo;
 }
