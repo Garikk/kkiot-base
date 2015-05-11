@@ -5,13 +5,14 @@
  */
 package kkdev.kksystem.base.classes.odb2;
 
+import kkdev.kksystem.base.classes.base.PinBaseData;
 import kkdev.kksystem.base.classes.odb2.ODBConstants.KK_ODB_DATATYPE;
 
 /**
  *
  * @author blinov_is
  */
-public class PinOdb2Data {
+public class PinOdb2Data extends PinBaseData {
     public KK_ODB_DATATYPE DataType;
     public PinOdb2Data_SimpleMonitoringInfo SimpleData;
     public PinOdb2Data_ExtendedMonitoringInfo ExtendedData;

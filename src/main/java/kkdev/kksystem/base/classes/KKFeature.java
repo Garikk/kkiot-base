@@ -7,11 +7,9 @@ package kkdev.kksystem.base.classes;
 
 /**
  *
- * @author blinov_is
+ * @author sayma_000
  */
-public class PluginConnectionsConfig {
-    public String ConfigName;
-    public String ConfigUUID;
-    public PluginConnection[] Connections;
-    public int MinVersion;
+public class KKFeature {
+    public String Name;
+    public String UUID;
 }

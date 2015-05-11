@@ -5,13 +5,14 @@
  */
 package kkdev.kksystem.base.classes.display;
 
+import kkdev.kksystem.base.classes.base.PinBaseCommand;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_COMMAND;
 
 /**
  *
  * @author blinov_is
  */
-public class PinLedCommand {
+public class PinLedCommand extends PinBaseCommand {
     public KK_DISPLAY_COMMAND Command;
     
     public String PageID;

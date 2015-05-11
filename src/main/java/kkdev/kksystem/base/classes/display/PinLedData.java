@@ -5,13 +5,14 @@
  */
 package kkdev.kksystem.base.classes.display;
 
+import kkdev.kksystem.base.classes.base.PinBaseData;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
 
 /**
  *
  * @author blinov_is
  */
-public class PinLedData {
+public class PinLedData extends PinBaseData {
     public KK_DISPLAY_DATA DataType;
     //
     public String TargetPage;           //Target page

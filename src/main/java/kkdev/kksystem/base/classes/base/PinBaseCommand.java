@@ -5,10 +5,12 @@
  */
 package kkdev.kksystem.base.classes.base;
 
+import kkdev.kksystem.base.classes.KKFeature;
+
 /**
  *
  * @author blinov_is
  */
 public class PinBaseCommand {
-    
+    public KKFeature Feature;
 }
