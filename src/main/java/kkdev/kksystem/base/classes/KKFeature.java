@@ -7,9 +7,11 @@ package kkdev.kksystem.base.classes;
 
 /**
  *
- * @author sayma_000
+ * @author blinov_is
  */
 public class KKFeature {
-    public String Name;
-    public String UUID;
+    public String FeatureUUID;
+    public String FeatureName;
+    //
+    public String DefaultDisplayPage;
 }

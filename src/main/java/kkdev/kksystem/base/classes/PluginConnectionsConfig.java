@@ -5,6 +5,8 @@
  */
 package kkdev.kksystem.base.classes;
 
+import kkdev.kksystem.base.classes.PluginConnection;
+
 /**
  *
  * @author blinov_is
@@ -14,4 +16,8 @@ public class PluginConnectionsConfig {
     public String ConfigUUID;
     public PluginConnection[] Connections;
     public int MinVersion;
+    // for system menu
+    public String SystemDisplay_UID;
+    public String SystemHID_UID;
+    //
 }

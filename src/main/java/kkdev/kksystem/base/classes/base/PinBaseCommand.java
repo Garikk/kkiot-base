@@ -5,12 +5,24 @@
  */
 package kkdev.kksystem.base.classes.base;
 
-import kkdev.kksystem.base.classes.KKFeature;
-
 /**
  *
  * @author blinov_is
  */
 public class PinBaseCommand {
-    public KKFeature Feature;
+    public enum BASE_COMMAND_TYPE
+    {
+        CHANGE_FEATURE,
+        PLUGIN
+    }
+    
+    public PinBaseCommand()
+    {
+        BaseCommand=BASE_COMMAND_TYPE.PLUGIN;
+    }
+    
+    public BASE_COMMAND_TYPE BaseCommand;
+    public String FeatureUID;
+    
+    
 }

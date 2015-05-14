@@ -44,7 +44,8 @@ public final class PluginConsts {
     public static String KK_PLUGIN_BASE_PLUGIN_LEDDISPLAY_UUID="7fbac0f7-6939-4380-bcb0-0ef8b1580fbf";   
     public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY="KKDataDisplay";
     public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY_UUID="b5b50412-c02a-4674-a112-ddc5805ea4e5";
- 
+    //
+    
 
     
 }
