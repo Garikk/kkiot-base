@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.interfaces;
+package kkdev.kksystem.base.classes.plugins.simple;
 
-import kkdev.kksystem.base.classes.plugins.PluginMessage;
+import kkdev.kksystem.base.classes.plugins.PluginInfo;
 
 /**
  *
  * @author blinov_is
  */
-public interface IPluginBaseInterface {
-    public  PluginMessage ExecutePinCommand(PluginMessage PP);
+public interface IPluginInfoRequest {
+    public PluginInfo GetPluginInfo();
 }

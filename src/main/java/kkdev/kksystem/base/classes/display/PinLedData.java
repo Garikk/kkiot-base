@@ -21,9 +21,9 @@ public class PinLedData extends PinBaseData {
     public String[] OnFrame_DataValues;
     //
     public String[] Direct_DisplayText;        //Text for display
-    public String Direct_DisplayTextUpdate;    //Updated text (using positions)
-    public int Direct_StartPositionColumn;     //Position for update text
-    public int Direct_StartPositionLine;       //Position for update text
+    public String[] Direct_DisplayTextUpdate;    //Updated text (using positions)
+    public int[] Direct_StartPositionColumn;     //Position for update text
+    public int[] Direct_StartPositionLine;       //Position for update text
     //
     public DisplayInfo[] DisplayState;    //
 }

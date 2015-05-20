@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes;
+package kkdev.kksystem.base.classes.plugins;
+
+import kkdev.kksystem.base.classes.base.PinBaseCommand;
 
 /**
  *
  * @author blinov_is
  */
-public class KKFeature {
-    public String FeatureUUID;
-    public String FeatureName;
-    //
-    public String DefaultDisplayPage;
+public class PluginMessage {
+    public String SenderUID;
+    public String PinName;
+    public Object PinData;
 }
