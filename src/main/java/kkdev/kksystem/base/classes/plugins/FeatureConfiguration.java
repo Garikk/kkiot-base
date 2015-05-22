@@ -11,13 +11,12 @@ import kkdev.kksystem.base.classes.plugins.PluginConnection;
  *
  * @author blinov_is
  */
-public class PluginConnectionsConfig {
-    public String ConfigName;
-    public String ConfigUUID;
+public class FeatureConfiguration {
+    public String FeatureName;
+    public String FeatureUUID;
+    public boolean IsSystemFeature;
     public PluginConnection[] Connections;
     public int MinVersion;
-    // for system menu
-    public String SystemDisplay_UID;
-    public String SystemHID_UID;
+
     //
 }

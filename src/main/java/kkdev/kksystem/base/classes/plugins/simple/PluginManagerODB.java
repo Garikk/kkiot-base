@@ -7,8 +7,12 @@ package kkdev.kksystem.base.classes.plugins.simple;
 
 import kkdev.kksystem.base.classes.odb2.ODBConstants;
 import kkdev.kksystem.base.classes.odb2.PinOdb2Command;
+import kkdev.kksystem.base.classes.odb2.PinOdb2ConnectorInfo;
+import kkdev.kksystem.base.classes.odb2.PinOdb2Data;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
+import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_LED_DATA;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_ODB2_COMMAND;
+import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_ODB2_DATA;
 
 /**
  *
@@ -17,10 +21,6 @@ import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_ODB2_COM
 public class PluginManagerODB extends PluginManagerBase {
     
     public void ODB_SendPluginMessageCommand(String FeatureID,ODBConstants.KK_ODB_COMMANDTYPE Command, ODBConstants.KK_ODB_DATAPACKET Request, int[] DataInt, int[] ReadInterval) {
-        PluginMessage Msg = new PluginMessage();
-        Msg.PinName = KK_PLUGIN_BASE_ODB2_COMMAND;
-        //
-
         PinOdb2Command PData = new PinOdb2Command();
         PData.Command = Command;
         PData.CommandData = Request;
@@ -28,10 +28,19 @@ public class PluginManagerODB extends PluginManagerBase {
         PData.RequestPIDs = DataInt;
         PData.DynamicRequestInterval = ReadInterval;
         PData.FeatureUID=FeatureID;
-        //
-        Msg.PinData = PData;
-        //
-        Connector.TransmitPinMessage(Msg);
-    }
 
+        //
+        this.BASE_SendPluginMessage(KK_PLUGIN_BASE_ODB2_COMMAND, PData);
+    }
+    public void ODB_ConnectToCarState(PinOdb2Command CMD,boolean State) {
+        
+        //
+        PinOdb2Data PData = new PinOdb2Data();
+        PData.DataType=ODBConstants.KK_ODB_DATATYPE.ODB_BASE_CONNECTOR;
+        PData.AdapterInfo=new PinOdb2ConnectorInfo();
+        PData.AdapterInfo.OdbAdapterConnected=State; //Dummy
+
+        //
+       this.BASE_SendPluginMessage(KK_PLUGIN_BASE_ODB2_DATA, PData);
+    }
 }

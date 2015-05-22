@@ -10,11 +10,9 @@ import kkdev.kksystem.base.classes.display.PinLedCommand;
 import kkdev.kksystem.base.classes.display.PinLedData;
 import kkdev.kksystem.base.classes.odb2.ODBConstants;
 import kkdev.kksystem.base.classes.odb2.PinOdb2Command;
-import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_LED_COMMAND;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_LED_DATA;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_ODB2_COMMAND;
-import kkdev.kksystem.base.interfaces.IPluginKKConnector;
 
 /**
  *
@@ -34,13 +32,13 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         this.BASE_SendPluginMessage(KK_PLUGIN_BASE_ODB2_COMMAND, PData);
     }
 
-    public void DISPLAY_SendPluginMessageCommand(String FeatureID,DisplayConstants.KK_DISPLAY_COMMAND Command, String[] DataStr, int[] DataInt, boolean[] DataBool) {
+    public void DISPLAY_SendPluginMessageCommand(String FeatureID,DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
         PinLedCommand PData = new PinLedCommand();
         PData.Command = Command;
         PData.BOOL = DataBool;
         PData.INT = DataInt;
         PData.STRING = DataStr;
-        PData.PageID=DataStr[0];
+        PData.PageID=PageID;
         PData.FeatureUID=FeatureID;
         //
         this.BASE_SendPluginMessage(KK_PLUGIN_BASE_LED_COMMAND, PData);

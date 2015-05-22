@@ -9,9 +9,13 @@ package kkdev.kksystem.base.classes.plugins;
  *
  * @author blinov_is
  */
-public class KKFeature {
-    public String FeatureUUID;
-    public String FeatureName;
+public class ControllerConfiguration {
+    public FeatureConfiguration[] Features;
     //
-    public String DefaultDisplayPage;
+    public String SystemDisplay_UID;
+    public String SystemHID_UID;
+    //
+    public String DefaultFeature;
+    
+    //
 }

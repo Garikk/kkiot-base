@@ -37,7 +37,7 @@ public class KKPluginBase implements IPluginKKConnector{
     }
 
     @Override
-    public void TransmitPinMessage(PluginMessage Pin) {
+    public void SendPinMessage(PluginMessage Pin) {
         Pin.SenderUID=MyUID;
         Connector.ExecutePinCommand(Pin);
     }
