@@ -17,18 +17,20 @@ public class PluginManagerBase {
     public IPluginKKConnector Connector;
     public IPluginBaseInterface BaseConnector;
     
-    public void BASE_SendPluginMessage(String PinName, Object PinData) {
+    public void BASE_SendPluginMessage(String FeatureID,String PinName, Object PinData) {
         PluginMessage Msg = new PluginMessage();
         Msg.PinName = PinName;
         Msg.PinData = PinData;
+        Msg.FeatureID=FeatureID;
         
         Connector.SendPinMessage(Msg);
 
     }
-        public void _BASE_SendPluginMessageDirect(String PluginUUID,String PinName, Object PinData) {
+        public void _BASE_SendPluginMessageDirect(String FeatureID,String PluginUUID,String PinName, Object PinData) {
         PluginMessage Msg = new PluginMessage();
         Msg.PinName = PinName;
         Msg.PinData = PinData;
+        Msg.FeatureID=FeatureID;
         
         BaseConnector._ExecutePinCommandDirect(PluginUUID, Msg);
 

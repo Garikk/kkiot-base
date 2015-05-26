@@ -27,12 +27,11 @@ public class PluginManagerODB extends PluginManagerBase {
         //
         PData.RequestPIDs = DataInt;
         PData.DynamicRequestInterval = ReadInterval;
-        PData.FeatureUID=FeatureID;
 
         //
-        this.BASE_SendPluginMessage(KK_PLUGIN_BASE_ODB2_COMMAND, PData);
+        this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_ODB2_COMMAND, PData);
     }
-    public void ODB_ConnectToCarState(PinOdb2Command CMD,boolean State) {
+    public void ODB_ConnectToCarState(String FeatureID,PinOdb2Command CMD,boolean State) {
         
         //
         PinOdb2Data PData = new PinOdb2Data();
@@ -41,6 +40,6 @@ public class PluginManagerODB extends PluginManagerBase {
         PData.AdapterInfo.OdbAdapterConnected=State; //Dummy
 
         //
-       this.BASE_SendPluginMessage(KK_PLUGIN_BASE_ODB2_DATA, PData);
+       this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_ODB2_DATA, PData);
     }
 }

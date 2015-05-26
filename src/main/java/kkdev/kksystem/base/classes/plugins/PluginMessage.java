@@ -13,6 +13,7 @@ import kkdev.kksystem.base.classes.base.PinBaseCommand;
  */
 public class PluginMessage {
     public String SenderUID;
+    public String FeatureID;
     public String PinName;
     public Object PinData;
 }

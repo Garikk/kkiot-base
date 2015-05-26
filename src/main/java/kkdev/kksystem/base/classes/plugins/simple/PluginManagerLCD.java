@@ -30,11 +30,10 @@ public class PluginManagerLCD extends PluginManagerBase {
         //
         PData.RequestPIDs = DataInt;
         PData.DynamicRequestInterval = ReadInterval;
-        PData.FeatureUID=FeatureID;
         //
 
         //
-        this.BASE_SendPluginMessage(KK_PLUGIN_BASE_ODB2_COMMAND, PData);
+        this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_ODB2_COMMAND, PData);
     }
 
     public void DISPLAY_SendPluginMessageCommand(String FeatureID,DisplayConstants.KK_DISPLAY_COMMAND Command,String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
@@ -46,22 +45,20 @@ public class PluginManagerLCD extends PluginManagerBase {
         PData.STRING = DataStr;
         PData.PageID=PageID;
         //
-        PData.FeatureUID=FeatureID;
         //
-        this.BASE_SendPluginMessage(KK_PLUGIN_BASE_LED_COMMAND, PData);
+        this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_COMMAND, PData);
     }
 
     public void DISPLAY_SendPluginMessageData(String FeatureID, PinLedData PData) {
 
-        PData.FeatureUID=FeatureID;
         //
-        this.BASE_SendPluginMessage(KK_PLUGIN_BASE_LED_DATA, PData);
+        this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_DATA, PData);
     }
     
      public void _DISPLAY_SendPluginMessageDataDirect(String TargetUUID,String FeatureID, PinLedData PData) {
-        PData.FeatureUID=FeatureID;
+        //PData.FeatureUID=FeatureID;
         //
-        this._BASE_SendPluginMessageDirect(TargetUUID,KK_PLUGIN_BASE_LED_DATA, PData);
+        this._BASE_SendPluginMessageDirect(FeatureID,TargetUUID,KK_PLUGIN_BASE_LED_DATA, PData);
     }
        public void _DISPLAY_SendPluginMessageCommandDirect(String TargetUUID,String FeatureID,DisplayConstants.KK_DISPLAY_COMMAND Command,String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
         
@@ -72,8 +69,8 @@ public class PluginManagerLCD extends PluginManagerBase {
         PData.STRING = DataStr;
         PData.PageID=PageID;
         //
-        PData.FeatureUID=FeatureID;
+
         //
-        this._BASE_SendPluginMessageDirect(TargetUUID,KK_PLUGIN_BASE_LED_COMMAND, PData);
+        this._BASE_SendPluginMessageDirect(FeatureID,TargetUUID,KK_PLUGIN_BASE_LED_COMMAND, PData);
     }
 }
