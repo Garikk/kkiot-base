@@ -50,7 +50,6 @@ public class MenuMaker {
    {
    
    }
-  
    
    public void MenuSelectUp()
    {
