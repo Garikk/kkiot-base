@@ -18,7 +18,8 @@ public class MenuView {
     public String[] DisplayedMenuIDs;
     public HashMap TemplateKeys;
     
-    final String DEF_
+    final String DEF_MENU_ITEM_PFX="SYSMENU_";
+    final String DEF_MENU_SELECTOR_PFX="SEL_";
     
     
     public MenuView(int Rows)
