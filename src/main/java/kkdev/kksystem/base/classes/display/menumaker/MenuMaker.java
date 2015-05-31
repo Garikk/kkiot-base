@@ -5,6 +5,9 @@
  */
 package kkdev.kksystem.base.classes.display.menumaker;
 
+import kkdev.kksystem.base.classes.display.DisplayConstants;
+import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
+import kkdev.kksystem.base.classes.display.PinLedData;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerBase;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
@@ -21,8 +24,8 @@ public class MenuMaker {
     String FeatureID;
     String[][] MenuItems;
     IMenuMakerItemSelected CallBack;
+    MenuView MViewer;
     //
-    String CurrentPageName;
             
    public interface IMenuMakerItemSelected{
        public void SelectedItem(String ItemID);
@@ -32,6 +35,8 @@ public class MenuMaker {
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.BaseConnector = BaseConnector;
+        
+   
     }
 
     public MenuMaker(String FeautreID, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
@@ -44,27 +49,42 @@ public class MenuMaker {
    public void AddMenuItems(String[][] Items)
    {
        MenuItems=Items;
-       
-   }
-   public void ShowMenu()
-   {
-   
-   }
-   
-   public void MenuSelectUp()
-   {
-   
-   }
-   
-   public void MenuSelectDown()
-   {
-    
-   }
-   
-   
-   private void ShowPage(String PageID)
-   {
-        PManager.DISPLAY_ActivatePage(FeatureID,CurrentPageName);
+       MViewer=new MenuView(2,Items.length);   
+       for (int i=0;i<Items.length;i++)
+       {
+           MViewer.SetItemData(i,Items[i][0], Items[i][1]);
+        }
+    }
+
+    public void ShowMenu() {
+        PinLedData PLD = new PinLedData();
+        PLD.FillFrameValues(MViewer.GetMenu());
+        PLD.FeatureUID = FeatureID;
+        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+        
+        PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+    }
+
+    public void MenuSelectUp() {
+        PinLedData PLD = new PinLedData();
+        PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
+        PLD.FillFrameValues(MViewer.MoveMenuUP());
+        PLD.FeatureUID = FeatureID;
+        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+        PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+    }
+
+    public void MenuSelectDown() {
+        PinLedData PLD = new PinLedData();
+        PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
+        PLD.FillFrameValues(MViewer.MoveMenuDown());
+        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+        
+        PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+    }
+
+    private void ShowPage(String PageID) {
+      //  PManager.DISPLAY_ActivatePage(FeatureID,CurrentPageName);
    
    }
 }

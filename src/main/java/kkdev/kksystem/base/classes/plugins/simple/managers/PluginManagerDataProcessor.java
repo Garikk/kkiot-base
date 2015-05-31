@@ -52,10 +52,15 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_COMMAND, PData);
     }
 
-    public void DISPLAY_SendPluginMessageData(String FeatureID,DisplayConstants.KK_DISPLAY_DATA Command, PinLedData PData) {
+    public void DISPLAY_SendPluginMessageData(String FeatureID, PinLedData PData) {
 
         //
         this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_DATA, PData);
+    }
+      public void _DISPLAY_SendPluginMessageDataDirect(String PluginID,String FeatureID, PinLedData PData) {
+
+        //
+        this._BASE_SendPluginMessageDirect(FeatureID,PluginID,KK_PLUGIN_BASE_LED_DATA, PData);
     }
 
 }

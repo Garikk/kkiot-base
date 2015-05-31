@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.display;
 
+import java.util.HashMap;
 import kkdev.kksystem.base.classes.base.PinBaseData;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
 
@@ -26,4 +27,17 @@ public class PinLedData extends PinBaseData {
     public int[] Direct_StartPositionLine;       //Position for update text
     //
     public DisplayInfo[] DisplayState;    //
+
+    public void FillFrameValues(HashMap<String, String> Values) {
+        int i = 0;
+        OnFrame_DataKeys = new String[Values.values().size()];
+        OnFrame_DataValues = new String[Values.values().size()];
+        for (String V : Values.values()) {
+            OnFrame_DataKeys[i] = V;
+            OnFrame_DataValues[i] = Values.get(V);
+
+            i++;
+        }
+
+    }
 }
