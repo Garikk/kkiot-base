@@ -28,6 +28,7 @@ public class MenuView {
     private int ViewRowCount;
     
     
+    
     public MenuView(int ViewRows,int MenuRows)
     {
         DisplayedMenuNames=new String[MenuRows];

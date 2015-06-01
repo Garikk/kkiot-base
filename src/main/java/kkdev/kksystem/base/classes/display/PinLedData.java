@@ -32,7 +32,7 @@ public class PinLedData extends PinBaseData {
         int i = 0;
         OnFrame_DataKeys = new String[Values.values().size()];
         OnFrame_DataValues = new String[Values.values().size()];
-        for (String V : Values.values()) {
+        for (String V : Values.keySet()) {
             OnFrame_DataKeys[i] = V;
             OnFrame_DataValues[i] = Values.get(V);
 

@@ -5,10 +5,8 @@
  */
 package kkdev.kksystem.base.classes.display.menumaker;
 
-import kkdev.kksystem.base.classes.display.DisplayConstants;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
 import kkdev.kksystem.base.classes.display.PinLedData;
-import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerBase;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
@@ -25,16 +23,19 @@ public class MenuMaker {
     String[][] MenuItems;
     IMenuMakerItemSelected CallBack;
     MenuView MViewer;
+    String SystemLCD;
     //
             
    public interface IMenuMakerItemSelected{
        public void SelectedItem(String ItemID);
    }
 
-    public MenuMaker(String FeautreID, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback) {
+    public MenuMaker(String FeautreID, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.BaseConnector = BaseConnector;
+        InSystemMode=true;
+        SystemLCD=SystemLCD_ID;
         
    
     }
@@ -43,6 +44,7 @@ public class MenuMaker {
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.Connector = PluginConnector;
+        InSystemMode=false;
     }
 
 
@@ -61,8 +63,12 @@ public class MenuMaker {
         PLD.FillFrameValues(MViewer.GetMenu());
         PLD.FeatureUID = FeatureID;
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+        PLD.DataType=KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
         
-        PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+        if (InSystemMode)
+            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,FeatureID, PLD);
+        else
+            PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
     }
 
     public void MenuSelectUp() {
@@ -71,7 +77,11 @@ public class MenuMaker {
         PLD.FillFrameValues(MViewer.MoveMenuUP());
         PLD.FeatureUID = FeatureID;
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
-        PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+        if (InSystemMode) {
+            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD, FeatureID, PLD);
+        } else {
+            PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+        }
     }
 
     public void MenuSelectDown() {
@@ -80,8 +90,11 @@ public class MenuMaker {
         PLD.FillFrameValues(MViewer.MoveMenuDown());
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
         
-        PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
-    }
+        if (InSystemMode)
+            PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+        else
+            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,FeatureID, PLD);
+    }   
 
     private void ShowPage(String PageID) {
       //  PManager.DISPLAY_ActivatePage(FeatureID,CurrentPageName);
