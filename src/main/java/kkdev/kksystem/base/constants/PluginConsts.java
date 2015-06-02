@@ -36,6 +36,10 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_LED_COMMAND="PIN_KK_LED_COMMAND";
     public final static String KK_PLUGIN_BASE_LED_DATA="PIN_KK_LED_DATA";
     public final static String KK_PLUGIN_BASE_LED_RAW="PIN_KK_LED_RAW";
+    
+    public final static String KK_PLUGIN_BASE_HID_COMMAND="PIN_KK_HID_COMMAND";
+    public final static String KK_PLUGIN_BASE_HID_DATA="PIN_KK_HID_DATA";
+    public final static String KK_PLUGIN_BASE_HID_RAW="PIN_KK_HID_RAW";
 
     
     public static String KK_PLUGIN_BASE_PLUGIN_ODB2="KKODB2Reader";
@@ -44,6 +48,8 @@ public final class PluginConsts {
     public static String KK_PLUGIN_BASE_PLUGIN_LEDDISPLAY_UUID="7fbac0f7-6939-4380-bcb0-0ef8b1580fbf";   
     public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY="KKDataDisplay";
     public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY_UUID="b5b50412-c02a-4674-a112-ddc5805ea4e5";
+    public static String KK_PLUGIN_BASE_PLUGIN_HID="KKControls";
+    public static String KK_PLUGIN_BASE_PLUGIN_HID_UUID="62d1026f-5297-4951-890d-61d75ae67d02";
     //
     
 
