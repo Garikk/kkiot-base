@@ -37,9 +37,9 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_LED_DATA="PIN_KK_LED_DATA";
     public final static String KK_PLUGIN_BASE_LED_RAW="PIN_KK_LED_RAW";
     
-    public final static String KK_PLUGIN_BASE_HID_COMMAND="PIN_KK_HID_COMMAND";
-    public final static String KK_PLUGIN_BASE_HID_DATA="PIN_KK_HID_DATA";
-    public final static String KK_PLUGIN_BASE_HID_RAW="PIN_KK_HID_RAW";
+    public final static String KK_PLUGIN_BASE_CONTROL_COMMAND="PIN_KK_CTRL_COMMAND";
+    public final static String KK_PLUGIN_BASE_CONTROL_DATA="PIN_KK_CTRL_DATA";
+    public final static String KK_PLUGIN_BASE_CONTROL_RAW="PIN_KK_CTRL_RAW";
 
     
     public static String KK_PLUGIN_BASE_PLUGIN_ODB2="KKODB2Reader";
