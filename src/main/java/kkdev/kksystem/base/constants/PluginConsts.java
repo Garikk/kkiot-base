@@ -40,7 +40,9 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_CONTROL_COMMAND="PIN_KK_CTRL_COMMAND";
     public final static String KK_PLUGIN_BASE_CONTROL_DATA="PIN_KK_CTRL_DATA";
     public final static String KK_PLUGIN_BASE_CONTROL_RAW="PIN_KK_CTRL_RAW";
+    //
 
+    //
     
     public static String KK_PLUGIN_BASE_PLUGIN_ODB2="KKODB2Reader";
     public static String KK_PLUGIN_BASE_PLUGIN_ODB2_UUID="44b5dab1-f596-458a-b09b-d9565b91464e";

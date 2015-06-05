@@ -12,10 +12,17 @@ import kkdev.kksystem.base.classes.base.PinBaseData;
  * @author blinov_is
  */
 public class PinControlData extends PinBaseData {
+    public final static String DEF_BTN_UP="BTN_UP";
+    public final static String DEF_BTN_DOWN="BTN_DOWN";
+    public final static String DEF_BTN_ENTER="BTN_ENTER";
+    public final static String DEF_BTN_BACK="BTN_BACK";
+    
     public enum KK_CONTROL_DATA{
         CONTROL_ACTIVATE,
         CONTROL_DEACTIVATE,
-        CONTROL_CHANGEVALUE
+        CONTROL_CHANGEVALUE,
+        CONTROL_TRIGGERED,
+        CONTROL_LONGPRESS
     }
     
     
