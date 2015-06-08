@@ -19,7 +19,7 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
 public class MenuMaker {
     PluginManagerDataProcessor PManager;
     boolean InSystemMode;
-    String FeatureID;
+    String MenuFeatureID;
     String[][] MenuItems;
     IMenuMakerItemSelected CallBack;
     MenuView MViewer;
@@ -36,6 +36,7 @@ public class MenuMaker {
         PManager.BaseConnector = BaseConnector;
         InSystemMode=true;
         SystemLCD=SystemLCD_ID;
+        MenuFeatureID=FeautreID;
         
    
     }
@@ -61,26 +62,26 @@ public class MenuMaker {
     public void ShowMenu() {
         PinLedData PLD = new PinLedData();
         PLD.FillFrameValues(MViewer.GetMenu());
-        PLD.FeatureUID = FeatureID;
+        PLD.FeatureUID = MenuFeatureID;
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
         PLD.DataType=KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
         
         if (InSystemMode)
-            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,FeatureID, PLD);
+            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,MenuFeatureID, PLD);
         else
-            PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
     }
 
     public void MenuSelectUp() {
         PinLedData PLD = new PinLedData();
         PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
         PLD.FillFrameValues(MViewer.MoveMenuUP());
-        PLD.FeatureUID = FeatureID;
+        PLD.FeatureUID = MenuFeatureID;
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
         if (InSystemMode) {
-            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD, FeatureID, PLD);
+            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD, MenuFeatureID, PLD);
         } else {
-            PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
         }
     }
 
@@ -91,9 +92,9 @@ public class MenuMaker {
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
         
         if (InSystemMode)
-            PManager.DISPLAY_SendPluginMessageData(FeatureID, PLD);
+            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
         else
-            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,FeatureID, PLD);
+            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,MenuFeatureID, PLD);
     }   
 
     private void ShowPage(String PageID) {
