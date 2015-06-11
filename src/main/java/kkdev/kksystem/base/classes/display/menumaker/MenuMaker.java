@@ -66,10 +66,18 @@ public class MenuMaker {
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
         PLD.DataType=KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
         
+
+        
         if (InSystemMode)
-            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,MenuFeatureID, PLD);
+        {
+            PManager._DISPLAY_ActivatePageDirect(MenuFeatureID,SystemLCD,MViewer.DEF_MENU_PAGE);
+            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD, PLD);
+        }
         else
+        {
+            PManager.DISPLAY_ActivatePage(MenuFeatureID,MViewer.DEF_MENU_PAGE);
             PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+        }
     }
 
     public void MenuSelectUp() {
@@ -98,7 +106,7 @@ public class MenuMaker {
     }   
 
     private void ShowPage(String PageID) {
-      //  PManager.DISPLAY_ActivatePage(FeatureID,CurrentPageName);
+  //      
    
    }
 }

@@ -40,6 +40,10 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
     {
           DISPLAY_SendPluginMessageCommand(FeatureID,DisplayConstants.KK_DISPLAY_COMMAND.DISPLAY_KKSYS_PAGE_ACTIVATE,PageName, null, null, null);
     }
+     public void _DISPLAY_ActivatePageDirect(String FeatureID,String TargetUUID, String PageName)
+    {
+           _DISPLAY_SendPluginMessageCommandDirect(FeatureID,TargetUUID,DisplayConstants.KK_DISPLAY_COMMAND.DISPLAY_KKSYS_PAGE_ACTIVATE,PageName, null, null, null);
+    }
 
     public void DISPLAY_SendPluginMessageCommand(String FeatureID,DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
         PinLedCommand PData = new PinLedCommand();
@@ -51,13 +55,22 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         //
         this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_COMMAND, PData);
     }
-
+    public void _DISPLAY_SendPluginMessageCommandDirect(String FeatureID,String TargetUUID,DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
+        PinLedCommand PData = new PinLedCommand();
+        PData.Command = Command;
+        PData.BOOL = DataBool;
+        PData.INT = DataInt;
+        PData.STRING = DataStr;
+        PData.PageID=PageID;
+        //
+        this._BASE_SendPluginMessageDirect(FeatureID,TargetUUID,KK_PLUGIN_BASE_LED_COMMAND, PData);
+    }
     public void DISPLAY_SendPluginMessageData(String FeatureID, PinLedData PData) {
 
         //
         this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_DATA, PData);
     }
-      public void _DISPLAY_SendPluginMessageDataDirect(String PluginID,String FeatureID, PinLedData PData) {
+      public void _DISPLAY_SendPluginMessageDataDirect(String FeatureID,String PluginID, PinLedData PData) {
 
         //
         this._BASE_SendPluginMessageDirect(FeatureID,PluginID,KK_PLUGIN_BASE_LED_DATA, PData);
