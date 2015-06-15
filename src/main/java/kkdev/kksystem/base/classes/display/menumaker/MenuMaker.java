@@ -30,13 +30,13 @@ public class MenuMaker {
        public void SelectedItem(String ItemID);
    }
 
-    public MenuMaker(String FeautreID, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
+    public MenuMaker(String FeatureID, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.BaseConnector = BaseConnector;
         InSystemMode=true;
         SystemLCD=SystemLCD_ID;
-        MenuFeatureID=FeautreID;
+        MenuFeatureID=FeatureID;
         
    
     }
@@ -87,7 +87,7 @@ public class MenuMaker {
         PLD.FeatureUID = MenuFeatureID;
         PLD.TargetPage = MViewer.DEF_MENU_PAGE;
         if (InSystemMode) {
-            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD, MenuFeatureID, PLD);
+            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD,  PLD);
         } else {
             PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
         }
@@ -97,12 +97,14 @@ public class MenuMaker {
         PinLedData PLD = new PinLedData();
         PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
         PLD.FillFrameValues(MViewer.MoveMenuDown());
-        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+        PLD.TargetPage = MViewer.DEF_MENU_PAGE;   
+        PLD.FeatureUID = MenuFeatureID;
         
         if (InSystemMode)
-            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD, PLD);
         else
-            PManager._DISPLAY_SendPluginMessageDataDirect(SystemLCD,MenuFeatureID, PLD);
+            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+            
     }   
 
     private void ShowPage(String PageID) {
