@@ -27,7 +27,7 @@ public class MenuMaker {
     //
             
    public interface IMenuMakerItemSelected{
-       public void SelectedItem(String ItemID);
+       public void SelectedItem(String ItemCMD);
    }
 
     public MenuMaker(String FeatureID, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
@@ -104,11 +104,18 @@ public class MenuMaker {
             PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD, PLD);
         else
             PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
-            
     }   
+    public void MenuExec()
+    {
+        CallBack.SelectedItem(GetCurrentSelectionCommand());
+    }
 
     private void ShowPage(String PageID) {
   //      
    
    }
+    public String GetCurrentSelectionCommand()
+    {
+        return MViewer.GetCurrentMenuCommand();
+    }
 }

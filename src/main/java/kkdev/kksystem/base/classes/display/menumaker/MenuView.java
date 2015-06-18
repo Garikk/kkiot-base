@@ -16,7 +16,7 @@ public class MenuView {
     private int MenuRowCount;
 
     public String[] DisplayedMenuNames;
-    public String[] DisplayedMenuIDs;
+    public String[] DisplayedMenuCMDs;
     public HashMap TemplateKeys;
 
     public final String DEF_MENU_ITEM_PFX = "SYSMENU_";
@@ -30,14 +30,14 @@ public class MenuView {
 
     public MenuView(int ViewRows, int MenuRows) {
         DisplayedMenuNames = new String[MenuRows];
-        DisplayedMenuIDs = new String[MenuRows];
+        DisplayedMenuCMDs = new String[MenuRows];
         MenuRowCount = MenuRows;
         ViewRowCount = ViewRows;
     }
 
     public void SetItemData(int Position, String DisplayName, String ItemID) {
         DisplayedMenuNames[Position] = DisplayName;
-        DisplayedMenuIDs[Position] = ItemID;
+        DisplayedMenuCMDs[Position] = ItemID;
     }
 
     public HashMap<String, String> GetMenu() {
@@ -75,6 +75,10 @@ public class MenuView {
 
     }
 
+    public String GetCurrentMenuCommand()
+    {
+        return DisplayedMenuCMDs[CurrentViewPosition+SelectorPosition];
+    }
     private HashMap<String, String> GetView() {
         HashMap<String, String> Ret;
         Ret = new HashMap<>();
