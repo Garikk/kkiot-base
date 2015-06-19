@@ -15,7 +15,7 @@ import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_CONTROL_
  */
 public class PluginManagerControls extends PluginManagerBase {
  
-    public void CONTROL_SendPluginMessageData(String FeatureID, String ControlID, KK_CONTROL_DATA EventType, int IntValue) {
+    public synchronized void CONTROL_SendPluginMessageData(String FeatureID, String ControlID, KK_CONTROL_DATA EventType, int IntValue) {
 
         PinControlData PData = new PinControlData();
         //

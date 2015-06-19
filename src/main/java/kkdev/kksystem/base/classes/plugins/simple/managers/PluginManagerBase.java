@@ -13,12 +13,12 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  *
  * @author blinov_is
  */
-public class PluginManagerBase {
-    protected volatile String CurrentFeature;
+public  class PluginManagerBase {
+    protected String CurrentFeature;
     public IPluginKKConnector Connector;
     public IPluginBaseInterface BaseConnector;
     
-    public void BASE_SendPluginMessage(String FeatureID,String PinName, Object PinData) {
+    public synchronized void BASE_SendPluginMessage(String FeatureID,String PinName, Object PinData) {
         PluginMessage Msg = new PluginMessage();
         Msg.PinName = PinName;
         Msg.PinData = PinData;
@@ -28,7 +28,7 @@ public class PluginManagerBase {
         
 
     }
-        public void _BASE_SendPluginMessageDirect(String FeatureID,String PluginUUID,String PinName, Object PinData) {
+        public synchronized void _BASE_SendPluginMessageDirect(String FeatureID,String PluginUUID,String PinName, Object PinData) {
         PluginMessage Msg = new PluginMessage();
         Msg.PinName = PinName;
         Msg.PinData = PinData;
