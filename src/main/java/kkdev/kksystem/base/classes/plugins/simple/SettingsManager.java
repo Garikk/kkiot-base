@@ -54,9 +54,14 @@ public class SettingsManager {
             //
             Ret = gson.fromJson(br, SettingsClassType);
             //
+            br.close();
+            //
             return Ret;
-        } catch (FileNotFoundException ex) {
+        } catch (FileNotFoundException  ex ) {
             return null;
+        }
+          catch (IOException  ex ) {
+              return null;
         }
 
     }
