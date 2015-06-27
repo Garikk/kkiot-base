@@ -16,7 +16,7 @@ public final class SystemConsts {
     public static final String KK_BASE_PLUGINPATH="./plugins";
     public static final String KK_BASE_EXCHANGEPATH="./exchange";
     
-    public static final String KK_BASE_SETTINGS_FILE="kksystem.xml.conf";
+    public static final String KK_BASE_SETTINGS_FILE="kksystem.json.conf";
     
     public static final String KK_BASE_PLUGINS_MANIFEST_CONNECTOR_ATTR="kksystem-connector";
     //

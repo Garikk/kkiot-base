@@ -17,12 +17,14 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  * @author blinov_is
  */
 public class MenuMaker {
+    public static final String KK_MENUMAKER_SPECIALCMD_SUBMENU="KK_SUBMENU";
+    
     PluginManagerDataProcessor PManager;
     boolean InSystemMode;
     String MenuFeatureID;
-    String[][] MenuItems;
+    MKMenuItem[] MenuItems;
     IMenuMakerItemSelected CallBack;
-    MenuView MViewer;
+    MKMenuView MViewer;
     String SystemLCD;
     //
             
@@ -49,16 +51,28 @@ public class MenuMaker {
     }
 
 
-   public void AddMenuItems(String[][] Items)
+   public void AddMenuItems(MKMenuItem[] Items)
    {
        MenuItems=Items;
-       MViewer=new MenuView(2,Items.length);   
+       MViewer=new MKMenuView(2,Items.length);  
+       
        for (int i=0;i<Items.length;i++)
        {
-           MViewer.SetItemData(i,Items[i][0], Items[i][1]);
+           MViewer.SetItemData(i,Items[i]);
         }
     }
+   public void UpdateMenuItems(MKMenuItem[] Items)
+   {
+       MenuItems=Items;
+       MViewer.ResetMenuView(Items.length);
+       for (int i=0;i<Items.length;i++)
+       {
+           MViewer.SetItemData(i,Items[i]);
+        }
+       MenuRefreshDisplay();
+   }
 
+   
     public void ShowMenu() {
         PinLedData PLD = new PinLedData();
         PLD.FillFrameValues(MViewer.GetMenu());
@@ -92,6 +106,18 @@ public class MenuMaker {
             PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
         }
     }
+     public void MenuRefreshDisplay() {
+        PinLedData PLD = new PinLedData();
+        PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
+        PLD.FillFrameValues(MViewer.GetView());
+        PLD.FeatureUID = MenuFeatureID;
+        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+        if (InSystemMode) {
+            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD,  PLD);
+        } else {
+            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+        }
+    }
 
     public void MenuSelectDown() {
         PinLedData PLD = new PinLedData();
@@ -104,18 +130,32 @@ public class MenuMaker {
             PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD, PLD);
         else
             PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
-    }   
-    public void MenuExec()
-    {
-        CallBack.SelectedItem(GetCurrentSelectionCommand());
+    }
+    public void MenuSelectBack() {
+     
+    }
+    public void MenuExec() {
+        if (!ExecSpecialCommand(GetCurrentSelection())) {
+            CallBack.SelectedItem(GetCurrentSelection().ItemCommand);
+        }
+
     }
 
-    private void ShowPage(String PageID) {
-  //      
-   
-   }
-    public String GetCurrentSelectionCommand()
+    private boolean ExecSpecialCommand(MKMenuItem Item)
     {
-        return MViewer.GetCurrentMenuCommand();
+        switch (Item.ItemCommand)
+        {
+            case KK_MENUMAKER_SPECIALCMD_SUBMENU:
+                
+                UpdateMenuItems(Item.SubItems);
+                return true;
+        }
+        
+        return false;
+    }
+    
+    public MKMenuItem GetCurrentSelection()
+    {
+        return MViewer.GetCurrentMenuItem();
     }
 }

@@ -11,12 +11,11 @@ import java.util.HashMap;
  *
  * @author blinov_is
  */
-public class MenuView {
+public class MKMenuView {
 
     private int MenuRowCount;
 
-    public String[] DisplayedMenuNames;
-    public String[] DisplayedMenuCMDs;
+    public MKMenuItem[] DisplayedMenu;
     public HashMap TemplateKeys;
 
     public final String DEF_MENU_ITEM_PFX = "SYSMENU_";
@@ -28,16 +27,23 @@ public class MenuView {
 
     private int ViewRowCount;
 
-    public MenuView(int ViewRows, int MenuRows) {
-        DisplayedMenuNames = new String[MenuRows];
-        DisplayedMenuCMDs = new String[MenuRows];
+    public MKMenuView(int ViewRows, int MenuRows) {
+        DisplayedMenu = new MKMenuItem[MenuRows];
         MenuRowCount = MenuRows;
         ViewRowCount = ViewRows;
     }
 
-    public void SetItemData(int Position, String DisplayName, String ItemID) {
-        DisplayedMenuNames[Position] = DisplayName;
-        DisplayedMenuCMDs[Position] = ItemID;
+    public void ResetMenuView(int MenuRows) {
+        CurrentViewPosition = 0;
+        SelectorPosition = 0;
+        MenuRowCount = MenuRows;
+        DisplayedMenu = new MKMenuItem[MenuRows];
+    }
+    
+
+    public void SetItemData(int Position, MKMenuItem MenuItem) {
+        DisplayedMenu[Position] = MenuItem;
+
     }
 
     public HashMap<String, String> GetMenu() {
@@ -45,6 +51,9 @@ public class MenuView {
     }
 
     public HashMap<String, String> MoveMenuUP() {
+           //         System.out.println(SelectorPosition + " " +ViewRowCount + " "+ MenuRowCount);
+        
+       
         if (SelectorPosition > 0) {
             SelectorPosition--;
         } else {
@@ -60,6 +69,8 @@ public class MenuView {
     }
 
     public HashMap<String, String> MoveMenuDown() {
+         // System.out.println(SelectorPosition + " " +ViewRowCount + " "+ MenuRowCount);
+        
         if (SelectorPosition < ViewRowCount - 1) {
             SelectorPosition++;
         } else {
@@ -75,16 +86,16 @@ public class MenuView {
 
     }
 
-    public String GetCurrentMenuCommand()
+    public MKMenuItem GetCurrentMenuItem()
     {
-        return DisplayedMenuCMDs[CurrentViewPosition+SelectorPosition];
+        return DisplayedMenu[CurrentViewPosition+SelectorPosition];
     }
-    private HashMap<String, String> GetView() {
+    public  HashMap<String, String> GetView() {
         HashMap<String, String> Ret;
         Ret = new HashMap<>();
         //
         for (int i = 0; i < ViewRowCount; i++) {
-            Ret.put(DEF_MENU_ITEM_PFX + i, DisplayedMenuNames[CurrentViewPosition + i]);
+            Ret.put(DEF_MENU_ITEM_PFX + i, DisplayedMenu[CurrentViewPosition + i].DisplayName);
             if (i != SelectorPosition) {
                 Ret.put(DEF_MENU_SELECTOR_PFX + i, " ");
             } else {
