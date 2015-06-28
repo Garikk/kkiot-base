@@ -37,7 +37,7 @@ public class PluginManagerODB extends PluginManagerBase {
         PinOdb2Data PData = new PinOdb2Data();
         PData.DataType=ODBConstants.KK_ODB_DATATYPE.ODB_BASE_CONNECTOR;
         PData.AdapterInfo=new PinOdb2ConnectorInfo();
-        PData.AdapterInfo.OdbAdapterConnected=State; //Dummy
+       // PData.AdapterInfo.OdbAdapterConnected=State; //Dummy
 
         //
        this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_ODB2_DATA, PData);

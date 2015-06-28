@@ -10,7 +10,12 @@ package kkdev.kksystem.base.classes.odb2;
  * @author sayma_000
  */
 public class PinOdb2ConnectorInfo {
-    public boolean OdbAdapterConnected;
-    public boolean OdbAdapterError;
-    public String OdbAdapterErrorDescripton;
+    public enum ODB_State{
+        ODB_CONNECTOR_WAIT,
+        ODB_CONNECTOR_ERROR,
+        ODB_CONNECTOR_READY
+    }
+    
+    public ODB_State OdbAdapterState;
+    public String OdbAdapterDescripton;
 }

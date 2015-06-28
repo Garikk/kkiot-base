@@ -5,6 +5,9 @@
  */
 package kkdev.kksystem.base.classes.display.menumaker;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.List;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
 import kkdev.kksystem.base.classes.display.PinLedData;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
@@ -23,6 +26,7 @@ public class MenuMaker {
     boolean InSystemMode;
     String MenuFeatureID;
     MKMenuItem[] MenuItems;
+    Deque<MKMenuItem[]> MenuTree;
     IMenuMakerItemSelected CallBack;
     MKMenuView MViewer;
     String SystemLCD;
@@ -53,6 +57,7 @@ public class MenuMaker {
 
    public void AddMenuItems(MKMenuItem[] Items)
    {
+       MenuTree=new ArrayDeque<>();
        MenuItems=Items;
        MViewer=new MKMenuView(2,Items.length);  
        
@@ -61,8 +66,11 @@ public class MenuMaker {
            MViewer.SetItemData(i,Items[i]);
         }
     }
-   public void UpdateMenuItems(MKMenuItem[] Items)
+   public void UpdateMenuItems(MKMenuItem[] Items,boolean IsBackCommand)
    {
+       if (!IsBackCommand)
+        MenuTree.push(MenuItems);
+      
        MenuItems=Items;
        MViewer.ResetMenuView(Items.length);
        for (int i=0;i<Items.length;i++)
@@ -132,7 +140,12 @@ public class MenuMaker {
             PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
     }
     public void MenuSelectBack() {
-     
+        System.out.println(MenuTree.size());
+        
+        if (MenuTree.size()>0)
+            UpdateMenuItems(MenuTree.pop(),true);
+        
+        System.out.println(MenuTree.size());
     }
     public void MenuExec() {
         if (!ExecSpecialCommand(GetCurrentSelection())) {
@@ -147,7 +160,7 @@ public class MenuMaker {
         {
             case KK_MENUMAKER_SPECIALCMD_SUBMENU:
                 
-                UpdateMenuItems(Item.SubItems);
+                UpdateMenuItems(Item.SubItems,false);
                 return true;
         }
         
