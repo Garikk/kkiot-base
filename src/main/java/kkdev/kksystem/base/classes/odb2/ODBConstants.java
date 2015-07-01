@@ -14,13 +14,15 @@ public final class ODBConstants {
     {
         ODB_SIMPLEDATA,
         ODB_EXTENDEDDATA,
+        ODB_CE_ERRORS,
         ODB_RAWINFO,
         ODB_OTHERCMD
     }
     public static enum KK_ODB_DATATYPE
     {
         ODB_BASE_CONNECTOR,
-        ODB_DIAG_DATA
+        ODB_DIAG_DATA,
+        ODB_DIAG_CE_ERRORS,
     }
     
     public static enum KK_ODB_COMMANDTYPE

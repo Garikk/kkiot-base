@@ -7,7 +7,6 @@ package kkdev.kksystem.base.classes.display.menumaker;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.List;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
 import kkdev.kksystem.base.classes.display.PinLedData;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
@@ -23,20 +22,26 @@ public class MenuMaker {
     public static final String KK_MENUMAKER_SPECIALCMD_SUBMENU="KK_SUBMENU";
     
     PluginManagerDataProcessor PManager;
-    boolean InSystemMode;
+    boolean InSystemMode=false;
     String MenuFeatureID;
     MKMenuItem[] MenuItems;
     Deque<MKMenuItem[]> MenuTree;
     IMenuMakerItemSelected CallBack;
     MKMenuView MViewer;
     String SystemLCD;
+    String TargetPage;
     //
             
    public interface IMenuMakerItemSelected{
        public void SelectedItem(String ItemCMD);
    }
 
-    public MenuMaker(String FeatureID, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
+    public MenuMaker(String FeatureID,String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
+        if (MenuTargetPage==null | MenuTargetPage=="")
+            TargetPage=MViewer.DEF_MENU_PAGE;
+        else
+            TargetPage=MenuTargetPage;
+                    
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.BaseConnector = BaseConnector;
@@ -47,7 +52,12 @@ public class MenuMaker {
    
     }
 
-    public MenuMaker(String FeautreID, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
+    public MenuMaker(String FeautreID,String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
+        if (MenuTargetPage==null | MenuTargetPage=="")
+            TargetPage=MViewer.DEF_MENU_PAGE;
+        else
+            TargetPage=MenuTargetPage;
+        //        
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.Connector = PluginConnector;
@@ -140,12 +150,10 @@ public class MenuMaker {
             PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
     }
     public void MenuSelectBack() {
-        System.out.println(MenuTree.size());
         
         if (MenuTree.size()>0)
             UpdateMenuItems(MenuTree.pop(),true);
         
-        System.out.println(MenuTree.size());
     }
     public void MenuExec() {
         if (!ExecSpecialCommand(GetCurrentSelection())) {
