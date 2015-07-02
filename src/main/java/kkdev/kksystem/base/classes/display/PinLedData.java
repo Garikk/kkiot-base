@@ -18,8 +18,7 @@ public class PinLedData extends PinBaseData {
     //
     public String TargetPage;           //Target page
     //
-    public String[] OnFrame_DataKeys;
-    public String[] OnFrame_DataValues;
+    public UIFramesKeySet UIFrames;
     //
     public String[] Direct_DisplayText;        //Text for display
     public String[] Direct_DisplayTextUpdate;    //Updated text (using positions)
@@ -28,16 +27,9 @@ public class PinLedData extends PinBaseData {
     //
     public DisplayInfo[] DisplayState;    //
 
-    public void FillFrameValues(HashMap<String, String> Values) {
-        int i = 0;
-        OnFrame_DataKeys = new String[Values.values().size()];
-        OnFrame_DataValues = new String[Values.values().size()];
-        for (String V : Values.keySet()) {
-            OnFrame_DataKeys[i] = V;
-            OnFrame_DataValues[i] = Values.get(V);
-
-            i++;
-        }
-
+     public void FillFrameValues(String[] Keys,String[] Values) {
+         UIFrames=new UIFramesKeySet();
+         UIFrames.Keys=Keys;
+         UIFrames.Values=Values;
     }
 }

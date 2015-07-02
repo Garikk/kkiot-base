@@ -3,17 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes.odb2;
+package kkdev.kksystem.base.classes.display;
 
 /**
  *
  * @author blinov_is
  */
-public class PinOdb2Data_ExtendedMonitoringInfo {
-    //
-    public int[] PIDs;
-    public int[] Values;
-    
-    //
-    
+public class UIFramesKeySet {
+    public String[] Keys;
+    public String[] Values;
 }

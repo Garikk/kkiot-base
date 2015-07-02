@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes.display.menumaker;
+package kkdev.kksystem.base.classes.display.tools.menumaker;
 
 import java.util.HashMap;
+import kkdev.kksystem.base.classes.display.UIFramesKeySet;
 
 /**
  *
@@ -16,11 +17,11 @@ public class MKMenuView {
     private int MenuRowCount;
 
     public MKMenuItem[] DisplayedMenu;
-    public HashMap TemplateKeys;
+   // public HashMap TemplateKeys;
 
-    public final String DEF_MENU_ITEM_PFX = "SYSMENU_";
-    public final String DEF_MENU_SELECTOR_PFX = "SEL_";
-    public final String DEF_MENU_PAGE = "SYSMENU_1";
+    public static final String DEF_MENU_ITEM_PFX = "SYSMENU_";
+    public static final String DEF_MENU_SELECTOR_PFX = "SEL_";
+    public static final String DEF_MENU_PAGE = "SYSMENU_1";
 
     private int CurrentViewPosition = 0;
     private int SelectorPosition = 0;
@@ -46,13 +47,11 @@ public class MKMenuView {
 
     }
 
-    public HashMap<String, String> GetMenu() {
+    public UIFramesKeySet GetMenu() {
         return GetView();
     }
 
-    public HashMap<String, String> MoveMenuUP() {
-           //         System.out.println(SelectorPosition + " " +ViewRowCount + " "+ MenuRowCount);
-        
+    public UIFramesKeySet MoveMenuUP() {
        
         if (SelectorPosition > 0) {
             SelectorPosition--;
@@ -68,7 +67,7 @@ public class MKMenuView {
         return GetView();
     }
 
-    public HashMap<String, String> MoveMenuDown() {
+    public UIFramesKeySet MoveMenuDown() {
          // System.out.println(SelectorPosition + " " +ViewRowCount + " "+ MenuRowCount);
         
         if (SelectorPosition < ViewRowCount - 1) {
@@ -90,19 +89,26 @@ public class MKMenuView {
     {
         return DisplayedMenu[CurrentViewPosition+SelectorPosition];
     }
-    public  HashMap<String, String> GetView() {
-        HashMap<String, String> Ret;
-        Ret = new HashMap<>();
+
+    public UIFramesKeySet GetView() {
+        UIFramesKeySet Ret;
+        Ret = new UIFramesKeySet();
+        Ret.Keys = new String[ViewRowCount];
+        Ret.Values = new String[ViewRowCount];
         //
         for (int i = 0; i < ViewRowCount; i++) {
-            Ret.put(DEF_MENU_ITEM_PFX + i, DisplayedMenu[CurrentViewPosition + i].DisplayName);
+            Ret.Keys[i] = DEF_MENU_ITEM_PFX + i;
+            Ret.Values[i] = DisplayedMenu[CurrentViewPosition + i].DisplayName;
             if (i != SelectorPosition) {
-                Ret.put(DEF_MENU_SELECTOR_PFX + i, " ");
+                Ret.Keys[i] = DEF_MENU_SELECTOR_PFX;
+                Ret.Values[i] = "*";
             } else {
-                Ret.put(DEF_MENU_SELECTOR_PFX + i, "*");
+                Ret.Keys[i] = DEF_MENU_SELECTOR_PFX;
+                Ret.Values[i] = "*";
             }
 
         }
         return Ret;
     }
+    
 }

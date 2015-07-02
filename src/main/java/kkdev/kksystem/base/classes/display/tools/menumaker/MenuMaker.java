@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes.display.menumaker;
+package kkdev.kksystem.base.classes.display.tools.menumaker;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
-import kkdev.kksystem.base.classes.display.PinLedData;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
@@ -92,62 +90,42 @@ public class MenuMaker {
 
    
     public void ShowMenu() {
-        PinLedData PLD = new PinLedData();
-        PLD.FillFrameValues(MViewer.GetMenu());
-        PLD.FeatureUID = MenuFeatureID;
-        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
-        PLD.DataType=KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
-        
-
         
         if (InSystemMode)
         {
-            PManager._DISPLAY_ActivatePageDirect(MenuFeatureID,SystemLCD,MViewer.DEF_MENU_PAGE);
-            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD, PLD);
+            PManager._DISPLAY_ActivatePageDirect(MenuFeatureID,SystemLCD,TargetPage);
+             PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID,SystemLCD, TargetPage, MViewer.GetMenu());
         }
         else
         {
-            PManager.DISPLAY_ActivatePage(MenuFeatureID,MViewer.DEF_MENU_PAGE);
-            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+            PManager.DISPLAY_ActivatePage(MenuFeatureID,TargetPage);
+            PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.GetMenu());
+
         }
     }
 
-    public void MenuSelectUp() {
-        PinLedData PLD = new PinLedData();
-        PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
-        PLD.FillFrameValues(MViewer.MoveMenuUP());
-        PLD.FeatureUID = MenuFeatureID;
-        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+    public void MenuRefreshDisplay() {
         if (InSystemMode) {
-            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD,  PLD);
+             PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID,TargetPage, TargetPage, MViewer.GetMenu());
         } else {
-            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+             PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.GetMenu());
         }
     }
-     public void MenuRefreshDisplay() {
-        PinLedData PLD = new PinLedData();
-        PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
-        PLD.FillFrameValues(MViewer.GetView());
-        PLD.FeatureUID = MenuFeatureID;
-        PLD.TargetPage = MViewer.DEF_MENU_PAGE;
+    public void MenuSelectUp() {
+
         if (InSystemMode) {
-            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD,  PLD);
+            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, TargetPage, TargetPage, MViewer.MoveMenuUP());
         } else {
-            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+            PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.MoveMenuUP());
         }
     }
 
     public void MenuSelectDown() {
-        PinLedData PLD = new PinLedData();
-        PLD.DataType = KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
-        PLD.FillFrameValues(MViewer.MoveMenuDown());
-        PLD.TargetPage = MViewer.DEF_MENU_PAGE;   
-        PLD.FeatureUID = MenuFeatureID;
-        
-        if (InSystemMode)
-            PManager._DISPLAY_SendPluginMessageDataDirect(MenuFeatureID,SystemLCD, PLD);
-        else
-            PManager.DISPLAY_SendPluginMessageData(MenuFeatureID, PLD);
+        if (InSystemMode) {
+            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, TargetPage, TargetPage, MViewer.MoveMenuDown());
+        } else {
+            PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.MoveMenuDown());
+        }
     }
     public void MenuSelectBack() {
         

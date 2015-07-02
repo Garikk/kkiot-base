@@ -5,7 +5,7 @@
  */
 package kkdev.kksystem.base.classes.plugins;
 
-import kkdev.kksystem.base.classes.display.menumaker.MKMenuItem;
+import kkdev.kksystem.base.classes.display.tools.menumaker.MKMenuItem;
 
 /**
  *
