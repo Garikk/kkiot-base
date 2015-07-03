@@ -145,7 +145,6 @@ public class MenuMaker {
         switch (Item.ItemCommand)
         {
             case KK_MENUMAKER_SPECIALCMD_SUBMENU:
-                
                 UpdateMenuItems(Item.SubItems,false);
                 return true;
         }

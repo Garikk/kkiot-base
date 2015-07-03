@@ -14,7 +14,7 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  * @author blinov_is
  */
 public  class PluginManagerBase {
-    protected String CurrentFeature;
+    public String CurrentFeature;
     public IPluginKKConnector Connector;
     public IPluginBaseInterface BaseConnector;
     

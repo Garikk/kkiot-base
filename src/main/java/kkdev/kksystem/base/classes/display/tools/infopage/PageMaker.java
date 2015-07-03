@@ -18,6 +18,7 @@ public class PageMaker {
     String CurrentFeature;
     MKPageView PViewer;
     PluginManagerDataProcessor PManager;
+    IPageMakerExecCommand CallBack;
     
    public interface IPageMakerExecCommand{
        public void ExecCommand(String PageCMD);
@@ -27,6 +28,7 @@ public class PageMaker {
        PManager=new PluginManagerDataProcessor();
        PManager.Connector=PluginConnector;
        CurrentFeature=FeatureID;
+       CallBack=PageExecCallback;
    }
    public void AddPages(MKPageItem[] Page)
    {
@@ -50,6 +52,10 @@ public class PageMaker {
    public void SelectPrevPage()
    {
        ShowPage(PViewer.MovePagePrev());
+   }
+   public void ExecCommand()
+   {
+       CallBack.ExecCommand(PViewer.GetPage().PageCommand);
    }
    
    private void ShowPage(MKPageItem Page)
