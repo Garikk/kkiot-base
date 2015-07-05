@@ -11,16 +11,16 @@ import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProc
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
 
-
 /**
  *
  * @author blinov_is
  */
 public class MenuMaker {
-    public static final String KK_MENUMAKER_SPECIALCMD_SUBMENU="KK_SUBMENU";
-    
+
+    public static final String KK_MENUMAKER_SPECIALCMD_SUBMENU = "KK_SUBMENU";
+
     PluginManagerDataProcessor PManager;
-    boolean InSystemMode=false;
+    boolean InSystemMode = false;
     String MenuFeatureID;
     MKMenuItem[] MenuItems;
     Deque<MKMenuItem[]> MenuTree;
@@ -29,76 +29,71 @@ public class MenuMaker {
     String SystemLCD;
     String TargetPage;
     //
-            
-   public interface IMenuMakerItemSelected{
-       public void SelectedItem(String ItemCMD);
-   }
 
-    public MenuMaker(String FeatureID,String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
-        if (MenuTargetPage==null | MenuTargetPage=="")
-            TargetPage=MViewer.DEF_MENU_PAGE;
-        else
-            TargetPage=MenuTargetPage;
-                    
+    public interface IMenuMakerItemSelected {
+
+        public void SelectedItem(String ItemCMD);
+    }
+
+    public MenuMaker(String FeatureID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
+        if (MenuTargetPage == null | MenuTargetPage == "") {
+            TargetPage = MViewer.DEF_MENU_PAGE;
+        } else {
+            TargetPage = MenuTargetPage;
+        }
+
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.BaseConnector = BaseConnector;
-        InSystemMode=true;
-        SystemLCD=SystemLCD_ID;
-        MenuFeatureID=FeatureID;
-        
-   
+        InSystemMode = true;
+        SystemLCD = SystemLCD_ID;
+        MenuFeatureID = FeatureID;
+
     }
 
-    public MenuMaker(String FeautreID,String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
-        if (MenuTargetPage==null | MenuTargetPage=="")
-            TargetPage=MViewer.DEF_MENU_PAGE;
-        else
-            TargetPage=MenuTargetPage;
+    public MenuMaker(String FeautreID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
+        if (MenuTargetPage == null | MenuTargetPage == "") {
+            TargetPage = MViewer.DEF_MENU_PAGE;
+        } else {
+            TargetPage = MenuTargetPage;
+        }
         //        
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.Connector = PluginConnector;
-        InSystemMode=false;
+        InSystemMode = false;
     }
 
+    public void AddMenuItems(MKMenuItem[] Items) {
+        MenuTree = new ArrayDeque<>();
+        MenuItems = Items;
+        MViewer = new MKMenuView(2, Items.length);
 
-   public void AddMenuItems(MKMenuItem[] Items)
-   {
-       MenuTree=new ArrayDeque<>();
-       MenuItems=Items;
-       MViewer=new MKMenuView(2,Items.length);  
-       
-       for (int i=0;i<Items.length;i++)
-       {
-           MViewer.SetItemData(i,Items[i]);
+        for (int i = 0; i < Items.length; i++) {
+            MViewer.SetItemData(i, Items[i]);
         }
     }
-   public void UpdateMenuItems(MKMenuItem[] Items,boolean IsBackCommand)
-   {
-       if (!IsBackCommand)
-        MenuTree.push(MenuItems);
-      
-       MenuItems=Items;
-       MViewer.ResetMenuView(Items.length);
-       for (int i=0;i<Items.length;i++)
-       {
-           MViewer.SetItemData(i,Items[i]);
-        }
-       MenuRefreshDisplay();
-   }
 
-   
+    public void UpdateMenuItems(MKMenuItem[] Items, boolean IsBackCommand) {
+        if (!IsBackCommand) {
+            MenuTree.push(MenuItems);
+        }
+
+        MenuItems = Items;
+        MViewer.ResetMenuView(Items.length);
+        for (int i = 0; i < Items.length; i++) {
+            MViewer.SetItemData(i, Items[i]);
+        }
+        MenuRefreshDisplay();
+    }
+
     public void ShowMenu() {
-        
-        if (InSystemMode)
-        {
-            PManager._DISPLAY_ActivatePageDirect(MenuFeatureID,SystemLCD,TargetPage);
-             PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID,SystemLCD, TargetPage, MViewer.GetMenu());
-        }
-        else
-        {
-            PManager.DISPLAY_ActivatePage(MenuFeatureID,TargetPage);
+
+        if (InSystemMode) {
+            PManager._DISPLAY_ActivatePageDirect(MenuFeatureID, SystemLCD, TargetPage);
+            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, SystemLCD, TargetPage, MViewer.GetMenu());
+        } else {
+            PManager.DISPLAY_ActivatePage(MenuFeatureID, TargetPage);
             PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.GetMenu());
 
         }
@@ -106,11 +101,12 @@ public class MenuMaker {
 
     public void MenuRefreshDisplay() {
         if (InSystemMode) {
-             PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID,TargetPage, TargetPage, MViewer.GetMenu());
+            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, TargetPage, TargetPage, MViewer.GetMenu());
         } else {
-             PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.GetMenu());
+            PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.GetMenu());
         }
     }
+
     public void MenuSelectUp() {
 
         if (InSystemMode) {
@@ -127,12 +123,15 @@ public class MenuMaker {
             PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.MoveMenuDown());
         }
     }
+
     public void MenuSelectBack() {
-        
-        if (MenuTree.size()>0)
-            UpdateMenuItems(MenuTree.pop(),true);
-        
+
+        if (MenuTree.size() > 0) {
+            UpdateMenuItems(MenuTree.pop(), true);
+        }
+
     }
+
     public void MenuExec() {
         if (!ExecSpecialCommand(GetCurrentSelection())) {
             CallBack.SelectedItem(GetCurrentSelection().ItemCommand);
@@ -140,20 +139,17 @@ public class MenuMaker {
 
     }
 
-    private boolean ExecSpecialCommand(MKMenuItem Item)
-    {
-        switch (Item.ItemCommand)
-        {
+    private boolean ExecSpecialCommand(MKMenuItem Item) {
+        switch (Item.ItemCommand) {
             case KK_MENUMAKER_SPECIALCMD_SUBMENU:
-                UpdateMenuItems(Item.SubItems,false);
+                UpdateMenuItems(Item.SubItems, false);
                 return true;
         }
-        
+
         return false;
     }
-    
-    public MKMenuItem GetCurrentSelection()
-    {
+
+    public MKMenuItem GetCurrentSelection() {
         return MViewer.GetCurrentMenuItem();
     }
 }

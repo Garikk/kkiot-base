@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package kkdev.kksystem.base.classes.display.tools.infopage;
-import java.util.List;
-import kkdev.kksystem.base.classes.display.DisplayConstants;
-import kkdev.kksystem.base.classes.display.PinLedData;
+import kkdev.kksystem.base.classes.controls.PinControlData;
+import kkdev.kksystem.base.classes.display.UIFramesKeySet;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
 
@@ -22,6 +21,7 @@ public class PageMaker {
     
    public interface IPageMakerExecCommand{
        public void ExecCommand(String PageCMD);
+       public void PageSelected(String PageName);
    }
    
    public PageMaker(String FeatureID, IPluginKKConnector PluginConnector, IPageMakerExecCommand PageExecCallback) {
@@ -40,6 +40,23 @@ public class PageMaker {
        }
    }
    
+    public void ProcessControlCommand(String ControlID) {
+        switch (ControlID) {
+            case PinControlData.DEF_BTN_UP:
+                SelectPrevPage();
+                break;
+            case PinControlData.DEF_BTN_DOWN:
+                SelectNextPage();
+                break;
+            case PinControlData.DEF_BTN_ENTER:
+                ExecCommand();
+                break;
+            case PinControlData.DEF_BTN_BACK:
+                break;
+
+        }
+
+    }
    public void ShowInfoPage()
    {
        ShowPage(PViewer.GetPage());
@@ -58,9 +75,24 @@ public class PageMaker {
        CallBack.ExecCommand(PViewer.GetPage().PageCommand);
    }
    
+   public void UpdatePageFrames(String PageName, UIFramesKeySet Frames)
+   {
+       PViewer.UpdateUIFrames(PageName, Frames);
+       UpdateUIFrames(PageName);
+   
+   }
+   
+   private void UpdateUIFrames(String PageName)
+   {
+       MKPageItem Page=PViewer.GetPage();
+       PManager.DISPLAY_UpdateUIFrames(CurrentFeature,Page.PageName,Page.UIFrames);
+   }
    private void ShowPage(MKPageItem Page)
    {
        PManager.DISPLAY_ActivatePage(CurrentFeature,Page.PageName);
        PManager.DISPLAY_UpdateUIFrames(CurrentFeature,Page.PageName,Page.UIFrames);
+       //
+       CallBack.PageSelected(Page.PageName);
    }
+   
 }

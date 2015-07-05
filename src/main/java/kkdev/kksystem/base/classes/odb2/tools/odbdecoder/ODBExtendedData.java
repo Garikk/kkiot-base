@@ -12,7 +12,7 @@ import kkdev.kksystem.base.classes.odb2.ODB2_SAE_J1979_PID_MODE_1;
  * @author blinov_is
  */
 public class ODBExtendedData {
-     public int[] GetExtendedDiagRequest()
+     public static int[] GetExtendedDiagRequest()
     {
         int[] Ret=new int[4];
         Ret[0]=ODB2_SAE_J1979_PID_MODE_1.PID_05_COLIANT_TEMP;
@@ -21,4 +21,10 @@ public class ODBExtendedData {
         Ret[3]=ODB2_SAE_J1979_PID_MODE_1.PID_0C_ENGINE_RPM;
         return Ret;
     }
+     
+      
+    public void SetODBData()
+    {
+    }
+    
 }
