@@ -101,7 +101,7 @@ public class MenuMaker {
 
     public void MenuRefreshDisplay() {
         if (InSystemMode) {
-            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, TargetPage, TargetPage, MViewer.GetMenu());
+            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, SystemLCD, TargetPage, MViewer.GetMenu());
         } else {
             PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.GetMenu());
         }
@@ -110,7 +110,7 @@ public class MenuMaker {
     public void MenuSelectUp() {
 
         if (InSystemMode) {
-            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, TargetPage, TargetPage, MViewer.MoveMenuUP());
+            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, SystemLCD, TargetPage, MViewer.MoveMenuUP());
         } else {
             PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.MoveMenuUP());
         }
@@ -118,7 +118,7 @@ public class MenuMaker {
 
     public void MenuSelectDown() {
         if (InSystemMode) {
-            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, TargetPage, TargetPage, MViewer.MoveMenuDown());
+            PManager._DISPLAY_UpdateUIFramesDirect(MenuFeatureID, SystemLCD, TargetPage, MViewer.MoveMenuDown());
         } else {
             PManager.DISPLAY_UpdateUIFrames(MenuFeatureID, TargetPage, MViewer.MoveMenuDown());
         }

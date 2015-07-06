@@ -29,7 +29,6 @@ public class PinLedData extends PinBaseData {
 
      public void FillFrameValues(String[] Keys,String[] Values) {
          UIFrames=new UIFramesKeySet();
-         UIFrames.Keys=Keys;
-         UIFrames.Values=Values;
+          UIFrames.FillValues(Keys,Values);
     }
 }

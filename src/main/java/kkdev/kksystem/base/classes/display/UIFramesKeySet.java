@@ -5,30 +5,42 @@
  */
 package kkdev.kksystem.base.classes.display;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author blinov_is
  */
 public class UIFramesKeySet {
-    public String[] Keys;
-    public String[] Values;
+    public Map<String,String> FrameValues;
+    
+    public UIFramesKeySet()
+    {
+        FrameValues= new HashMap<>();
+    }
+    
+    public String[] Keys()
+    {
+        return (String[])FrameValues.keySet().toArray();
+    }
+    public String[] Values()
+    {
+        return (String[])FrameValues.values().toArray();
+    }
     
     public void AddKeySet(String Key, String Value)
     {
-        String[] NewKeys=new String[Keys.length+1];
-        String[] NewValues=new String[Keys.length+1];
-        
+       FrameValues.put(Key, Value);
+    
+    }
+    
+    public void FillValues(String[] Keys, String[] Values)
+    {
         for (int i=0;i<Keys.length;i++)
         {
-            NewKeys[i]=Keys[i];
-            NewValues[i]=Values[i];
+            FrameValues.put(Keys[i], Values[i]);
         }
-        NewKeys[Keys.length]=Key;
-        NewKeys[Values.length]=Key;
-        
-        Keys=NewKeys;
-        Values=NewValues;
-    
     
     }
 }

@@ -5,7 +5,6 @@
  */
 package kkdev.kksystem.base.classes.display.tools.menumaker;
 
-import java.util.HashMap;
 import kkdev.kksystem.base.classes.display.UIFramesKeySet;
 
 /**
@@ -93,20 +92,14 @@ public class MKMenuView {
     public UIFramesKeySet GetView() {
         UIFramesKeySet Ret;
         Ret = new UIFramesKeySet();
-        Ret.Keys = new String[ViewRowCount];
-        Ret.Values = new String[ViewRowCount];
         //
         for (int i = 0; i < ViewRowCount; i++) {
-            Ret.Keys[i] = DEF_MENU_ITEM_PFX + i;
-            Ret.Values[i] = DisplayedMenu[CurrentViewPosition + i].DisplayName;
-            if (i != SelectorPosition) {
-                Ret.Keys[i] = DEF_MENU_SELECTOR_PFX;
-                Ret.Values[i] = "*";
+            Ret.AddKeySet(DEF_MENU_ITEM_PFX + i, DisplayedMenu[CurrentViewPosition + i].DisplayName);
+            if (i == SelectorPosition) {
+                Ret.AddKeySet(DEF_MENU_SELECTOR_PFX+i,"*");
             } else {
-                Ret.Keys[i] = DEF_MENU_SELECTOR_PFX;
-                Ret.Values[i] = "*";
+                Ret.AddKeySet(DEF_MENU_SELECTOR_PFX+i," ");
             }
-
         }
         return Ret;
     }

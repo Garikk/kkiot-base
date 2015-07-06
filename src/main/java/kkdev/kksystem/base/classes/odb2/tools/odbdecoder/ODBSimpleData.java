@@ -20,7 +20,7 @@ public class ODBSimpleData {
     {
         int[] Ret=new int[2];
         Ret[0]=ODB2_SAE_J1979_PID_MODE_1.PID_05_COLIANT_TEMP;
-        Ret[2]=ODB2_SAE_J1979_PID_MODE_1.PID_0D_VEHICLE_SPEED;
+        Ret[1]=ODB2_SAE_J1979_PID_MODE_1.PID_0D_VEHICLE_SPEED;
         return Ret;
     }
     
