@@ -13,19 +13,22 @@ import java.util.Map;
  * @author blinov_is
  */
 public class ODB2Data {
-    int[] PID;
-    int[] PIDValues;
-    
+    Map<Integer,Integer> PIDValues;
+    //int[] PID;
+    //int[] PIDValues;
+    public ODB2Data()
+    {
+        PIDValues=new HashMap<>();
+    }
     public Map<Integer,Integer> GetHT()
     {
-        Map<Integer,Integer> Ret=new HashMap<>();
-        
-        for (int i=0;i<PID.length;i++)
-        {
-            Ret.put(PID[i], PIDValues[i]);
-        }
-        
-        return Ret;
+        return PIDValues;
+
+    }
+    
+    public void AddPID(Integer PID, Integer Value)
+    {
+        PIDValues.put(PID, Value);
     }
     
     
