@@ -14,21 +14,31 @@ import java.util.Map;
  */
 public class ODB2Data {
     Map<Integer,Integer> PIDValues;
-    //int[] PID;
-    //int[] PIDValues;
+    Map<Integer,Integer> CE_Errors;
+
     public ODB2Data()
     {
         PIDValues=new HashMap<>();
+        CE_Errors=new HashMap<>();
     }
     public Map<Integer,Integer> GetHT()
     {
         return PIDValues;
 
     }
+     public Map<Integer,Integer> GetCEError()
+    {
+        return CE_Errors;
+
+    }
     
     public void AddPID(Integer PID, Integer Value)
     {
         PIDValues.put(PID, Value);
+    }
+    public void AddError(int Prefix, int Value)
+    {
+        CE_Errors.put(Prefix, Value);
     }
     
     
