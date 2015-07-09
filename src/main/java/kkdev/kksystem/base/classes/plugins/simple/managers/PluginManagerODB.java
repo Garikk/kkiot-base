@@ -44,7 +44,15 @@ public class PluginManagerODB extends PluginManagerBase {
      public void ODB_SendODBInfo(String FeatureID, ODB2Data Data) {
         //
         PinOdb2Data PData = new PinOdb2Data();
-        PData.DataType=ODBConstants.KK_ODB_DATATYPE.ODB_BASE_CONNECTOR;
+        PData.DataType=ODBConstants.KK_ODB_DATATYPE.ODB_DIAG_DATA;
+        PData.ODBData=Data;
+        //
+       this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_ODB2_DATA, PData);
+    }
+      public void ODB_SendODBErrors(String FeatureID, ODB2Data Data) {
+        //
+        PinOdb2Data PData = new PinOdb2Data();
+        PData.DataType=ODBConstants.KK_ODB_DATATYPE.ODB_DIAG_CE_ERRORS;
         PData.ODBData=Data;
         //
        this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_ODB2_DATA, PData);

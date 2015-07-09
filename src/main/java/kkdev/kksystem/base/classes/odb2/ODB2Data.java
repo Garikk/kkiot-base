@@ -5,7 +5,9 @@
  */
 package kkdev.kksystem.base.classes.odb2;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,33 +15,39 @@ import java.util.Map;
  * @author blinov_is
  */
 public class ODB2Data {
-    Map<Integer,Integer> PIDValues;
-    Map<Integer,Integer> CE_Errors;
+    Map<Integer,Double> PIDValues;
+    Map<Integer,List<Byte>> CE_Errors;
 
     public ODB2Data()
     {
         PIDValues=new HashMap<>();
         CE_Errors=new HashMap<>();
     }
-    public Map<Integer,Integer> GetHT()
+    public Map<Integer,Double> GetHT()
     {
         return PIDValues;
 
     }
-     public Map<Integer,Integer> GetCEError()
+     public Map<Integer,List<Byte>> GetCEError()
     {
         return CE_Errors;
 
     }
     
-    public void AddPID(Integer PID, Integer Value)
+    public void AddPID(Integer PID, Double Value)
     {
         PIDValues.put(PID, Value);
     }
-    public void AddError(int Prefix, int Value)
+    public void AddError(int Prefix, Byte Value)
     {
-        CE_Errors.put(Prefix, Value);
+        
+        if (!CE_Errors.containsKey(Prefix))
+        {
+            List<Byte> Val=new ArrayList<>();
+            Val.add(Value);
+            CE_Errors.put(Prefix, Val);
+        }
+        
+        CE_Errors.get(Prefix).add(Value);
     }
-    
-    
 }

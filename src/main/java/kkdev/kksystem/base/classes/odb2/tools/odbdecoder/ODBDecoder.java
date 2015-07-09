@@ -11,12 +11,12 @@ package kkdev.kksystem.base.classes.odb2.tools.odbdecoder;
  */
 public class ODBDecoder {
     public ODBSimpleData SimpleData;
-    public ODBExtendedData ExtendedData;
+    //public ODBExtendedData ExtendedData;
     
     public ODBDecoder()
     {
         SimpleData=new ODBSimpleData();
-        ExtendedData=new ODBExtendedData();
+      //  ExtendedData=new ODBExtendedData();
     
     }
 }

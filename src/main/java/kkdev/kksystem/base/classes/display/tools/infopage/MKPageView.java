@@ -26,10 +26,11 @@ public class MKPageView {
     
     public MKPageItem MovePageNext()
     {
-        if (PageSelector<CurrentPages.length)
+        if (PageSelector<CurrentPages.length-1)
             PageSelector++;
         else
             PageSelector=0;
+        
         
         return GetPage();
     }
@@ -38,7 +39,7 @@ public class MKPageView {
     if (PageSelector>0)
             PageSelector--;
         else
-            PageSelector=CurrentPages.length;
+            PageSelector=CurrentPages.length-1;
     
         return GetPage();
     }
