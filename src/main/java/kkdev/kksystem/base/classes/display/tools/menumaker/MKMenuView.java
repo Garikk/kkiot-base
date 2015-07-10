@@ -31,6 +31,7 @@ public class MKMenuView {
         DisplayedMenu = new MKMenuItem[MenuRows];
         MenuRowCount = MenuRows;
         ViewRowCount = ViewRows;
+
     }
 
     public void ResetMenuView(int MenuRows) {
@@ -51,6 +52,8 @@ public class MKMenuView {
     }
 
     public UIFramesKeySet MoveMenuUP() {
+       if (MenuRowCount==1)
+            return GetView();
        
         if (SelectorPosition > 0) {
             SelectorPosition--;
@@ -68,6 +71,9 @@ public class MKMenuView {
 
     public UIFramesKeySet MoveMenuDown() {
          // System.out.println(SelectorPosition + " " +ViewRowCount + " "+ MenuRowCount);
+        if (MenuRowCount==1)
+            return GetView();
+        
         
         if (SelectorPosition < ViewRowCount - 1) {
             SelectorPosition++;
@@ -91,10 +97,17 @@ public class MKMenuView {
 
     public UIFramesKeySet GetView() {
         UIFramesKeySet Ret;
-        Ret = new UIFramesKeySet();
+        Ret = new UIFramesKeySet(); 
         //
         for (int i = 0; i < ViewRowCount; i++) {
-            Ret.AddKeySet(DEF_MENU_ITEM_PFX + i, DisplayedMenu[CurrentViewPosition + i].DisplayName);
+            if (MenuRowCount==1 & i==1)
+                Ret.AddKeySet(DEF_MENU_ITEM_PFX + i, ""); //if only one item in menu, set empty position
+            else
+            {
+                Ret.AddKeySet(DEF_MENU_ITEM_PFX + i, DisplayedMenu[CurrentViewPosition + i].DisplayName);
+            }
+            
+            
             if (i == SelectorPosition) {
                 Ret.AddKeySet(DEF_MENU_SELECTOR_PFX+i,"*");
             } else {

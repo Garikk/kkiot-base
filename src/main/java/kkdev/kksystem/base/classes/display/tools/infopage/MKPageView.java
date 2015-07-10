@@ -14,50 +14,56 @@ import kkdev.kksystem.base.classes.display.UIFramesKeySet;
  * @author blinov_is
  */
 public class MKPageView {
+
     int PageSelector;
     MKPageItem[] CurrentPages;
     Map<String, Integer> PageIndex;
-    
-    public MKPageView(int CountPages)
-    {
-        CurrentPages=new MKPageItem[CountPages];
-        PageIndex=new HashMap<>();
+
+    public MKPageView(int CountPages) {
+        CurrentPages = new MKPageItem[CountPages];
+        PageIndex = new HashMap<>();
     }
-    
-    public MKPageItem MovePageNext()
-    {
-        if (PageSelector<CurrentPages.length-1)
+
+    public MKPageItem MovePageNext() {
+        if (CurrentPages.length == 1) {
+            return GetPage();
+        }
+
+        if (PageSelector < CurrentPages.length - 1) {
             PageSelector++;
-        else
-            PageSelector=0;
-        
-        
+        } else {
+            PageSelector = 0;
+        }
+
         return GetPage();
     }
-    public MKPageItem MovePagePrev()
-    {
-    if (PageSelector>0)
+
+    public MKPageItem MovePagePrev() {
+        if (CurrentPages.length == 1) {
+            return GetPage();
+        }
+
+        if (PageSelector > 0) {
             PageSelector--;
-        else
-            PageSelector=CurrentPages.length-1;
-    
+        } else {
+            PageSelector = CurrentPages.length - 1;
+        }
+
         return GetPage();
     }
-    
-    public void SetPageData(int Position,MKPageItem Page)
-    {
-           CurrentPages[Position]=Page;
-           if (!PageIndex.containsKey(Page.PageName))
-               PageIndex.put(Page.PageName, Position);
+
+    public void SetPageData(int Position, MKPageItem Page) {
+        CurrentPages[Position] = Page;
+        if (!PageIndex.containsKey(Page.PageName)) {
+            PageIndex.put(Page.PageName, Position);
+        }
     }
-    
-    public MKPageItem GetPage()
-    {
+
+    public MKPageItem GetPage() {
         return CurrentPages[PageSelector];
     }
-    public void UpdateUIFrames(String PageName, UIFramesKeySet Frames)
-    {
-        CurrentPages[PageIndex.get(PageName)].UIFrames=Frames;
+
+    public void UpdateUIFrames(String PageName, UIFramesKeySet Frames) {
+        CurrentPages[PageIndex.get(PageName)].UIFrames = Frames;
     }
 }
-

@@ -15,7 +15,7 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  * @author blinov_is
  */
 public class PageMaker {
-
+    String BackCommand;
     String CurrentFeature;
     MKPageView PViewer;
     PluginManagerDataProcessor PManager;

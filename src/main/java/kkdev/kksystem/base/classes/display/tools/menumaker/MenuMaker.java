@@ -7,6 +7,7 @@ package kkdev.kksystem.base.classes.display.tools.menumaker;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import kkdev.kksystem.base.classes.controls.PinControlData;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
@@ -51,9 +52,9 @@ public class MenuMaker {
 
     }
 
-    public MenuMaker(String FeautreID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
-        if (MenuTargetPage == null | MenuTargetPage == "") {
-            TargetPage = MViewer.DEF_MENU_PAGE;
+    public MenuMaker(String FeatureID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
+        if (MenuTargetPage == null | "".equals(MenuTargetPage)) {
+            TargetPage = MKMenuView.DEF_MENU_PAGE;
         } else {
             TargetPage = MenuTargetPage;
         }
@@ -62,6 +63,7 @@ public class MenuMaker {
         PManager = new PluginManagerDataProcessor();
         PManager.Connector = PluginConnector;
         InSystemMode = false;
+         MenuFeatureID = FeatureID;
     }
 
     public void AddMenuItems(MKMenuItem[] Items) {
@@ -151,5 +153,24 @@ public class MenuMaker {
 
     public MKMenuItem GetCurrentSelection() {
         return MViewer.GetCurrentMenuItem();
+    }
+    
+     public void ProcessControlCommand(String ControlID) {
+        switch (ControlID) {
+            case PinControlData.DEF_BTN_UP:
+                MenuSelectUp();
+                break;
+            case PinControlData.DEF_BTN_DOWN:
+                MenuSelectDown();
+                break;
+            case PinControlData.DEF_BTN_ENTER:
+                MenuExec();
+                break;
+            case PinControlData.DEF_BTN_BACK:
+                MenuSelectBack();
+                break;
+
+        }
+
     }
 }

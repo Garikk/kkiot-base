@@ -21,7 +21,7 @@ import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_ODB2_COM
  */
 public class PluginManagerDataProcessor extends PluginManagerBase {
 
-    public void ODB_SendPluginMessageCommand(String FeatureID, ODBConstants.KK_ODB_COMMANDTYPE Command, ODBConstants.KK_ODB_DATAPACKET Request, int[] DataInt, int[] ReadInterval) {
+    public void ODB_SendPluginMessageCommand(String FeatureID, ODBConstants.KK_ODB_COMMANDTYPE Command, ODBConstants.KK_ODB_DATACOMMANDINFO Request, int[] DataInt, int[] ReadInterval) {
         PinOdb2Command PData = new PinOdb2Command();
         PData.Command = Command;
         PData.CommandData = Request;
