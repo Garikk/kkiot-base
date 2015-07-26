@@ -12,6 +12,8 @@ import kkdev.kksystem.base.classes.display.tools.menumaker.MKMenuItem;
  * @author blinov_is
  */
 public class ControllerConfiguration {
+    public String ConfigurationUID;
+    public String ConfigurationStamp;
     public FeatureConfiguration[] Features;
     //
     public String SystemDisplay_UID;
