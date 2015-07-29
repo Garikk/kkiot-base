@@ -43,15 +43,21 @@ public final class PluginConsts {
     //
 
     //
+    public static String KK_PLUGIN_BASE_PLUGIN_ODB2 = "KKODB2Reader";
+    public static String KK_PLUGIN_BASE_PLUGIN_ODB2_UUID = "44b5dab1-f596-458a-b09b-d9565b91464e";
+    public static String KK_PLUGIN_BASE_PLUGIN_ODB2_CONFIG_UUID = "98275c20-7c25-4155-b6a2-04343ab2cb21";
+
+    public static String KK_PLUGIN_BASE_PLUGIN_LEDDISPLAY = "KKLEDDisplay";
+    public static String KK_PLUGIN_BASE_PLUGIN_LEDDISPLAY_UUID = "7fbac0f7-6939-4380-bcb0-0ef8b1580fbf";
+    public static String KK_PLUGIN_BASE_PLUGIN_LEDDISPLAY_CONFIG_UUID = "00430cdb-d131-4448-9587-bb412eeb84f5";
     
-    public static String KK_PLUGIN_BASE_PLUGIN_ODB2="KKODB2Reader";
-    public static String KK_PLUGIN_BASE_PLUGIN_ODB2_UUID="44b5dab1-f596-458a-b09b-d9565b91464e";
-    public static String KK_PLUGIN_BASE_PLUGIN_LEDDISPLAY="KKLEDDisplay";
-    public static String KK_PLUGIN_BASE_PLUGIN_LEDDISPLAY_UUID="7fbac0f7-6939-4380-bcb0-0ef8b1580fbf";   
-    public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY="KKDataDisplay";
-    public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY_UUID="b5b50412-c02a-4674-a112-ddc5805ea4e5";
-    public static String KK_PLUGIN_BASE_PLUGIN_HID="KKControls";
-    public static String KK_PLUGIN_BASE_PLUGIN_HID_UUID="62d1026f-5297-4951-890d-61d75ae67d02";
+    public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY = "KKDataDisplay";
+    public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY_UUID = "b5b50412-c02a-4674-a112-ddc5805ea4e5";
+    public static String KK_PLUGIN_BASE_PLUGIN_DATADISPLAY_CONFIG_UUID = "a726176a-cff5-41d2-a631-efba36acfa36";
+    
+    public static String KK_PLUGIN_BASE_PLUGIN_HID = "KKControls";
+    public static String KK_PLUGIN_BASE_PLUGIN_HID_UUID = "62d1026f-5297-4951-890d-61d75ae67d02";
+    public static String KK_PLUGIN_BASE_PLUGIN_HID_CONFIG_UUID="00eab97e-5807-4f48-8700-4670c2dffb16";
     //
     
 

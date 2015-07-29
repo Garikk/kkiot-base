@@ -9,12 +9,6 @@ package kkdev.kksystem.base.classes.plugins;
  *
  * @author blinov_is
  */
-public class FeatureConfiguration {
-    public String FeatureName;
-    public String FeatureUUID;
-    public boolean IsSystemFeature;
-    public PluginConnection[] Connections;
-    public int MinVersion;
-    public String[] RequiredConfigurations;
-    //
+public class ExternalConfiguration {
+    public String ConfigurationUUID;
 }

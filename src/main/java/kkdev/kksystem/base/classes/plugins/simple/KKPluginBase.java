@@ -15,14 +15,15 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  * @author blinov_is
  */
 public class KKPluginBase implements IPluginKKConnector{
-    public String MyUID;
-    IPluginInfoRequest PluginInfo;
+    public String[] Features;
+    public String GlobalConfID;
+    
+    public IPluginInfoRequest PluginInfo;
     IPluginBaseInterface Connector;
     
     public KKPluginBase(IPluginInfoRequest PluginInfoClass)
     {
        PluginInfo=PluginInfoClass;
-       MyUID=PluginInfo.GetPluginInfo().PluginUUID;
     }
     
     @Override
@@ -38,13 +39,15 @@ public class KKPluginBase implements IPluginKKConnector{
 
     @Override
     public void SendPinMessage(PluginMessage Pin) {
-        Pin.SenderUID=MyUID;
+        Pin.SenderUID=PluginInfo.GetPluginInfo().PluginUUID;
         Connector.ExecutePinCommand(Pin);
     }
 
     @Override
-    public void PluginInit(IPluginBaseInterface BaseConnector) {
+    public void PluginInit(IPluginBaseInterface BaseConnector,String GlobalConfUID, String[] FeaturesUID) {
         Connector=BaseConnector;
+        Features=FeaturesUID;
+        GlobalConfID=GlobalConfUID;
     }
 
     @Override

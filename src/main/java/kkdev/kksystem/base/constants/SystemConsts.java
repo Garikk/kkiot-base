@@ -11,8 +11,6 @@ package kkdev.kksystem.base.constants;
  */
 public final class SystemConsts {
     public static final String KK_BASE_CONFPATH="./etc";
-    //public static String KK_BASE_FORPLUGINS_CONFPATH="./etc";
-   // public static String KK_BASE_CONFPATH_CONNECTIONS="./etc/pluginconnections";
     public static final String KK_BASE_PLUGINPATH="./plugins";
     public static final String KK_BASE_EXCHANGEPATH="./exchange";
     
@@ -33,8 +31,12 @@ public final class SystemConsts {
      public static final String KK_BASE_FEATURES_SYSTEM_MULTIFEATURE_UID="00000000-0000-0000-0000-000000000001";
 
 
-     
+    public static final String KK_BASE_DEFAULT_CONTROLLER_CONFIG_UID="c44bcdfc-d72b-4db7-ab99-37916cc55bd1";
+    public static final String KK_BASE_DEFAULT_CONTROLLER_CONFIG_STAMP_UID="201f7df6-bedc-4942-b295-bd98249e5513";
+
      //CHANGE THIS
      public static final String KK_BASE_FEATURES_ODB_DIAG_UID="c01287e6-3e5c-48bb-9eae-680a20210531";
+     
+     
      //
 }
