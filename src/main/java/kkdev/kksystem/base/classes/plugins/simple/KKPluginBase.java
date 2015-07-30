@@ -15,7 +15,6 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  * @author blinov_is
  */
 public class KKPluginBase implements IPluginKKConnector{
-    public String[] Features;
     public String GlobalConfID;
     
     public IPluginInfoRequest PluginInfo;
@@ -44,9 +43,8 @@ public class KKPluginBase implements IPluginKKConnector{
     }
 
     @Override
-    public void PluginInit(IPluginBaseInterface BaseConnector,String GlobalConfUID, String[] FeaturesUID) {
+    public void PluginInit(IPluginBaseInterface BaseConnector,String GlobalConfUID) {
         Connector=BaseConnector;
-        Features=FeaturesUID;
         GlobalConfID=GlobalConfUID;
     }
 

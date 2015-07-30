@@ -18,7 +18,7 @@ public interface IPluginKKConnector {
     public PluginMessage ExecutePin(PluginMessage Pin);
     public void SendPinMessage(PluginMessage Pin);
     
-    public void PluginInit(IPluginBaseInterface BaseConnector, String GlobalConfUID, String[] FeaturesUID);
+    public void PluginInit(IPluginBaseInterface BaseConnector, String GlobalConfUID);
     public void PluginStart();
     public void PluginStop();
 }
