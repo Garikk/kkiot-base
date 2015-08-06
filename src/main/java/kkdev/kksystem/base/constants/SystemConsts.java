@@ -10,6 +10,8 @@ package kkdev.kksystem.base.constants;
  * @author blinov_is
  */
 public final class SystemConsts {
+
+    
     public static final String KK_BASE_VERSION="0.9.test";
     
     public static final String KK_BASE_CONFPATH="./etc";
@@ -18,6 +20,7 @@ public final class SystemConsts {
     public static final String KK_BASE_UPDATE_TEMP="./tmp";
     public static final String KK_BASE_UPDATE_TEMP_PLUGINS=KK_BASE_UPDATE_TEMP+"/plugins";
     public static final String KK_BASE_UPDATE_TEMP_BASE=KK_BASE_UPDATE_TEMP+"/base";
+    public static final String KK_BASE_UPDATE_TEMP_EXTCONF=KK_BASE_UPDATE_TEMP+"/extconf";
     
     public static final String KK_BASE_UPDATE_WDJOB_FILE="kkcar_wdjob.json";
     
