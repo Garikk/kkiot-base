@@ -43,6 +43,10 @@ public final class PluginConsts {
     //
 
     //
+    public static String KK_PLUGIN_BASE_PLUGIN = "KKController";
+    public static String KK_PLUGIN_BASE_PLUGIN_UUID = "10000000-0000-0000-0000-000000000000";
+
+    
     public static String KK_PLUGIN_BASE_PLUGIN_ODB2 = "KKODB2Reader";
     public static String KK_PLUGIN_BASE_PLUGIN_ODB2_UUID = "44b5dab1-f596-458a-b09b-d9565b91464e";
 
