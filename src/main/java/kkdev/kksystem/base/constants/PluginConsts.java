@@ -62,6 +62,13 @@ public final class PluginConsts {
     public static String KK_PLUGIN_BASE_PLUGIN_HID = "KKControls";
     public static String KK_PLUGIN_BASE_PLUGIN_HID_UUID = "62d1026f-5297-4951-890d-61d75ae67d02";
 
+    public static String KK_PLUGIN_BASE_PLUGIN_HWADAPTER = "HWAdapter";
+    public static String KK_PLUGIN_BASE_PLUGIN_HWADAPTER_UUID = "4d0b0982-6219-11e5-9d70-feff819cdc9f";
+
+    public static String KK_PLUGIN_BASE_PLUGIN_BTADAPTER = "KKBTAdapter";
+    public static String KK_PLUGIN_BASE_PLUGIN_BTADAPTER_UUID = "51534a41-4200-40f6-adac-1a915678cde9";
+
+    
     //
     
 
