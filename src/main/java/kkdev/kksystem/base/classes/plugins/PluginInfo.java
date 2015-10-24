@@ -6,8 +6,6 @@
 package kkdev.kksystem.base.classes.plugins;
 
 
-import kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_TYPE;
-
 /**
  *
  * @author blinov_is
@@ -16,7 +14,6 @@ public class PluginInfo  {
     public String PluginUUID;
     public String PluginName;
     public String PluginDescription;
-    public KK_PLUGIN_TYPE PluginType;
     public int PluginVersion;
     public String[] ReceivePins;
     public String[] TransmitPins;

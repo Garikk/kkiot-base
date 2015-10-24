@@ -10,13 +10,6 @@ package kkdev.kksystem.base.constants;
  * @author blinov_is
  */
 public final class PluginConsts {
-    public static enum KK_PLUGIN_TYPE
-    {
-        PLUGIN_INPUT,
-        PLUGIN_OUTPUT,
-        PLUGIN_PROCESSOR
-    }
-    
     public static enum KK_PLUGIN_MESSAGES
     {
         BASE_MESSAGE_INFO
@@ -25,6 +18,8 @@ public final class PluginConsts {
     //
     //
     // Default system PINS
+    public final static String KK_PLUGIN_BASE_PIN_ANY="PIN_KK_ANYPIN";
+    
     public final static String KK_PLUGIN_BASE_PIN_COMMAND="PIN_KK_COMMAND";
     //
     public final static String KK_PLUGIN_BASE_BASIC_TAGGEDINT_DATA="PIN_KK_BASIC_TAGGED_INT";
@@ -65,8 +60,8 @@ public final class PluginConsts {
     public static String KK_PLUGIN_BASE_PLUGIN_HWADAPTER = "HWAdapter";
     public static String KK_PLUGIN_BASE_PLUGIN_HWADAPTER_UUID = "4d0b0982-6219-11e5-9d70-feff819cdc9f";
 
-    public static String KK_PLUGIN_BASE_PLUGIN_BTADAPTER = "KKBTAdapter";
-    public static String KK_PLUGIN_BASE_PLUGIN_BTADAPTER_UUID = "51534a41-4200-40f6-adac-1a915678cde9";
+    public static String KK_PLUGIN_BASE_PLUGIN_EXTCONNECTOR = "KKECAdapter";
+    public static String KK_PLUGIN_BASE_PLUGIN_EXTCONNECTOR_UUID = "51534a41-4200-40f6-adac-1a915678cde9";
 
     
     //
