@@ -23,7 +23,11 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_PIN_COMMAND="PIN_KK_COMMAND";
     //
     public final static String KK_PLUGIN_BASE_BASIC_TAGGEDINT_DATA="PIN_KK_BASIC_TAGGED_INT";
+    public final static String KK_PLUGIN_BASE_BASIC_TAGGEDOBJ_DATA="PIN_KK_BASIC_TAGGED_OBJ";
     //
+    // Default KKController
+    public final static String KK_KKCONTROLLER_UTIL_RS232AVAIL="PIN_KKTRLR_UTIL_RS232AVAIL";
+    
     // Default ODB2 Pins
     public final static String KK_PLUGIN_BASE_ODB2_COMMAND="PIN_KK_ODB2_COMMAND";
     public final static String KK_PLUGIN_BASE_ODB2_DATA="PIN_KK_ODB2_DATA";
@@ -60,7 +64,7 @@ public final class PluginConsts {
     public static String KK_PLUGIN_BASE_PLUGIN_HWADAPTER = "HWAdapter";
     public static String KK_PLUGIN_BASE_PLUGIN_HWADAPTER_UUID = "4d0b0982-6219-11e5-9d70-feff819cdc9f";
 
-    public static String KK_PLUGIN_BASE_PLUGIN_EXTCONNECTOR = "KKECAdapter";
+    public static String KK_PLUGIN_BASE_PLUGIN_EXTCONNECTOR = "KKEXAdapter";
     public static String KK_PLUGIN_BASE_PLUGIN_EXTCONNECTOR_UUID = "51534a41-4200-40f6-adac-1a915678cde9";
 
     
