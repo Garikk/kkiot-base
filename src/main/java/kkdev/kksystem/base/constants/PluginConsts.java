@@ -26,7 +26,7 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_BASIC_TAGGEDOBJ_DATA="PIN_KK_BASIC_TAGGED_OBJ";
     //
     // Default KKController
-    public final static String KK_KKCONTROLLER_UTIL_RS232AVAIL="PIN_KKTRLR_UTIL_RS232AVAIL";
+    public final static String KK_KKCONTROLLER_UTIL="PIN_KKTRLR_UTILITY";
     
     // Default ODB2 Pins
     public final static String KK_PLUGIN_BASE_ODB2_COMMAND="PIN_KK_ODB2_COMMAND";
