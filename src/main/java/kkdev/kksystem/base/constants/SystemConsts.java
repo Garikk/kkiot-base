@@ -17,13 +17,15 @@ public final class SystemConsts {
     public static final String KK_BASE_CONFPATH="./etc";
     public static final String KK_BASE_PLUGINPATH="./plugins";
     public static final String KK_BASE_EXCHANGEPATH="./exchange";
-    public static final String KK_BASE_UPDATE_TEMP="./tmp";
-    public static final String KK_BASE_UPDATE_TEMP_PLUGINS=KK_BASE_UPDATE_TEMP+"/plugins";
-    public static final String KK_BASE_UPDATE_TEMP_BASE=KK_BASE_UPDATE_TEMP+"/base";
-    public static final String KK_BASE_UPDATE_TEMP_CONF=KK_BASE_UPDATE_TEMP+"/conf";
-    public static final String KK_BASE_UPDATE_TEMP_EXTCONF=KK_BASE_UPDATE_TEMP+"/extconf";
-    
-    public static final String KK_BASE_UPDATE_WDJOB_FILE="kkcar_wdjob.json";
+      public static final String KK_BASE_BACKUP= "./backup/";
+    public static final String KK_BASE_UPDATE_TEMP = "./tmp/";
+    public static final String KK_BASE_UPDATE_TEMP_PLUGINS = KK_BASE_UPDATE_TEMP + "/plugins/";
+    public static final String KK_BASE_UPDATE_TEMP_BASE = KK_BASE_UPDATE_TEMP + "/base/";
+    public static final String KK_BASE_UPDATE_TEMP_CONF = KK_BASE_UPDATE_TEMP + "/conf/";
+    public static final String KK_BASE_UPDATE_TEMP_EXTCONF = KK_BASE_UPDATE_TEMP + "/extconf/";
+    public static final String KK_BASE_UPDATE_REPAIRBACKUP = KK_BASE_BACKUP+"/updatebackup/";
+    public static final String KK_BASE_UPDATE_REPAIRBACKUP_2 = KK_BASE_BACKUP+"/updatebackup2/";
+    public static final String KK_BASE_EMERGENCYREPAIR = KK_BASE_BACKUP+"/emergencyrepair/";
     
     public static final String KK_BASE_SETTINGS_LASTCONF_FILE="kksys_lastconffile.conf";
     public static final String KK_BASE_SETTINGS_FILE_PFX="kksys_";
