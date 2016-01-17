@@ -13,4 +13,5 @@ package kkdev.kksystem.base.classes.base;
  */
 public class PinBaseData {
   public String FeatureUID;
+  public String LogReason;
 }

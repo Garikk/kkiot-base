@@ -13,7 +13,12 @@ public class PinBaseCommand {
     public enum BASE_COMMAND_TYPE
     {
         CHANGE_FEATURE,
-        PLUGIN
+        PLUGIN,
+        SYSTEM_RESTART_KKCONTROLLER,
+        SYSTEM_REBOOT_HW,
+        SYSTEM_POWEROFF,
+        SYSTEM_RESTORE_BACKUP,
+        SYSTEM_RESTORE_EMERGENCY
     }
     
     public PinBaseCommand()
@@ -23,5 +28,6 @@ public class PinBaseCommand {
     
     public BASE_COMMAND_TYPE BaseCommand;
     public String ChangeFeatureID;
+    public String LogReason;
     
 }
