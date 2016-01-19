@@ -18,7 +18,9 @@ public class PinBaseCommand {
         SYSTEM_REBOOT_HW,
         SYSTEM_POWEROFF,
         SYSTEM_RESTORE_BACKUP,
-        SYSTEM_RESTORE_EMERGENCY
+        SYSTEM_RESTORE_EMERGENCY,
+        INTERNET_STATE_ACTIVE,
+        INTERNET_STATE_INACTIVE
     }
     
     public PinBaseCommand()
