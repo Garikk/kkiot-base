@@ -70,7 +70,8 @@ public final class PluginConsts {
 
     public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH = "KKBTConnection";
     public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_UUID = "f0ab876b-5403-40d8-86a2-309f337757a9";
-    public static long KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_SERVICE_RFCOMM_UUID = 0x0003;
+    public static long KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_BTSERVICE_RFCOMM_UUID = 0x0003;
+    public static long KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_BTSERVICE_KKEXCONNECTION_UUID = 0xf003;
  
     //
     
