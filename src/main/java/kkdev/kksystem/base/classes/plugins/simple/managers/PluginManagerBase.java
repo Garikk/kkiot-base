@@ -37,6 +37,5 @@ public  class PluginManagerBase {
         BaseConnector._ExecutePinCommandDirect(PluginUUID, Msg);
 
     }
-
-
+ 
 }

@@ -12,6 +12,10 @@ package kkdev.kksystem.base.classes.base;
  */
 public class PinBaseDataTaggedInt extends PinBaseData {
 
+    public PinBaseDataTaggedInt()
+    {
+        this.DataType=BASE_DATA_TYPE.TAGGED_INT;
+    }
     public String Tag;
     public int Value;
 }

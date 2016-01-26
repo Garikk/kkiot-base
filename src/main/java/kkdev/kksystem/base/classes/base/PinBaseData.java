@@ -12,6 +12,13 @@ package kkdev.kksystem.base.classes.base;
  * @author blinov_is
  */
 public class PinBaseData {
+      public enum BASE_DATA_TYPE
+    {
+       TAGGED_INT,
+       TAGGED_OBJ
+    }
   public String FeatureUID;
   public String LogReason;
+  public BASE_DATA_TYPE DataType;
+
 }
