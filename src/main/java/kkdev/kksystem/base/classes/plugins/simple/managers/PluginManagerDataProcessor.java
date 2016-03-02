@@ -47,7 +47,7 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
     private void DISPLAY_UpdateUIFrames_Internal(boolean Direct, String FeatureID, String TargetID, String PageName, UIFramesKeySet UIFrames) {
         PinLedData PLD = new PinLedData();
         PLD.UIFrames = UIFrames;
-        PLD.FeatureUID = FeatureID;
+        PLD.FeatureID = FeatureID;
         PLD.TargetPage = PageName;
         PLD.DataType = DisplayConstants.KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
 
