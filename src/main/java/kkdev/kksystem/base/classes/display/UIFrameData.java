@@ -7,12 +7,10 @@ package kkdev.kksystem.base.classes.display;
 
 /**
  *
- * @author blinov_is
+ * @author sayma_000
  */
-public class UIFramePack {
-    public String Name;
-    public String PackID;
-    public UIFrameData[] Data;
-    
- 
-}
+   public class UIFrameData
+    {
+        public String Name;
+        public String FrameData;
+    }
