@@ -13,6 +13,7 @@ public class FeatureConfiguration {
     public String FeatureName;
     public String FeatureUUID;
     public boolean IsSystemFeature;
+    public boolean ShowInSystemMenu;
     public PluginConnection[] Connections;
     public int MinVersion;
     public String[] RequiredConfigurations;
