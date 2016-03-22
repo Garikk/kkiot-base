@@ -19,6 +19,7 @@ public class PluginManagerControls extends PluginManagerBase {
 
         PinControlData PData = CONTROL_SendPluginMessageData_PData(FeatureID, ControlID, EventType, IntValue);
         //
+                    
         this.BASE_SendPluginMessage(FeatureID, KK_PLUGIN_BASE_CONTROL_DATA, PData);
     }
 

@@ -11,7 +11,7 @@ import kkdev.kksystem.base.classes.base.PinBaseCommand;
  *
  * @author blinov_is
  */
-public class PluginMessage {
+public class PluginMessage implements Cloneable{
     public String SenderUID;
     public String FeatureID;
     public String PinName;
