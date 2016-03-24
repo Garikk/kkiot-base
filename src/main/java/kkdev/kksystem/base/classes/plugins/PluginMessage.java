@@ -16,4 +16,16 @@ public class PluginMessage implements Cloneable{
     public String FeatureID;
     public String PinName;
     public Object PinData;
+    
+    public PluginMessage newInstance()
+    {
+        PluginMessage Ret;
+        Ret=new PluginMessage();
+        Ret.SenderUID=this.SenderUID;
+        Ret.FeatureID=this.FeatureID;
+        Ret.PinName=this.PinName;
+        Ret.PinData=this.PinData;
+        
+        return Ret;
+    }
 }
