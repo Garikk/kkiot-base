@@ -48,7 +48,9 @@ public final class SystemConsts {
     public static final String KK_BASE_DEFAULT_CONTROLLER_CONFIG_UID="c44bcdfc-d72b-4db7-ab99-37916cc55bd1";
     public static final String KK_BASE_DEFAULT_CONTROLLER_CONFIG_STAMP_UID="201f7df6-bedc-4942-b295-bd98249e5513";
 
-     //CHANGE THIS! It is must be dynamic
+    
+    public static final String KK_BASE_UICONTEXT_DEFAULT="DEFAULT_UI_CONTEXT";
+    //CHANGE THIS! It is must be dynamic
      public static final String KK_BASE_FEATURES_ODB_DIAG_UID="c01287e6-3e5c-48bb-9eae-680a20210531";
      public static final String KK_BASE_FEATURES_ODB_DIAG_ANDROIDAPP_UID="aaee9986-2d86-46c0-a199-e02785d062f3";
      public static final String KK_BASE_FEATURES_BLUETOOTH_UID="eabf2eb9-2cb3-43f8-aff4-c52f6f08e871";

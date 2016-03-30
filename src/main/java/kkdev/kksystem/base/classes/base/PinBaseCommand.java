@@ -31,6 +31,7 @@ public class PinBaseCommand {
     }
     
     public BASE_COMMAND_TYPE BaseCommand;
+    public String UIContextID;
     public String ChangeFeatureID;
     public String LogReason;
     
