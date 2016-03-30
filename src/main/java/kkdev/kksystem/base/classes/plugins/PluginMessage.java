@@ -12,9 +12,10 @@ import kkdev.kksystem.base.classes.base.PinBaseCommand;
  * @author blinov_is
  */
 public class PluginMessage implements Cloneable{
-    public String SenderUID;
-    public String FeatureID;
-    public String PinName;
+    public String SenderUID;    //Sender plugin ID
+    public String FeatureID;    //Feature ID
+    public String UIContextID;  //User display ID
+    public String PinName; 
     public Object PinData;
     
     public PluginMessage newInstance()
