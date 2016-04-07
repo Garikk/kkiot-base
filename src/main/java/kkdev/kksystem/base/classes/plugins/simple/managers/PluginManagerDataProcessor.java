@@ -74,7 +74,8 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         PData.INT = DataInt;
         PData.STRING = DataStr;
         PData.PageID = PageID;
-
+        PData.ChangeFeatureID=UIContextID;
+        
         if (Direct) {
             this._BASE_SendPluginMessageDirect(FeatureID, TargetID, KK_PLUGIN_BASE_LED_COMMAND, PData);
         } else {
