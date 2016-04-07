@@ -28,28 +28,29 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         this.BASE_SendPluginMessage(FeatureID, KK_PLUGIN_BASE_ODB2_COMMAND, PData);
     }
 
-    public void DISPLAY_ActivatePage(String FeatureID, String PageName) {
-        DISPLAY_SendPluginMessageCommand(FeatureID, DisplayConstants.KK_DISPLAY_COMMAND.DISPLAY_KKSYS_PAGE_ACTIVATE, PageName, null, null, null);
+    public void DISPLAY_ActivatePage(String FeatureID,String UIContextID, String PageName) {
+        DISPLAY_SendPluginMessageCommand(FeatureID,UIContextID, DisplayConstants.KK_DISPLAY_COMMAND.DISPLAY_KKSYS_PAGE_ACTIVATE, PageName, null, null, null);
     }
 
-    public void _DISPLAY_ActivatePageDirect(String FeatureID, String TargetID, String PageName) {
-        _DISPLAY_SendPluginMessageCommandDirect(FeatureID, TargetID, DisplayConstants.KK_DISPLAY_COMMAND.DISPLAY_KKSYS_PAGE_ACTIVATE, PageName, null, null, null);
+    public void _DISPLAY_ActivatePageDirect(String FeatureID,String UIContextID, String TargetID, String PageName) {
+        _DISPLAY_SendPluginMessageCommandDirect(FeatureID,UIContextID, TargetID, DisplayConstants.KK_DISPLAY_COMMAND.DISPLAY_KKSYS_PAGE_ACTIVATE, PageName, null, null, null);
     }
 
-    public void _DISPLAY_UpdateUIFramesDirect(String FeatureID, String TargetID, String PageName, UIFramesKeySet UIFrames) {
-        DISPLAY_UpdateUIFrames_Internal(true, FeatureID, TargetID, PageName, UIFrames);
+    public void _DISPLAY_UpdateUIFramesDirect(String FeatureID,String UIContextID, String TargetID, String PageName, UIFramesKeySet UIFrames) {
+        DISPLAY_UpdateUIFrames_Internal(FeatureID,UIContextID,true, TargetID, PageName, UIFrames);
     }
 
-    public void DISPLAY_UpdateUIFrames(String FeatureID, String PageName, UIFramesKeySet UIFrames) {
-        DISPLAY_UpdateUIFrames_Internal(false, FeatureID, null, PageName, UIFrames);
+    public void DISPLAY_UpdateUIFrames(String FeatureID,String UIContextID, String PageName, UIFramesKeySet UIFrames) {
+        DISPLAY_UpdateUIFrames_Internal(FeatureID,UIContextID,false,  null, PageName, UIFrames);
     }
 
-    private void DISPLAY_UpdateUIFrames_Internal(boolean Direct, String FeatureID, String TargetID, String PageName, UIFramesKeySet UIFrames) {
+    private void DISPLAY_UpdateUIFrames_Internal(String FeatureID,String UIContextID,boolean Direct,  String TargetID, String PageName, UIFramesKeySet UIFrames) {
         PinLedData PLD = new PinLedData();
         PLD.UIFrames = UIFrames;
         PLD.FeatureID = FeatureID;
         PLD.TargetPage = PageName;
         PLD.LedDataType = DisplayConstants.KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
+        PLD.UIContextID=UIContextID;
 
         if (Direct) {
             _DISPLAY_SendPluginMessageDataDirect(FeatureID, TargetID, PLD);
@@ -58,15 +59,15 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         }
     }
 
-    public void DISPLAY_SendPluginMessageCommand(String FeatureID, DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
-        DISPLAY_SendPluginMessageCommand_Internal(false, null, FeatureID, Command, PageID, DataStr, DataInt, DataBool);
+    public void DISPLAY_SendPluginMessageCommand(String FeatureID,String UIContextID, DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
+        DISPLAY_SendPluginMessageCommand_Internal(FeatureID,UIContextID,false, null,  Command, PageID, DataStr, DataInt, DataBool);
     }
 
-    public void _DISPLAY_SendPluginMessageCommandDirect(String FeatureID, String TargetID, DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
-        DISPLAY_SendPluginMessageCommand_Internal(true, TargetID, FeatureID, Command, PageID, DataStr, DataInt, DataBool);
+    public void _DISPLAY_SendPluginMessageCommandDirect(String FeatureID,String UIContextID, String TargetID, DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
+        DISPLAY_SendPluginMessageCommand_Internal(FeatureID,UIContextID,true, TargetID,  Command, PageID, DataStr, DataInt, DataBool);
     }
 
-    private void DISPLAY_SendPluginMessageCommand_Internal(boolean Direct, String TargetID, String FeatureID, DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
+    private void DISPLAY_SendPluginMessageCommand_Internal(String FeatureID,String UIContextID,boolean Direct, String TargetID, DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
         PinLedCommand PData = new PinLedCommand();
         PData.Command = Command;
         PData.BOOL = DataBool;

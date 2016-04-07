@@ -52,6 +52,7 @@ public final class SystemConsts {
     public static final String KK_BASE_UICONTEXT_DEFAULT="DEFAULT_UI_CONTEXT";
     public static final String KK_BASE_UICONTEXT_DEFAULT_VIRTUAL="DEFAULT_UI_CONTEXT_VIRTUAL";
     public static final String KK_BASE_UICONTEXT_DEFAULT_DEBUG="DEFAULT_UI_CONTEXT_DEBUG";
+    public static final String KK_BASE_UICONTEXT_DEFAULT_MULTI="DEFAULT_UI_CONTEXT_MULTI";
     public static final String KK_BASE_UICONTEXT_GFX1="DEFAULT_UI_CONTEXT_GFX_1";
     public static final String KK_BASE_UICONTEXT_GFX2="DEFAULT_UI_CONTEXT_GFX_2";
     //CHANGE THIS! It is must be dynamic

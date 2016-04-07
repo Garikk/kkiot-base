@@ -5,6 +5,8 @@
  */
 package kkdev.kksystem.base.classes.plugins.simple.managers;
 
+import java.util.HashMap;
+import java.util.Map;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
@@ -14,9 +16,15 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  * @author blinov_is
  */
 public  class PluginManagerBase {
-    public String CurrentFeature;
+    public Map<String,String> CurrentFeature; // UIContext => Feature
     public IPluginKKConnector Connector;
     public IPluginBaseInterface BaseConnector;
+    
+    public PluginManagerBase()
+    {
+        CurrentFeature=new HashMap<>();
+    }
+    
     
     public synchronized void BASE_SendPluginMessage(String FeatureID,String PinName, Object PinData) {
         PluginMessage Msg = new PluginMessage();
