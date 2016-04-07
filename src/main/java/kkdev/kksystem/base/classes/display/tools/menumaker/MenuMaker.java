@@ -58,7 +58,7 @@ public class MenuMaker {
 
     }
 
-    public MenuMaker(String FeatureID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
+    public MenuMaker(String FeatureID,String UIContextID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
         if (MenuTargetPage == null | "".equals(MenuTargetPage)) {
             TargetPage = MKMenuView.DEF_MENU_PAGE;
         } else {
@@ -70,6 +70,7 @@ public class MenuMaker {
         PManager.Connector = PluginConnector;
         InSystemMode = false;
          MenuFeatureID = FeatureID;
+            MenuContextID=UIContextID;
     }
 
     public void AddMenuItems(MKMenuItem[] Items) {
