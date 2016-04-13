@@ -21,13 +21,6 @@ import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_ODB2_COM
  */
 public class PluginManagerDataProcessor extends PluginManagerBase {
 
-    public void ODB_SendPluginMessageCommand(String FeatureID, ODBConstants.KK_ODB_COMMANDTYPE Command, ODBConstants.KK_ODB_DATACOMMANDINFO Request, int[] DataInt, int[] ReadInterval) {
-
-        PinOdb2Command PData =ODB_SendPluginMessageCommand_PMData(FeatureID,  Command,  Request, DataInt, ReadInterval);
-
-        this.BASE_SendPluginMessage(FeatureID, KK_PLUGIN_BASE_ODB2_COMMAND, PData);
-    }
-
     public void DISPLAY_ActivatePage(String FeatureID,String UIContextID, String PageName) {
         DISPLAY_SendPluginMessageCommand(FeatureID,UIContextID, DisplayConstants.KK_DISPLAY_COMMAND.DISPLAY_KKSYS_PAGE_ACTIVATE, PageName, null, null, null);
     }
@@ -95,15 +88,6 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         this._BASE_SendPluginMessageDirect(FeatureID, PluginID, KK_PLUGIN_BASE_LED_DATA, PData);
     }
 
-    public static PinOdb2Command ODB_SendPluginMessageCommand_PMData(String FeatureID, ODBConstants.KK_ODB_COMMANDTYPE Command, ODBConstants.KK_ODB_DATACOMMANDINFO Request, int[] DataInt, int[] ReadInterval) {
-        PinOdb2Command PData = new PinOdb2Command();
-        PData.Command = Command;
-        PData.CommandData = Request;
-        //
-        PData.RequestPIDs = DataInt;
-        PData.DynamicRequestInterval = ReadInterval;
-        //
-        return PData;
-    }
+
 
 }

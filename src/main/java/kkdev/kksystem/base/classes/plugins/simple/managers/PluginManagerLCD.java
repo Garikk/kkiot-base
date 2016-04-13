@@ -29,14 +29,13 @@ public class PluginManagerLCD extends PluginManagerBase {
         PData.INT = DataInt;
         PData.STRING = DataStr;
         PData.PageID=PageID;
+        PData.ChangeUIContextID=UIContextID;
         //
         //
         this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_COMMAND, PData);
     }
 
     public void DISPLAY_SendPluginMessageData(String FeatureID, PinLedData PData) {
-
-        //
         this.BASE_SendPluginMessage(FeatureID,KK_PLUGIN_BASE_LED_DATA, PData);
     }
     
