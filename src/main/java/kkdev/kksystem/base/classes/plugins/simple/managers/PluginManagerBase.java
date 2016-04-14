@@ -5,8 +5,10 @@
  */
 package kkdev.kksystem.base.classes.plugins.simple.managers;
 
+import static java.lang.System.out;
 import java.util.HashMap;
 import java.util.Map;
+import kkdev.kksystem.base.classes.display.PinLedCommand;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
@@ -31,7 +33,7 @@ public  class PluginManagerBase {
         Msg.PinName = PinName;
         Msg.PinData = PinData;
         Msg.FeatureID=FeatureID;
-        
+
         Connector.SendPinMessage(Msg);
         
 

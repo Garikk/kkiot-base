@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.plugins.simple.managers;
 
+import static java.lang.System.out;
 import kkdev.kksystem.base.classes.display.DisplayConstants;
 import kkdev.kksystem.base.classes.display.PinLedCommand;
 import kkdev.kksystem.base.classes.display.PinLedData;
@@ -45,6 +46,8 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         PLD.LedDataType = DisplayConstants.KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
         PLD.UIContextID=UIContextID;
 
+        
+        
         if (Direct) {
             _DISPLAY_SendPluginMessageDataDirect(FeatureID, TargetID, PLD);
         } else {
@@ -67,8 +70,9 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         PData.INT = DataInt;
         PData.STRING = DataStr;
         PData.PageID = PageID;
-        PData.ChangeFeatureID=UIContextID;
-        
+        PData.ChangeFeatureID=FeatureID;
+        PData.ChangeUIContextID=UIContextID;
+
         if (Direct) {
             this._BASE_SendPluginMessageDirect(FeatureID, TargetID, KK_PLUGIN_BASE_LED_COMMAND, PData);
         } else {
