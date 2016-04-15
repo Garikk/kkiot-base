@@ -12,6 +12,7 @@ package kkdev.kksystem.base.classes.plugins;
 public class FeatureConfiguration {
     public String FeatureName;
     public String FeatureUUID;
+    public String DefaultUIContext;
     public boolean IsSystemFeature;
     public boolean ShowInSystemMenu;
     public PluginConnection[] Connections;
