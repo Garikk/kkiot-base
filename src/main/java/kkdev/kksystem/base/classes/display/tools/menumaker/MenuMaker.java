@@ -76,7 +76,7 @@ public class MenuMaker {
     public void AddMenuItems(MKMenuItem[] Items) {
         MenuTree = new ArrayDeque<>();
         MenuItems = Items;
-        MViewer = new MKMenuView(2, Items.length);
+        MViewer = new MKMenuView(5, Items.length);
 
         for (int i = 0; i < Items.length; i++) {
             MViewer.SetItemData(i, Items[i]);
