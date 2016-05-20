@@ -8,7 +8,7 @@ package kkdev.kksystem.base.classes.plugins.simple.managers;
 import kkdev.kksystem.base.classes.display.DisplayConstants;
 import kkdev.kksystem.base.classes.display.PinLedCommand;
 import kkdev.kksystem.base.classes.display.PinLedData;
-import kkdev.kksystem.base.classes.display.UIFramesKeySet;
+import kkdev.kksystem.base.classes.display.pages.UIFramesKeySet;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_LED_COMMAND;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_LED_DATA;
 

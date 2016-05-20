@@ -6,7 +6,7 @@
 package kkdev.kksystem.base.classes.display.tools.infopage;
 
 import kkdev.kksystem.base.classes.controls.PinControlData;
-import kkdev.kksystem.base.classes.display.UIFramesKeySet;
+import kkdev.kksystem.base.classes.display.pages.UIFramesKeySet;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
 

@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes.display;
+package kkdev.kksystem.base.classes.display.pages;
 
 /**
  *
- * @author sayma_000
+ * @author blinov_is
  */
-   public class UIFrameData
-    {
-        public String Name;
-        public String FrameData;
-        public int FontSize;
-    }
+public class UIFramePack {
+    public String Name;
+    public String PackID;
+    public UIFrameData[] Data;
+    
+ 
+}

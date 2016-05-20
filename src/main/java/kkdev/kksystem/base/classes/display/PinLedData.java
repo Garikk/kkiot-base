@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.display;
 
+import kkdev.kksystem.base.classes.display.pages.UIFramesKeySet;
 import java.util.HashMap;
 import kkdev.kksystem.base.classes.base.PinBaseData;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;

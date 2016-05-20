@@ -13,7 +13,8 @@ public class DisplayInfo {
     public enum UIDisplayType
     {
         DISPLAY_TEXT,
-        DISPLAY_GRAPHIC
+        DISPLAY_GRAPHIC,
+        DISPLAY_MIXED
     }
     public UIDisplayType DisplayType;
     public int Text_Width_chars;

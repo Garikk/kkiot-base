@@ -5,7 +5,7 @@
  */
 package kkdev.kksystem.base.classes.display.tools.menumaker;
 
-import kkdev.kksystem.base.classes.display.UIFramesKeySet;
+import kkdev.kksystem.base.classes.display.pages.UIFramesKeySet;
 
 /**
  *
