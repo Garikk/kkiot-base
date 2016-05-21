@@ -21,6 +21,7 @@ public interface IKKControllerUtils {
     public List<PluginInfo> PLUGINS_GetLoadedPlugins();
     // Display pages
     public List<DisplayPage> DISPLAY_GetUIDisplayPages();
+    public DisplayPage DISPLAY_GetUIDisplayPage(String Page);
     public void DISPLAY_AddUIDisplayPage(DisplayPage Page);
      
 }

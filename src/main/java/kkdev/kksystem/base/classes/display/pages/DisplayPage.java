@@ -9,8 +9,6 @@ import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 /**
  *
  * @author blinov_is
@@ -23,7 +21,7 @@ public class DisplayPage {
     //
     public String[] Features;
     //
-    public String[] HWDisplays;         //links to HWDisplays
+    public String[] UIContexts;         //links to HWDisplays
     //
     public UIFramePack UIFramesPack;
     //
@@ -35,7 +33,7 @@ public class DisplayPage {
         DisplayPage Ret;
         Ret=new DisplayPage();
         Ret.Features=this.Features;
-        Ret.HWDisplays=this.HWDisplays;
+        Ret.UIContexts=this.UIContexts;
         Ret.UIFramesPack=this.UIFramesPack;
         Ret.UIFrames=this.UIFrames;
         Ret.UIFramesValues=this.UIFramesValues;
@@ -58,7 +56,7 @@ public class DisplayPage {
      
      public String[] GetUIContexts()
      {
-         return HWDisplays;
+         return UIContexts;
      }
 }
 
