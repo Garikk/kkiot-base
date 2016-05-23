@@ -5,15 +5,12 @@
  */
 package kkdev.kksystem.base.classes.display.pages;
 
-import static java.lang.System.out;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author blinov_is
  */
 public class DisplayPage {
+    public final String DP_COUNT_PREFIX="$COUNT";
     public String PageName;             //ID
     public boolean DynamicElements; //want to exec anmimation by thread
     public boolean IsDefaultPage;
@@ -44,19 +41,52 @@ public class DisplayPage {
         
         return Ret;
     }
-    
+     public DisplayPage GetInstance(int RowCount)
+    {
+        DisplayPage Ret;
+        Ret=new DisplayPage();
+        Ret.Features=this.Features;
+        Ret.UIContexts=this.UIContexts;
+        Ret.UIFramesPack=this.UIFramesPack;
+        Ret.UIFrames=InitUIFrames(RowCount);
+        Ret.UIFramesValues=this.UIFramesValues;
+        Ret.PageName=this.PageName;
+        Ret.DynamicElements=this.DynamicElements;
+        Ret.IsDefaultPage=this.IsDefaultPage;
+        Ret.IsMultifeaturePage=this.IsMultifeaturePage;
+        
+        return Ret;
+    }
      public void InitUIFrames() {
         int i=0;
         UIFrames = new String[UIFramesPack.Data.length];
         for (UIFrameData FrameData : UIFramesPack.Data) {
            UIFrames[i]=FrameData.FrameData;
            i++;
+           
         }
     }
      
      public String[] GetUIContexts()
      {
          return UIContexts;
+     }
+   
+     public String[] InitUIFrames(int RowCount)
+     {
+        String[] Ret=new String[RowCount];
+        String Template="";
+          
+         for (int i = 0; i < this.UIFrames.length; i++) {
+             for (int ii = 0; ii < RowCount; ii++) {
+                 if (ii == 0) {
+                     Template = this.UIFrames[ii];
+                 }
+
+                 Ret[i] = Ret[i] + Template.replace(DP_COUNT_PREFIX, String.valueOf(i));
+             }
+         }
+        return Ret;
      }
 }
 

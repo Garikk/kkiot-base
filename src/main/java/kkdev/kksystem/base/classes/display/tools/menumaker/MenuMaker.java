@@ -8,7 +8,9 @@ package kkdev.kksystem.base.classes.display.tools.menumaker;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import kkdev.kksystem.base.classes.controls.PinControlData;
+import kkdev.kksystem.base.classes.display.pages.PageConsts;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
+import kkdev.kksystem.base.interfaces.IKKControllerUtils;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
 
@@ -31,6 +33,7 @@ public class MenuMaker {
     String SystemLCD;
     String TargetPage;
     String ActivePage;
+    private IKKControllerUtils Utils;
     //
     public String GetActivePage()
     {
@@ -41,13 +44,14 @@ public class MenuMaker {
         public void SelectedItem(String ItemCMD);
     }
 
-    public MenuMaker(String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
-        if (MenuTargetPage == null | MenuTargetPage == "") {
-            TargetPage = MViewer.DEF_MENU_PAGE;
+    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
+      
+        if (MenuTargetPage == null) {
+            TargetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;
         } else {
             TargetPage = MenuTargetPage;
         }
-
+        Utils=KKUtils;
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.BaseConnector = BaseConnector;
@@ -55,28 +59,34 @@ public class MenuMaker {
         SystemLCD = SystemLCD_ID;
         MenuFeatureID = FeatureID;
         MenuContextID=UIContextID;
+        
 
     }
 
-    public MenuMaker(String FeatureID,String UIContextID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
+    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID, String UIContextID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
         if (MenuTargetPage == null | "".equals(MenuTargetPage)) {
-            TargetPage = MKMenuView.DEF_MENU_PAGE;
+            TargetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX ;
         } else {
             TargetPage = MenuTargetPage;
         }
         //        
+        Utils=KKUtils;
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.Connector = PluginConnector;
         InSystemMode = false;
-         MenuFeatureID = FeatureID;
-            MenuContextID=UIContextID;
+        MenuFeatureID = FeatureID;
+        MenuContextID = UIContextID;
     }
 
-    public void AddMenuItems(MKMenuItem[] Items) {
+    public void AddMenuItems(MKMenuItem[] Items)
+    {
+       AddMenuItems(Utils.UICONTEXT_GetUIContextInfo(MenuContextID).UIDisplay.Text_ROWS,Items);
+    }
+    public void AddMenuItems(int PageRows,MKMenuItem[] Items) {
         MenuTree = new ArrayDeque<>();
         MenuItems = Items;
-        MViewer = new MKMenuView(5, Items.length);
+        MViewer = new MKMenuView(PageRows, Items.length);
 
         for (int i = 0; i < Items.length; i++) {
             MViewer.SetItemData(i, Items[i]);

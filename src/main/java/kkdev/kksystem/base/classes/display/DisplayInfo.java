@@ -17,8 +17,8 @@ public class DisplayInfo {
         DISPLAY_MIXED
     }
     public UIDisplayType DisplayType;
-    public int Text_Width_chars;
-    public int Text_Height_chars;
+    public int Text_COLS;
+    public int Text_ROWS;
     public int Graphic_Width_px;
     public int Graphic_Height_px;
     public int MaxBackLight;

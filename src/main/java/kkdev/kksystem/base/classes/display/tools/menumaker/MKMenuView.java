@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.display.tools.menumaker;
 
+import static kkdev.kksystem.base.classes.display.pages.PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;
 import kkdev.kksystem.base.classes.display.pages.UIFramesKeySet;
 
 /**
@@ -20,8 +21,7 @@ public class MKMenuView {
 
     public static final String DEF_MENU_ITEM_PFX = "SYSMENU_";
     public static final String DEF_MENU_SELECTOR_PFX = "SEL_";
-    public static final String DEF_MENU_PAGE = "SYSMENU_1";
-
+   
     private int CurrentViewPosition = 0;
     private int SelectorPosition = 0;
 
@@ -70,7 +70,6 @@ public class MKMenuView {
     }
 
     public UIFramesKeySet MoveMenuDown() {
-         // System.out.println(SelectorPosition + " " +ViewRowCount + " "+ MenuRowCount);
         if (MenuRowCount==1)
             return GetView();
         
