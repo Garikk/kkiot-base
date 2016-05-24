@@ -10,8 +10,8 @@ package kkdev.kksystem.base.classes.display.pages;
  * @author blinov_is
  */
 public class DisplayPage {
-    public final String DP_COUNT_PREFIX="$COUNT";
-    public String PageName;             //ID
+    public final String DP_COUNT_PREFIX="[$COUNT]";
+    public String PageName;         //ID
     public boolean DynamicElements; //want to exec anmimation by thread
     public boolean IsDefaultPage;
     public boolean IsMultifeaturePage;  //Page available in all features
@@ -41,22 +41,7 @@ public class DisplayPage {
         
         return Ret;
     }
-     public DisplayPage GetInstance(int RowCount)
-    {
-        DisplayPage Ret;
-        Ret=new DisplayPage();
-        Ret.Features=this.Features;
-        Ret.UIContexts=this.UIContexts;
-        Ret.UIFramesPack=this.UIFramesPack;
-        Ret.UIFrames=InitUIFrames(RowCount);
-        Ret.UIFramesValues=this.UIFramesValues;
-        Ret.PageName=this.PageName;
-        Ret.DynamicElements=this.DynamicElements;
-        Ret.IsDefaultPage=this.IsDefaultPage;
-        Ret.IsMultifeaturePage=this.IsMultifeaturePage;
-        
-        return Ret;
-    }
+   
      public void InitUIFrames() {
         int i=0;
         UIFrames = new String[UIFramesPack.Data.length];
@@ -72,21 +57,29 @@ public class DisplayPage {
          return UIContexts;
      }
    
-     public String[] InitUIFrames(int RowCount)
+     public void InitUIFrames(int RowCount)
      {
-        String[] Ret=new String[RowCount];
+        InitUIFrames();
         String Template="";
-          
-         for (int i = 0; i < this.UIFrames.length; i++) {
+
+        
+        
+         for (int i = 0; i < UIFrames.length; i++) {
+             if (!UIFrames[i].contains(DP_COUNT_PREFIX))
+                 continue;
+             
              for (int ii = 0; ii < RowCount; ii++) {
                  if (ii == 0) {
-                     Template = this.UIFrames[ii];
+                     Template = UIFrames[i];
+                     UIFrames[i]=Template.replace(DP_COUNT_PREFIX, String.valueOf(ii));
                  }
-
-                 Ret[i] = Ret[i] + Template.replace(DP_COUNT_PREFIX, String.valueOf(i));
+                 else
+                 {
+                    UIFrames[i] = UIFrames[i] + Template.replace(DP_COUNT_PREFIX, String.valueOf(ii));
+                 }
              }
          }
-        return Ret;
      }
-}
+    
+ }
 
