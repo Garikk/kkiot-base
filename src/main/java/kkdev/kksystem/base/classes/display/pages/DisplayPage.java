@@ -63,7 +63,6 @@ public class DisplayPage {
         String Template="";
 
         
-        
          for (int i = 0; i < UIFrames.length; i++) {
              if (!UIFrames[i].contains(DP_COUNT_PREFIX))
                  continue;

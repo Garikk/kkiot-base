@@ -147,9 +147,12 @@ public class MenuMaker {
     }
 
     public void MenuSelectBack() {
-
         if (MenuTree.size() > 0) {
             UpdateMenuItems(MenuTree.pop(), true);
+        }
+        else
+        {
+            CallBack.SelectedItem("LEAVE");
         }
 
     }

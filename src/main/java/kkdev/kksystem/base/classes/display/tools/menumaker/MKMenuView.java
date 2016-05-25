@@ -59,13 +59,19 @@ public class MKMenuView {
             SelectorPosition--;
         } else {
             if (CurrentViewPosition == 0) {
-                CurrentViewPosition = MenuRowCount - ViewRowCount;
-                SelectorPosition = ViewRowCount-1;
+                if (MenuRowCount>ViewRowCount)
+                {
+                    CurrentViewPosition = MenuRowCount - ViewRowCount;
+                    SelectorPosition = ViewRowCount-1;
+                }
+                else
+                {
+                    SelectorPosition = MenuRowCount-1;
+                }
             } else {
                 CurrentViewPosition--;
             }
         }
-
         return GetView();
     }
 
@@ -74,17 +80,17 @@ public class MKMenuView {
             return GetView();
         
         
-        if (SelectorPosition < ViewRowCount - 1) {
+        if ((SelectorPosition < ViewRowCount - 1) & (SelectorPosition<MenuRowCount)) {
             SelectorPosition++;
         } else {
-            if ((CurrentViewPosition + ViewRowCount) > MenuRowCount - 1) {
+            if (((CurrentViewPosition + ViewRowCount) > MenuRowCount - 1) | (SelectorPosition==MenuRowCount-1)) {
                 CurrentViewPosition = 0;
                 SelectorPosition = 0;
             } else {
                 CurrentViewPosition++;
             }
         }
-
+        
         return GetView();
 
     }
@@ -105,6 +111,7 @@ public class MKMenuView {
             }
             else
             {
+               
                 Ret.AddKeySet(DEF_MENU_ITEM_PFX + i, DisplayedMenu[CurrentViewPosition + i].DisplayName);
             }
             
