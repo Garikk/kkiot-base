@@ -33,6 +33,7 @@ public class MenuMaker {
     String SystemLCD;
     String TargetPage;
     String ActivePage;
+    String CurrentBackCMD;
     private IKKControllerUtils Utils;
     //
     public String GetActivePage()
@@ -42,6 +43,7 @@ public class MenuMaker {
     public interface IMenuMakerItemSelected {
 
         public void SelectedItem(String ItemCMD);
+        public void StepBack(String BackCMD);
     }
 
     public MenuMaker(IKKControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
@@ -93,7 +95,7 @@ public class MenuMaker {
         }
     }
 
-    public void UpdateMenuItems(MKMenuItem[] Items, boolean IsBackCommand) {
+    public void UpdateMenuItems(MKMenuItem[] Items,String BackCMD, boolean IsBackCommand) {
         if (!IsBackCommand) {
             MenuTree.push(MenuItems);
         }
@@ -101,6 +103,9 @@ public class MenuMaker {
         MenuItems = Items;
         MViewer.ResetMenuView(Items.length);
         for (int i = 0; i < Items.length; i++) {
+            if (Items[i].ItemBackFromSubItemCommand==null || Items[i].ItemBackFromSubItemCommand.equals(""))
+                Items[i].ItemBackFromSubItemCommand=BackCMD;
+            //
             MViewer.SetItemData(i, Items[i]);
         }
         MenuRefreshDisplay();
@@ -148,7 +153,12 @@ public class MenuMaker {
 
     public void MenuSelectBack() {
         if (MenuTree.size() > 0) {
-            UpdateMenuItems(MenuTree.pop(), true);
+            MKMenuItem[] MI;
+            CallBack.StepBack(CurrentBackCMD);
+            MI=MenuTree.pop();
+            CurrentBackCMD=MI[0].ItemBackFromSubItemCommand;
+            UpdateMenuItems(MI,CurrentBackCMD, true);
+            
         }
         else
         {
@@ -158,20 +168,41 @@ public class MenuMaker {
     }
 
     public void MenuExec() {
-        if (!ExecSpecialCommand(GetCurrentSelection())) {
-            CallBack.SelectedItem(GetCurrentSelection().ItemCommand);
+        String CMD=ExecSpecialCommand(GetCurrentSelection());
+        if (!CMD.equals("")) {
+            CallBack.SelectedItem(CMD);
         }
 
     }
 
-    private boolean ExecSpecialCommand(MKMenuItem Item) {
-        switch (Item.ItemCommand) {
+    private String ExecSpecialCommand(MKMenuItem Item) {
+        if (Item.ItemCommand==null)
+            return "";
+        
+        String CMD;
+        String RetCMD;
+               
+                
+        
+        if (Item.ItemCommand.contains(" "))
+        {
+            CMD=Item.ItemCommand.split(" ")[0];
+            RetCMD=Item.ItemCommand.substring(CMD.length()+1);
+        }
+        else 
+        {
+            CMD=Item.ItemCommand;
+            RetCMD="";
+        }
+        
+        switch (CMD) {
             case KK_MENUMAKER_SPECIALCMD_SUBMENU:
-                UpdateMenuItems(Item.SubItems, false);
-                return true;
+                CurrentBackCMD=Item.ItemBackFromSubItemCommand;
+                UpdateMenuItems(Item.SubItems,CurrentBackCMD, false);
+                return RetCMD;
         }
 
-        return false;
+        return Item.ItemCommand;
     }
 
     public MKMenuItem GetCurrentSelection() {
