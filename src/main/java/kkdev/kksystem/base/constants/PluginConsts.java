@@ -37,7 +37,9 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_LED_COMMAND="PIN_KK_LED_COMMAND";
     public final static String KK_PLUGIN_BASE_LED_DATA="PIN_KK_LED_DATA";
     public final static String KK_PLUGIN_BASE_LED_RAW="PIN_KK_LED_RAW";
-     
+     // Default Notify Pins
+    public final static String KK_PLUGIN_BASE_NOTIFY_DATA="PIN_KK_NOTIFY_DATA";
+ 
     // Default Controls Pins
     public final static String KK_PLUGIN_BASE_CONTROL_COMMAND="PIN_KK_CTRL_COMMAND";
     public final static String KK_PLUGIN_BASE_CONTROL_DATA="PIN_KK_CTRL_DATA";
@@ -71,11 +73,18 @@ public final class PluginConsts {
     public static String KK_PLUGIN_BASE_PLUGIN_RSCOMM = "KKRSAdapter";
     public static String KK_PLUGIN_BASE_PLUGIN_RSCOMM_UUID = "476c2577-4175-4d1e-972f-cb65142102a5";
     
+    public static String KK_PLUGIN_BASE_PLUGIN_TTS = "KKTTS";
+    public static String KK_PLUGIN_BASE_PLUGIN_TTS_UUID = "3e804991-82fa-4ce9-86e8-b304bd939c73";
+
+    public static String KK_PLUGIN_BASE_PLUGIN_GEO = "KKGeoProcessor";
+    public static String KK_PLUGIN_BASE_PLUGIN_GEO_UUID = "9c5f10b3-8a08-4432-aa29-d2aca5c0e76c";
+
+    
+    
     public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH = "KKBTConnection";
     public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_UUID = "f0ab876b-5403-40d8-86a2-309f337757a9";
     public static long KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_BTSERVICE_RFCOMM_UUID = 0x0003;
     public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_BTSERVICE_RFCOMM_S_UUID = "0000000000001000800000805F9B34FB";
-//    public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_BTSERVICE_KKEXCONNECTION_UUID = "09846431-0000-1000-8000-00805f9b34fb";
     public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH_BTSERVICE_KKEXCONNECTION_UUID = "0984643100001000800000805f9b34fb";
  
     //
