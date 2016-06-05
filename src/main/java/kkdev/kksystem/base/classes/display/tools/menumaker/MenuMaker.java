@@ -44,6 +44,7 @@ public class MenuMaker {
 
         public void SelectedItem(String ItemCMD);
         public void StepBack(String BackCMD);
+        public void ActiveMenuElement(String ItemText,String ItemCMD);
     }
 
     public MenuMaker(IKKControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
@@ -213,17 +214,19 @@ public class MenuMaker {
         switch (ControlID) {
             case PinControlData.DEF_BTN_UP:
                 MenuSelectUp();
+                CallBack.ActiveMenuElement(GetCurrentSelection().DisplayName, GetCurrentSelection().ItemCommand);
                 break;
             case PinControlData.DEF_BTN_DOWN:
                 MenuSelectDown();
+                CallBack.ActiveMenuElement(GetCurrentSelection().DisplayName, GetCurrentSelection().ItemCommand);
                 break;
             case PinControlData.DEF_BTN_ENTER:
                 MenuExec();
                 break;
             case PinControlData.DEF_BTN_BACK:
                 MenuSelectBack();
+                //CallBack.ActiveMenuElement(GetCurrentSelection().DisplayName, GetCurrentSelection().ItemCommand);
                 break;
-
         }
 
     }
