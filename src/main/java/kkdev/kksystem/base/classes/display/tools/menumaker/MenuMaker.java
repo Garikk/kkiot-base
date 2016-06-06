@@ -9,7 +9,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import kkdev.kksystem.base.classes.controls.PinControlData;
 import kkdev.kksystem.base.classes.display.pages.PageConsts;
+import kkdev.kksystem.base.classes.notify.NotifyConsts;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
+import kkdev.kksystem.base.constants.PluginConsts;
 import kkdev.kksystem.base.interfaces.IKKControllerUtils;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
 import kkdev.kksystem.base.interfaces.IPluginKKConnector;
@@ -34,6 +36,8 @@ public class MenuMaker {
     String TargetPage;
     String ActivePage;
     String CurrentBackCMD;
+    String SpecialPluginUUID;
+    boolean SendNotifications;
     private IKKControllerUtils Utils;
     //
     public String GetActivePage()
@@ -46,8 +50,12 @@ public class MenuMaker {
         public void StepBack(String BackCMD);
         public void ActiveMenuElement(String ItemText,String ItemCMD);
     }
+    public void SetPluginUUID(String UUID)
+    {
+        SpecialPluginUUID=UUID;
+    }
 
-    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID) {
+    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID, boolean SendNarratorNotifications) {
       
         if (MenuTargetPage == null) {
             TargetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;
@@ -55,6 +63,7 @@ public class MenuMaker {
             TargetPage = MenuTargetPage;
         }
         Utils=KKUtils;
+        SendNotifications=SendNarratorNotifications;
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.BaseConnector = BaseConnector;
@@ -66,7 +75,7 @@ public class MenuMaker {
 
     }
 
-    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID, String UIContextID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback) {
+    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID, String UIContextID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback, boolean SendNarratorNotifications) {
         if (MenuTargetPage == null | "".equals(MenuTargetPage)) {
             TargetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX ;
         } else {
@@ -74,6 +83,7 @@ public class MenuMaker {
         }
         //        
         Utils=KKUtils;
+          SendNotifications=SendNarratorNotifications;
         CallBack = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.Connector = PluginConnector;
@@ -214,10 +224,12 @@ public class MenuMaker {
         switch (ControlID) {
             case PinControlData.DEF_BTN_UP:
                 MenuSelectUp();
+                SendNarratorNotification(GetCurrentSelection().DisplayName);
                 CallBack.ActiveMenuElement(GetCurrentSelection().DisplayName, GetCurrentSelection().ItemCommand);
                 break;
             case PinControlData.DEF_BTN_DOWN:
                 MenuSelectDown();
+                SendNarratorNotification(GetCurrentSelection().DisplayName);
                 CallBack.ActiveMenuElement(GetCurrentSelection().DisplayName, GetCurrentSelection().ItemCommand);
                 break;
             case PinControlData.DEF_BTN_ENTER:
@@ -225,8 +237,22 @@ public class MenuMaker {
                 break;
             case PinControlData.DEF_BTN_BACK:
                 MenuSelectBack();
+                //SendNarratorNotification(GetCurrentSelection().DisplayName);
                 //CallBack.ActiveMenuElement(GetCurrentSelection().DisplayName, GetCurrentSelection().ItemCommand);
                 break;
+        }
+    }
+     
+    private void SendNarratorNotification(String Text) {
+        if (!SendNotifications) {
+            return;
+        }
+        NotifyConsts.NOTIFY_METHOD[] NM = new NotifyConsts.NOTIFY_METHOD[1];
+        NM[0] = NotifyConsts.NOTIFY_METHOD.VOICE;
+        if (InSystemMode) {
+            PManager._NOTIFY_SendNotifyMessage(PluginConsts.KK_PLUGIN_BASE_PLUGIN_UUID, MenuFeatureID, NotifyConsts.NOTIFY_TYPE.SYSTEM_INFO, NM, Text);
+        } else {
+            PManager.NOTIFY_SendNotifyMessage(MenuFeatureID, NotifyConsts.NOTIFY_TYPE.SYSTEM_INFO, NM, Text);
         }
 
     }

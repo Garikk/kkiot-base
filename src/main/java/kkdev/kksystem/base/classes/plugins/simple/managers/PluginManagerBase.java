@@ -46,12 +46,17 @@ public  class PluginManagerBase {
         Msg.PinName = PinName;
         Msg.PinData = PinData;
         Msg.FeatureID=FeatureID;
-        
+
         BaseConnector._ExecutePinCommandDirect(PluginUUID, Msg);
 
     }
  
     public synchronized void NOTIFY_SendNotifyMessage(String FeatureID,NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+            _NOTIFY_SendNotifyMessage(null, FeatureID,NotifyType,  NotifyMethod,NotifyText);
+    }
+    
+    
+     public synchronized void _NOTIFY_SendNotifyMessage(String SenderPluginUUID,String FeatureID,NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
         PinNotifyData PD;
         PD=new PinNotifyData();
         PD.NotifyText=NotifyText;
@@ -62,9 +67,12 @@ public  class PluginManagerBase {
         Msg.PinName = PluginConsts.KK_PLUGIN_BASE_NOTIFY_DATA;
         Msg.PinData = PD;
         Msg.FeatureID=FeatureID;
+        if (SenderPluginUUID!=null)
+            Msg.SenderUID=SenderPluginUUID;
 
-        Connector.SendPinMessage(Msg);
-        
-
+        if (Connector==null)
+            BaseConnector.ExecutePinCommand(Msg);
+        else
+            Connector.SendPinMessage(Msg);
     }
 }
