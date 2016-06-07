@@ -39,6 +39,8 @@ public final class PluginConsts {
     public final static String KK_PLUGIN_BASE_LED_RAW="PIN_KK_LED_RAW";
      // Default Notify Pins
     public final static String KK_PLUGIN_BASE_NOTIFY_DATA="PIN_KK_NOTIFY_DATA";
+   // Default Geo Pins
+    public final static String KK_PLUGIN_BASE_GEO_DATA="PIN_KK_GEO_DATA";
  
     // Default Controls Pins
     public final static String KK_PLUGIN_BASE_CONTROL_COMMAND="PIN_KK_CTRL_COMMAND";
@@ -79,6 +81,8 @@ public final class PluginConsts {
     public static String KK_PLUGIN_BASE_PLUGIN_GEO = "KKGeoProcessor";
     public static String KK_PLUGIN_BASE_PLUGIN_GEO_UUID = "9c5f10b3-8a08-4432-aa29-d2aca5c0e76c";
 
+    public static String KK_PLUGIN_BASE_PLUGIN_MEDIACENTER = "KKMediaCenter";
+    public static String KK_PLUGIN_BASE_PLUGIN_MEDIACENTER_UUID = "5769c45c-cffd-4ba0-ace7-e35ceee13923";
     
     
     public static String KK_PLUGIN_BASE_PLUGIN_BLUETOOTH = "KKBTConnection";
