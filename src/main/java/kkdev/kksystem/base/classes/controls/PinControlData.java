@@ -27,9 +27,9 @@ public class PinControlData extends PinBaseData {
     
     public String UIContextID;
     
-    public KK_CONTROL_DATA ControlDataType;
+    public KK_CONTROL_DATA controlDataType;
     //
-    public String ControlID;
+    public String controlID;
     //
-    public int ControlValue;
+    public int controlValue;
 }

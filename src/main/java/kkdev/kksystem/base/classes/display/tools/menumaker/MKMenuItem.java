@@ -10,8 +10,8 @@ package kkdev.kksystem.base.classes.display.tools.menumaker;
  * @author sayma_000
  */
 public class MKMenuItem {
-    public String DisplayName;
-    public String ItemCommand;
-    public String ItemBackFromSubItemCommand;
-    public MKMenuItem[] SubItems;
+    public String displayName;
+    public String itemCommand;
+    public String itemBackFromSubItemCommand;
+    public MKMenuItem[] subItems;
 }

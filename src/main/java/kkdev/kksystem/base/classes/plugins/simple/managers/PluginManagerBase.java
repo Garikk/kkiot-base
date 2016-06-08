@@ -19,13 +19,13 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  * @author blinov_is
  */
 public  class PluginManagerBase {
-    public Map<String,String> CurrentFeature; // UIContext => Feature
-    public IPluginKKConnector Connector;
-    public IPluginBaseInterface BaseConnector;
+    public Map<String,String> currentFeature; // UIContext => Feature
+    public IPluginKKConnector connector;
+    public IPluginBaseInterface baseConnector;
     
     public PluginManagerBase()
     {
-        CurrentFeature=new HashMap<>();
+        currentFeature=new HashMap<>();
     }
     
     
@@ -35,7 +35,7 @@ public  class PluginManagerBase {
         Msg.PinData = PinData;
         Msg.FeatureID=FeatureID;
 
-        Connector.SendPinMessage(Msg);
+        connector.sendPinMessage(Msg);
         
 
     }
@@ -45,7 +45,7 @@ public  class PluginManagerBase {
         Msg.PinData = PinData;
         Msg.FeatureID=FeatureID;
 
-        BaseConnector._ExecutePinCommandDirect(PluginUUID, Msg);
+        baseConnector._executePinCommandDirect(PluginUUID, Msg);
 
     }
  
@@ -57,9 +57,9 @@ public  class PluginManagerBase {
      public synchronized void _NOTIFY_SendNotifyMessage(String SenderPluginUUID,String FeatureID,NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
         PinNotifyData PD;
         PD=new PinNotifyData();
-        PD.NotifyText=NotifyText;
-        PD.NotifyMethod=NotifyMethod;
-        PD.NotifyType=NotifyType;
+        PD.notifyText=NotifyText;
+        PD.notifyMethod=NotifyMethod;
+        PD.notifyType=NotifyType;
         
         PluginMessage Msg = new PluginMessage();
         Msg.PinName = PluginConsts.KK_PLUGIN_BASE_NOTIFY_DATA;
@@ -68,9 +68,9 @@ public  class PluginManagerBase {
         if (SenderPluginUUID!=null)
             Msg.SenderUID=SenderPluginUUID;
 
-        if (Connector==null)
-            BaseConnector.ExecutePinCommand(Msg);
+        if (connector==null)
+            baseConnector.executePinCommand(Msg);
         else
-            Connector.SendPinMessage(Msg);
+            connector.sendPinMessage(Msg);
     }
 }

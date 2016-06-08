@@ -16,12 +16,12 @@ public class DisplayInfo {
         DISPLAY_GRAPHIC,
         DISPLAY_MIXED
     }
-    public UIDisplayType DisplayType;
-    public int Text_COLS;
-    public int Text_ROWS;
-    public int Graphic_Width_px;
-    public int Graphic_Height_px;
-    public int MaxBackLight;
-    public int MaxContrast;
-    public String DisplayID;
+    public UIDisplayType displayType;
+    public int textMode_Columns;
+    public int textMode_Rows;
+    public int gfxMode_Width;
+    public int gfxMode_Height;
+    public int maxBackLight;
+    public int maxContrast;
+    public String displayID;
 }
