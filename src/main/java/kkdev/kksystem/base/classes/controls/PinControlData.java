@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.controls;
 
+import java.util.Set;
 import kkdev.kksystem.base.classes.base.PinBaseData;
 
 /**
@@ -29,7 +30,7 @@ public class PinControlData extends PinBaseData {
     
     public KK_CONTROL_DATA controlDataType;
     //
-    public String controlID;
+    public Set<String> controlID;
     //
     public int controlValue;
 }

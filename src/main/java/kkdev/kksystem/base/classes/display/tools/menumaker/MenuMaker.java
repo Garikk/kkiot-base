@@ -7,6 +7,7 @@ package kkdev.kksystem.base.classes.display.tools.menumaker;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Set;
 import kkdev.kksystem.base.classes.controls.PinControlData;
 import kkdev.kksystem.base.classes.display.pages.PageConsts;
 import kkdev.kksystem.base.classes.notify.NotifyConsts;
@@ -219,30 +220,32 @@ public class MenuMaker {
     public MKMenuItem getCurrentSelection() {
         return MViewer.getCurrentMenuItem();
     }
-    
-     public void processControlCommand(String ControlID) {
-        switch (ControlID) {
-            case PinControlData.DEF_BTN_UP:
-                menuSelectUp();
-                sendNarratorNotification(getCurrentSelection().displayName);
-                callback.activeMenuElement(getCurrentSelection().displayName, getCurrentSelection().itemCommand);
-                break;
-            case PinControlData.DEF_BTN_DOWN:
-                menuSelectDown();
-                sendNarratorNotification(getCurrentSelection().displayName);
-                callback.activeMenuElement(getCurrentSelection().displayName, getCurrentSelection().itemCommand);
-                break;
-            case PinControlData.DEF_BTN_ENTER:
-                menuExec();
-                break;
-            case PinControlData.DEF_BTN_BACK:
-                menuSelectBack();
-                //SendNarratorNotification(getCurrentSelection().displayName);
-                //CallBack.activeMenuElement(getCurrentSelection().displayName, getCurrentSelection().itemCommand);
-                break;
+
+    public void processControlCommand(Set<String> ControlID) {
+        for (String btnCtrl : ControlID) {
+            switch (btnCtrl) {
+                case PinControlData.DEF_BTN_UP:
+                    menuSelectUp();
+                    sendNarratorNotification(getCurrentSelection().displayName);
+                    callback.activeMenuElement(getCurrentSelection().displayName, getCurrentSelection().itemCommand);
+                    break;
+                case PinControlData.DEF_BTN_DOWN:
+                    menuSelectDown();
+                    sendNarratorNotification(getCurrentSelection().displayName);
+                    callback.activeMenuElement(getCurrentSelection().displayName, getCurrentSelection().itemCommand);
+                    break;
+                case PinControlData.DEF_BTN_ENTER:
+                    menuExec();
+                    break;
+                case PinControlData.DEF_BTN_BACK:
+                    menuSelectBack();
+                    //SendNarratorNotification(getCurrentSelection().displayName);
+                    //CallBack.activeMenuElement(getCurrentSelection().displayName, getCurrentSelection().itemCommand);
+                    break;
+            }
         }
     }
-     
+
     private void sendNarratorNotification(String Text) {
         if (!sendNotifications) {
             return;

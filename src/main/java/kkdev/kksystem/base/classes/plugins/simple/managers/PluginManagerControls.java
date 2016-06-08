@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.plugins.simple.managers;
 
+import java.util.Set;
 import kkdev.kksystem.base.classes.controls.PinControlData;
 import kkdev.kksystem.base.classes.controls.PinControlData.KK_CONTROL_DATA;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_CONTROL_DATA;
@@ -15,7 +16,7 @@ import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_CONTROL_
  */
 public class PluginManagerControls extends PluginManagerBase {
 
-    public synchronized void CONTROL_SendPluginMessageData(String FeatureID,String UIContextID , String ControlID, KK_CONTROL_DATA EventType, int IntValue) {
+    public synchronized void CONTROL_SendPluginMessageData(String FeatureID,String UIContextID , Set<String> ControlID, KK_CONTROL_DATA EventType, int IntValue) {
 
         PinControlData PData = CONTROL_SendPluginMessageData_PData(FeatureID,UIContextID, ControlID, EventType, IntValue);
         //
@@ -23,7 +24,7 @@ public class PluginManagerControls extends PluginManagerBase {
         this.BASE_SendPluginMessage(FeatureID, KK_PLUGIN_BASE_CONTROL_DATA, PData);
     }
 
-    public static synchronized PinControlData CONTROL_SendPluginMessageData_PData(String FeatureID,String UIContextID, String ControlID, KK_CONTROL_DATA EventType, int IntValue) {
+    public static synchronized PinControlData CONTROL_SendPluginMessageData_PData(String FeatureID,String UIContextID, Set<String> ControlID, KK_CONTROL_DATA EventType, int IntValue) {
 
         PinControlData PData = new PinControlData();
         //

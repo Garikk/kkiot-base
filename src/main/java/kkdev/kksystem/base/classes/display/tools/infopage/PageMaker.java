@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.display.tools.infopage;
 
+import java.util.Set;
 import kkdev.kksystem.base.classes.controls.PinControlData;
 import kkdev.kksystem.base.classes.display.pages.framesKeySet;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
@@ -44,22 +45,23 @@ public class PageMaker {
         }
     }
 
-    public void processControlCommand(String ControlID) {
-        switch (ControlID) {
-            case PinControlData.DEF_BTN_UP:
-                selectPrevPage();
-                break;
-            case PinControlData.DEF_BTN_DOWN:
-                selectNextPage();
-                break;
-            case PinControlData.DEF_BTN_ENTER:
-                execCommand();
-                break;
-            case PinControlData.DEF_BTN_BACK:
-                break;
+    public void processControlCommand(Set<String> ControlID) {
+        for (String btnCtrl : ControlID) {
+            switch (btnCtrl) {
+                case PinControlData.DEF_BTN_UP:
+                    selectPrevPage();
+                    break;
+                case PinControlData.DEF_BTN_DOWN:
+                    selectNextPage();
+                    break;
+                case PinControlData.DEF_BTN_ENTER:
+                    execCommand();
+                    break;
+                case PinControlData.DEF_BTN_BACK:
+                    break;
 
+            }
         }
-
     }
 
     public void showInfoPage() {
