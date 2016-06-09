@@ -13,7 +13,7 @@ import java.util.Map;
  * @author blinov_is
  */
 public class framesKeySet {
-    public Map<String,String> frameValues;
+    public  Map<String,String> frameValues;
     
     public framesKeySet()
     {
@@ -41,6 +41,9 @@ public class framesKeySet {
         {
             frameValues.put(Keys[i], Values[i]);
         }
-    
+    }
+    public void setValue(String Key,String Value)
+    {
+            frameValues.put(Key, Value);
     }
 }
