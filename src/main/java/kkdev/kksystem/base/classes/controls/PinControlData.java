@@ -18,6 +18,20 @@ public class PinControlData extends PinBaseData {
     public final static String DEF_BTN_ENTER="BTN_ENTER";
     public final static String DEF_BTN_BACK="BTN_BACK";
     
+    public final static String DEF_BTN_PLAY="BTN_PLAY";
+    public final static String DEF_BTN_STOP="BTN_STOP";
+    public final static String DEF_BTN_PAUSE="BTN_PAUSE";
+    public final static String DEF_BTN_NEXT_TRACK="BTN_NEXT_TRACK";
+    public final static String DEF_BTN_PREV_TRACK="BTN_PREV_TRACK";
+    public final static String DEF_BTN_SEEK_FF="BTN_SEEK_FWD";
+    public final static String DEF_BTN_SEEK_RW="BTN_SEEK_RW";
+    public final static String DEF_BTN_VOL_INC="BTN_VOL_INC";
+    public final static String DEF_BTN_VOL_DEC="BTN_VOL_DEC";
+    public final static String DEF_BTN_VOL_MUTE="BTN_VOL_MUTE";
+    public final static String DEF_BTN_VOL_UNMUTE="BTN_VOL_UNMUTE";
+     
+    
+    
     public enum KK_CONTROL_DATA{
         CONTROL_ACTIVATE,
         CONTROL_DEACTIVATE,
