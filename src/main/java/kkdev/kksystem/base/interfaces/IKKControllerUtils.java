@@ -17,6 +17,16 @@ import kkdev.kksystem.base.classes.plugins.PluginInfo;
  * @author blinov_is
  */
 public interface IKKControllerUtils {
+    public enum ControllerUtilsPinRequestTypes
+    {
+        HWDev_GetRS232Devices,
+        PLUGINS_GetLoadedPlugins,
+        DISPLAY_GetUIDisplayPages,
+        DISPLAY_GetUIDisplayPage,
+        UICONTEXT_AddUIContext,
+        UICONTEXT_GetUIContext,
+        UICONTEXT_UpdateUIContext
+    }
     //HWDevices
     public List<RS232Device> HWDEVICES_GetRS232Devices();
     // Plugin information

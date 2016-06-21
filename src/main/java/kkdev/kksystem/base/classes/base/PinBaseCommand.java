@@ -16,13 +16,9 @@ public class PinBaseCommand {
         CHANGE_FEATURE,
         CURRENT_FEATURE,
         PLUGIN,
-        SYSTEM_RESTART_KKCONTROLLER,
-        SYSTEM_REBOOT_HW,
-        SYSTEM_POWEROFF,
-        SYSTEM_RESTORE_BACKUP,
-        SYSTEM_RESTORE_EMERGENCY,
         INTERNET_STATE_ACTIVE,
-        INTERNET_STATE_INACTIVE
+        INTERNET_STATE_INACTIVE,
+        SYSTEM_UTILS
     }
     
     public PinBaseCommand()
