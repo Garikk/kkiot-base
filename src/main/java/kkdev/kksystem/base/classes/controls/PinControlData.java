@@ -23,6 +23,8 @@ public class PinControlData extends PinBaseData {
     public final static String DEF_BTN_PAUSE="BTN_PAUSE";
     public final static String DEF_BTN_NEXT_TRACK="BTN_NEXT_TRACK";
     public final static String DEF_BTN_PREV_TRACK="BTN_PREV_TRACK";
+    public final static String DEF_BTN_NEXT_PLIST="BTN_NEXT_PLIST";
+    public final static String DEF_BTN_PREV_PLIST="BTN_PREV_PLIST";
     public final static String DEF_BTN_SEEK_FF="BTN_SEEK_FWD";
     public final static String DEF_BTN_SEEK_RW="BTN_SEEK_RW";
     public final static String DEF_BTN_VOL_INC="BTN_VOL_INC";
