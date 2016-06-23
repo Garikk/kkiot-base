@@ -10,15 +10,14 @@ package kkdev.kksystem.base.classes.base;
  * @author blinov_is
  */
 public abstract class PinData {
-    public enum BASE_DATA_TYPE
-    {
-       TAGGED_INT,
-       TAGGED_OBJ,
-       OTHER
+
+    public enum BASE_DATA_TYPE {
+        TAGGED_INT,
+        TAGGED_OBJ,
+        OTHER
     }
-  public String featureID;
-  public String dataDescription;
-  public BASE_DATA_TYPE pinDataType;
-    public String commandDescription;
-    
+    public String featureID;
+    public String dataDescription;
+    public BASE_DATA_TYPE pinDataType;
+
 }

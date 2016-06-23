@@ -16,17 +16,21 @@ public class PluginMessage {
     public String FeatureID;    //Feature ID
     public String UIContextID;
     public String pinName; 
-    public PinData pinData;
+    private PinData pinData;
     
-    public PluginMessage newInstance()
+    public PluginMessage(PinData newPinData)
+    {
+        pinData=newPinData;
+    }
+    
+    public PluginMessage cloneMessage()
     {
         PluginMessage Ret;
-        Ret=new PluginMessage();
+        Ret=new PluginMessage(this.pinData);
         Ret.SenderUID=this.SenderUID;
         Ret.FeatureID=this.FeatureID;
         Ret.UIContextID=this.UIContextID;
         Ret.pinName=this.pinName;
-        Ret.pinData=this.pinData;
         return Ret;
     }
     

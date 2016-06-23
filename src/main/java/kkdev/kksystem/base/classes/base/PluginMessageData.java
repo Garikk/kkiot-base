@@ -13,6 +13,10 @@ import kkdev.kksystem.base.classes.plugins.PluginMessage;
  */
 public class PluginMessageData extends PluginMessage {
 
+    public PluginMessageData(PinData newPinData) {
+        super(newPinData);
+    }
+
     @Override
     public void setPinData(PinData PinData) {
         super.setPinData(PinData); //To change body of generated methods, choose Tools | Templates.
@@ -24,8 +28,8 @@ public class PluginMessageData extends PluginMessage {
     }
 
     @Override
-    public PluginMessage newInstance() {
-        return super.newInstance(); //To change body of generated methods, choose Tools | Templates.
+    public PluginMessage cloneMessage() {
+        return super.cloneMessage(); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

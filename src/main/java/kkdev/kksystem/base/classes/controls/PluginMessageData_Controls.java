@@ -13,6 +13,10 @@ import kkdev.kksystem.base.classes.plugins.PluginMessage;
  */
 public class PluginMessageData_Controls extends PluginMessage {
 
+    public PluginMessageData_Controls(PinDataControl newPinData) {
+        super(newPinData);
+    }
+
 
     public void setPinData(PinDataControl PinData) {
         super.setPinData(PinData); //To change body of generated methods, choose Tools | Templates.

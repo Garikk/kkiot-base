@@ -31,9 +31,8 @@ public  class PluginManagerBase {
     
     
     public synchronized void BASE_SendPluginMessage(String FeatureID,String UIContextID,String PinName, PinData PinData) {
-        PluginMessage Msg = new PluginMessage();
+        PluginMessage Msg = new PluginMessage(PinData);
         Msg.pinName = PinName;
-        Msg.pinData = PinData;
         Msg.FeatureID=FeatureID;
         Msg.UIContextID=UIContextID;
 
@@ -42,9 +41,8 @@ public  class PluginManagerBase {
 
     }
     public synchronized void _BASE_SendPluginMessageDirect(String FeatureID,String UIContextID,String PluginUUID,String PinName, PinData PinData) {
-        PluginMessage Msg = new PluginMessage();
+        PluginMessage Msg = new PluginMessage(PinData);
         Msg.pinName = PinName;
-        Msg.pinData = PinData;
         Msg.FeatureID=FeatureID;
         Msg.UIContextID=UIContextID;
 
@@ -64,9 +62,8 @@ public  class PluginManagerBase {
         PD.notifyMethod=NotifyMethod;
         PD.notifyType=NotifyType;
         
-        PluginMessage Msg = new PluginMessage();
+        PluginMessage Msg = new PluginMessage(PD);
         Msg.pinName = PluginConsts.KK_PLUGIN_BASE_NOTIFY_DATA;
-        Msg.pinData = PD;
         Msg.FeatureID=FeatureID;
         if (SenderPluginUUID!=null)
             Msg.SenderUID=SenderPluginUUID;

@@ -17,6 +17,7 @@ public class PinDataFtrCtx extends PinData {
         ChangeFeature
     }
     
+    public FCManagementCommand managementCommand;
     public String changeUIContextID;
     public String changeFeatureID;
 }

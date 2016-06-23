@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.display;
 
+import kkdev.kksystem.base.classes.base.PinData;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 
 /**
@@ -12,6 +13,10 @@ import kkdev.kksystem.base.classes.plugins.PluginMessage;
  * @author blinov_is
  */
 public class PluginMessageData_Led extends PluginMessage {
+
+    public PluginMessageData_Led(PinDataLed newPinData) {
+        super(newPinData);
+    }
 
 
     public void setPinData(PinDataLed PinData) {
