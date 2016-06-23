@@ -6,13 +6,13 @@
 package kkdev.kksystem.base.classes.controls;
 
 import java.util.Set;
-import kkdev.kksystem.base.classes.base.PinBaseData;
+import kkdev.kksystem.base.classes.base.PinData;
 
 /**
  *
  * @author blinov_is
  */
-public class PinControlData extends PinBaseData {
+public class PinDataControl extends PinData {
     public final static String DEF_BTN_UP="BTN_UP";
     public final static String DEF_BTN_DOWN="BTN_DOWN";
     public final static String DEF_BTN_ENTER="BTN_ENTER";

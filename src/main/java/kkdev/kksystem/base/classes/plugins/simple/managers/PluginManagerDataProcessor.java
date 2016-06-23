@@ -6,8 +6,7 @@
 package kkdev.kksystem.base.classes.plugins.simple.managers;
 
 import kkdev.kksystem.base.classes.display.DisplayConstants;
-import kkdev.kksystem.base.classes.display.PinLedCommand;
-import kkdev.kksystem.base.classes.display.PinLedData;
+import kkdev.kksystem.base.classes.display.PinDataLed;
 import kkdev.kksystem.base.classes.display.pages.framesKeySet;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_LED_COMMAND;
 import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_LED_DATA;
@@ -35,7 +34,7 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
     }
 
     private void DISPLAY_UpdateUIFrames_Internal(String FeatureID,String UIContextID,boolean Direct,  String TargetID, String PageName, framesKeySet UIFrames) {
-        PinLedData PLD = new PinLedData();
+        PinDataLed PLD = new PinDataLed();
         PLD.displayFrames = UIFrames;
         PLD.featureID = FeatureID;
         PLD.targetPage = PageName;
@@ -45,9 +44,9 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         
         
         if (Direct) {
-            _DISPLAY_SendPluginMessageDataDirect(FeatureID, TargetID, PLD);
+            _DISPLAY_SendPluginMessageDataDirect(FeatureID,UIContextID, TargetID, PLD);
         } else {
-            DISPLAY_SendPluginMessageData(FeatureID, PLD);
+            DISPLAY_SendPluginMessageData(FeatureID,UIContextID, PLD);
         }
     }
 
@@ -60,32 +59,30 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
     }
 
     private void DISPLAY_SendPluginMessageCommand_Internal(String FeatureID,String UIContextID,boolean Direct, String TargetID, DisplayConstants.KK_DISPLAY_COMMAND Command, String PageID, String[] DataStr, int[] DataInt, boolean[] DataBool) {
-        PinLedCommand PData = new PinLedCommand();
+        PinDataLed PData = new PinDataLed();
         PData.command = Command;
         PData.dataBOOL = DataBool;
         PData.dataINT = DataInt;
         PData.dataSTRING = DataStr;
         PData.pageID = PageID;
-        PData.changeFeatureID=FeatureID;
-        PData.changeUIContextID=UIContextID;
 
         if (Direct) {
-            this._BASE_SendPluginMessageDirect(FeatureID, TargetID, KK_PLUGIN_BASE_LED_COMMAND, PData);
+            this._BASE_SendPluginMessageDirect(FeatureID,UIContextID, TargetID, KK_PLUGIN_BASE_LED_COMMAND, PData);
         } else {
-            this.BASE_SendPluginMessage(FeatureID, KK_PLUGIN_BASE_LED_COMMAND, PData);
+            this.BASE_SendPluginMessage(FeatureID,UIContextID, KK_PLUGIN_BASE_LED_COMMAND, PData);
         }
     }
 
-    public void DISPLAY_SendPluginMessageData(String FeatureID, PinLedData PData) {
+    public void DISPLAY_SendPluginMessageData(String FeatureID,String UIContextID, PinDataLed PData) {
 
         //
-        this.BASE_SendPluginMessage(FeatureID, KK_PLUGIN_BASE_LED_DATA, PData);
+        this.BASE_SendPluginMessage(FeatureID,UIContextID, KK_PLUGIN_BASE_LED_DATA, PData);
     }
 
-    public void _DISPLAY_SendPluginMessageDataDirect(String FeatureID, String PluginID, PinLedData PData) {
+    public void _DISPLAY_SendPluginMessageDataDirect(String FeatureID,String UIContextID, String PluginID, PinDataLed PData) {
 
         //
-        this._BASE_SendPluginMessageDirect(FeatureID, PluginID, KK_PLUGIN_BASE_LED_DATA, PData);
+        this._BASE_SendPluginMessageDirect(FeatureID,UIContextID, PluginID, KK_PLUGIN_BASE_LED_DATA, PData);
     }
 
 

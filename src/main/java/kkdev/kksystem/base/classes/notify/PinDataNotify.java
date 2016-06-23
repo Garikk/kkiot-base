@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.notify;
 
+import kkdev.kksystem.base.classes.base.PinData;
 import kkdev.kksystem.base.classes.notify.NotifyConsts.NOTIFY_METHOD;
 import kkdev.kksystem.base.classes.notify.NotifyConsts.NOTIFY_TYPE;
 
@@ -12,7 +13,7 @@ import kkdev.kksystem.base.classes.notify.NotifyConsts.NOTIFY_TYPE;
  *
  * @author blinov_is
  */
-public class PinNotifyData {
+public class PinDataNotify extends PinData{
     public NOTIFY_TYPE notifyType;
     public NOTIFY_METHOD[] notifyMethod;
     

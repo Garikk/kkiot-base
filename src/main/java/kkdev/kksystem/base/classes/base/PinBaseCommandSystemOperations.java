@@ -9,7 +9,7 @@ package kkdev.kksystem.base.classes.base;
  *
  * @author blinov_is
  */
-public class PinBaseCommandSystemOperations extends PinBaseCommand {
+public class PinBaseCommandSystemOperations extends PinData {
      public enum SystemOperationsCommand
     {
 
@@ -21,4 +21,6 @@ public class PinBaseCommandSystemOperations extends PinBaseCommand {
       
     }
      public SystemOperationsCommand CommandType;
+     
+
 }

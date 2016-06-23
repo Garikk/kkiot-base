@@ -7,8 +7,9 @@ package kkdev.kksystem.base.classes.plugins.simple.managers;
 
 import java.util.HashMap;
 import java.util.Map;
+import kkdev.kksystem.base.classes.base.PinData;
 import kkdev.kksystem.base.classes.notify.NotifyConsts;
-import kkdev.kksystem.base.classes.notify.PinNotifyData;
+import kkdev.kksystem.base.classes.notify.PinDataNotify;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import kkdev.kksystem.base.constants.PluginConsts;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
@@ -29,21 +30,23 @@ public  class PluginManagerBase {
     }
     
     
-    public synchronized void BASE_SendPluginMessage(String FeatureID,String PinName, Object PinData) {
+    public synchronized void BASE_SendPluginMessage(String FeatureID,String UIContextID,String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessage();
-        Msg.PinName = PinName;
-        Msg.PinData = PinData;
+        Msg.pinName = PinName;
+        Msg.pinData = PinData;
         Msg.FeatureID=FeatureID;
+        Msg.UIContextID=UIContextID;
 
         connector.sendPinMessage(Msg);
         
 
     }
-    public synchronized void _BASE_SendPluginMessageDirect(String FeatureID,String PluginUUID,String PinName, Object PinData) {
+    public synchronized void _BASE_SendPluginMessageDirect(String FeatureID,String UIContextID,String PluginUUID,String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessage();
-        Msg.PinName = PinName;
-        Msg.PinData = PinData;
+        Msg.pinName = PinName;
+        Msg.pinData = PinData;
         Msg.FeatureID=FeatureID;
+        Msg.UIContextID=UIContextID;
 
         baseConnector._executePinCommandDirect(PluginUUID, Msg);
 
@@ -55,15 +58,15 @@ public  class PluginManagerBase {
     
     
      public synchronized void _NOTIFY_SendNotifyMessage(String SenderPluginUUID,String FeatureID,NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
-        PinNotifyData PD;
-        PD=new PinNotifyData();
+        PinDataNotify PD;
+        PD=new PinDataNotify();
         PD.notifyText=NotifyText;
         PD.notifyMethod=NotifyMethod;
         PD.notifyType=NotifyType;
         
         PluginMessage Msg = new PluginMessage();
-        Msg.PinName = PluginConsts.KK_PLUGIN_BASE_NOTIFY_DATA;
-        Msg.PinData = PD;
+        Msg.pinName = PluginConsts.KK_PLUGIN_BASE_NOTIFY_DATA;
+        Msg.pinData = PD;
         Msg.FeatureID=FeatureID;
         if (SenderPluginUUID!=null)
             Msg.SenderUID=SenderPluginUUID;

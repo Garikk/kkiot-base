@@ -5,16 +5,22 @@
  */
 package kkdev.kksystem.base.classes.display;
 
+import kkdev.kksystem.base.classes.base.PinData;
 import kkdev.kksystem.base.classes.display.pages.framesKeySet;
-import kkdev.kksystem.base.classes.base.PinBaseData;
 import kkdev.kksystem.base.classes.display.DisplayConstants.KK_DISPLAY_DATA;
 
 /**
  *
  * @author blinov_is
  */
-public class PinLedData extends PinBaseData {
-
+public class PinDataLed extends PinData {
+    public DisplayConstants.KK_DISPLAY_COMMAND command;
+    
+    public String pageID;
+    public int[] dataINT;
+    public String[] dataSTRING;
+    public boolean[] dataBOOL;
+    //
     public String contextID;
     
     public KK_DISPLAY_DATA ledDataType;

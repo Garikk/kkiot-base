@@ -5,19 +5,23 @@
  */
 package kkdev.kksystem.base.classes.odb2;
 
-import kkdev.kksystem.base.classes.base.PinBaseCommand;
-import kkdev.kksystem.base.classes.odb2.ODBConstants.KK_ODB_COMMANDTYPE;
-import kkdev.kksystem.base.classes.odb2.ODBConstants.KK_ODB_DATACOMMANDINFO;
 
+import kkdev.kksystem.base.classes.base.PinData;
+import kkdev.kksystem.base.classes.odb2.ODBConstants.KK_ODB_DATATYPE;
 
 /**
  *
  * @author blinov_is
  */
-public class PinOdb2Command extends PinBaseCommand{
-    public KK_ODB_COMMANDTYPE command;      //Type of command for ODB Plugin
-    public KK_ODB_DATACOMMANDINFO commandData;   //Type of Data
+public class PinDataOdb2 extends PinData {
+    public KK_ODB_DATATYPE Odb2DataType;
+    
+        public ODBConstants.KK_ODB_COMMANDTYPE command;      //Type of command for ODB Plugin
+    public ODBConstants.KK_ODB_DATACOMMANDINFO commandData;   //Type of Data
     public int[] requestPIDs;               //pid numbers
     public int[] dynamicRequestInterval;    //0 - one request, other - seconds for dynamic requests
     public Object objectData;               //any raw data for plugin interconnection
+
+    public ODB2Data ODBData;
+    public PinOdb2ConnectorInfo AdapterInfo;
 }

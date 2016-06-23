@@ -10,12 +10,12 @@ package kkdev.kksystem.base.classes.base;
  *
  * @author blinov_is
  */
-public class PinBaseDataTaggedObj extends PinBaseData {
-    
-    public PinBaseDataTaggedObj()
+public class PinDataTaggedInt extends PinData {
+
+    public PinDataTaggedInt()
     {
-        this.dataType=BASE_DATA_TYPE.TAGGED_OBJ;
+        this.pinDataType=BASE_DATA_TYPE.TAGGED_INT;
     }
     public String tag;
-    public Object value;
+    public int value;
 }

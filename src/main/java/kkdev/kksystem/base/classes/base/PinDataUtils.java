@@ -5,13 +5,16 @@
  */
 package kkdev.kksystem.base.classes.base;
 
-import kkdev.kksystem.base.interfaces.IKKControllerUtils;
+import kkdev.kksystem.base.interfaces.IKKControllerUtils.ControllerUtilsPinRequestTypes;
 
 /**
  *
  * @author blinov_is
  */
-public class PinBaseDataUtils extends PinBaseData {
-        public IKKControllerUtils.ControllerUtilsPinRequestTypes DataType;
-        public Object UtilsData;
+public class PinDataUtils extends PinData {
+    public ControllerUtilsPinRequestTypes CommandType;
+    public String RequestArgument;
+    public Object RequestArgument2;
+
+    
 }

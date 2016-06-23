@@ -5,14 +5,14 @@
  */
 package kkdev.kksystem.base.classes.geo;
 
-import kkdev.kksystem.base.classes.base.PinBaseData;
+import kkdev.kksystem.base.classes.base.PinData;
 import static kkdev.kksystem.base.classes.geo.NMEA0183.*;
 
 /**
  *
  * @author blinov_is
  */
-public class PinGeoData extends PinBaseData{
+public class PinDataGeo extends PinData{
     public static enum GEO_DATA_TYPE
     {
         GEO_GPRMC,

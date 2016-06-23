@@ -5,20 +5,18 @@
  */
 package kkdev.kksystem.base.classes.base;
 
-
-
 /**
  *
  * @author blinov_is
  */
-public class PinBaseData {
-      public enum BASE_DATA_TYPE
+public class PinDataFtrCtx extends PinData {
+   
+    public enum FCManagementCommand
     {
-       TAGGED_INT,
-       TAGGED_OBJ
+        ChangeUIContext,
+        ChangeFeature
     }
-  public String featureID;
-  public String logReason;
-  public BASE_DATA_TYPE dataType;
-
+    
+    public String changeUIContextID;
+    public String changeFeatureID;
 }

@@ -5,7 +5,7 @@
  */
 package kkdev.kksystem.base.classes.plugins;
 
-import kkdev.kksystem.base.classes.base.PinBaseCommand;
+import kkdev.kksystem.base.classes.base.PinData;
 
 /**
  *
@@ -14,8 +14,9 @@ import kkdev.kksystem.base.classes.base.PinBaseCommand;
 public class PluginMessage {
     public String SenderUID;    //Sender plugin ID
     public String FeatureID;    //Feature ID
-    public String PinName; 
-    public Object PinData;
+    public String UIContextID;
+    public String pinName; 
+    public PinData pinData;
     
     public PluginMessage newInstance()
     {
@@ -23,9 +24,19 @@ public class PluginMessage {
         Ret=new PluginMessage();
         Ret.SenderUID=this.SenderUID;
         Ret.FeatureID=this.FeatureID;
-        Ret.PinName=this.PinName;
-        Ret.PinData=this.PinData;
-        
+        Ret.UIContextID=this.UIContextID;
+        Ret.pinName=this.pinName;
+        Ret.pinData=this.pinData;
         return Ret;
+    }
+    
+    public Object getPinData()
+    {
+        return pinData;
+    }
+    
+    public void setPinData(PinData PinData)
+    {
+        pinData=PinData;
     }
 }

@@ -5,15 +5,20 @@
  */
 package kkdev.kksystem.base.classes.base;
 
-import kkdev.kksystem.base.interfaces.IKKControllerUtils.ControllerUtilsPinRequestTypes;
-
 /**
  *
  * @author blinov_is
  */
-public class PinBaseCommandUtils extends PinBaseCommand {
-    public ControllerUtilsPinRequestTypes CommandType;
-    public String RequestArgument;
-    public Object RequestArgument2;
+public abstract class PinData {
+    public enum BASE_DATA_TYPE
+    {
+       TAGGED_INT,
+       TAGGED_OBJ,
+       OTHER
+    }
+  public String featureID;
+  public String dataDescription;
+  public BASE_DATA_TYPE pinDataType;
+    public String commandDescription;
     
 }
