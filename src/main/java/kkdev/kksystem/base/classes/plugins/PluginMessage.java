@@ -11,7 +11,7 @@ import kkdev.kksystem.base.classes.base.PinData;
  *
  * @author blinov_is
  */
-public class PluginMessage {
+public abstract class PluginMessage {
     public String SenderUID;    //Sender plugin ID
     public String FeatureID;    //Feature ID
     public String UIContextID;
@@ -25,13 +25,7 @@ public class PluginMessage {
     
     public PluginMessage cloneMessage()
     {
-        PluginMessage Ret;
-        Ret=new PluginMessage(this.pinData);
-        Ret.SenderUID=this.SenderUID;
-        Ret.FeatureID=this.FeatureID;
-        Ret.UIContextID=this.UIContextID;
-        Ret.pinName=this.pinName;
-        return Ret;
+        return this;
     }
     
     public Object getPinData()

@@ -10,10 +10,8 @@ package kkdev.kksystem.base.classes.base;
  *
  * @author blinov_is
  */
-public class PinDataTaggedObj extends PinData {
-    
+public class PinDataTaggedString extends PinData {
+
     public String tag;
-    public Object value;
-    
-    
+    public String value;
 }

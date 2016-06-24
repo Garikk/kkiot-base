@@ -23,6 +23,7 @@ public class PluginMessageData_Notify extends PluginMessage {
         super.setPinData(PinData); //To change body of generated methods, choose Tools | Templates.
     }
 
+
     @Override
     public PinDataNotify getPinData() {
         return (PinDataNotify)super.getPinData(); //To change body of generated methods, choose Tools | Templates.

@@ -14,7 +14,8 @@ public class PinDataFtrCtx extends PinData {
     public enum FCManagementCommand
     {
         ChangeUIContext,
-        ChangeFeature
+        ChangeFeature,
+        CurrentFeature
     }
     
     public FCManagementCommand managementCommand;

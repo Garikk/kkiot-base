@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.interfaces;
 
+import kkdev.kksystem.base.classes.base.PluginMessageData;
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 
