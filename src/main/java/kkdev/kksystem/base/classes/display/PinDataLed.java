@@ -21,8 +21,6 @@ public class PinDataLed extends PinData {
     public String[] dataSTRING;
     public boolean[] dataBOOL;
     //
-    public String contextID;
-    
     public KK_DISPLAY_DATA ledDataType;
     //
     public String targetPage;           //Target page

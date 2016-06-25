@@ -39,9 +39,7 @@ public class PluginManagerDataProcessor extends PluginManagerBase {
         PLD.featureID = FeatureID;
         PLD.targetPage = PageName;
         PLD.ledDataType = DisplayConstants.KK_DISPLAY_DATA.DISPLAY_KKSYS_TEXT_UPDATE_FRAME;
-        PLD.contextID=UIContextID;
-
-        
+       
         
         if (Direct) {
             _DISPLAY_SendPluginMessageDataDirect(FeatureID,UIContextID, TargetID, PLD);
