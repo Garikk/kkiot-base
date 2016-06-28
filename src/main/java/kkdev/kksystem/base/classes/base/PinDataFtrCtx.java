@@ -5,6 +5,8 @@
  */
 package kkdev.kksystem.base.classes.base;
 
+import java.util.Map;
+
 /**
  *
  * @author blinov_is
@@ -13,12 +15,13 @@ public class PinDataFtrCtx extends PinData {
    
     public enum FCManagementCommand
     {
-        ChangeUIContext,
         ChangeFeature,
         CurrentFeature
     }
     
     public FCManagementCommand managementCommand;
-    public String changeUIContextID;
-    public String changeFeatureID;
+    public String manageUIContextID;
+    public String manageFeatureID;
+    
+    public Map<String,String> FeaturesInfo;
 }
