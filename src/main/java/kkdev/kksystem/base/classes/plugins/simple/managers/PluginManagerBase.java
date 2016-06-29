@@ -21,58 +21,79 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  *
  * @author blinov_is
  */
-public  class PluginManagerBase {
-    public Map<String,String> currentFeature; // UIContext => Feature
-    public IPluginKKConnector connector;
-    public IPluginBaseInterface baseConnector;
-    
-    public PluginManagerBase()
-    {
-        currentFeature=new HashMap<>();
+public class PluginManagerBase {
+
+    public Map<String, String> currentFeature; // UIContext => Feature
+    private IPluginKKConnector connector;
+    private IPluginBaseInterface baseConnector;
+
+    public PluginManagerBase() {
+        currentFeature = new HashMap<>();
     }
-    
-    
-    public synchronized void BASE_SendPluginMessage(String FeatureID,String UIContextID,String PinName, PinData PinData) {
+
+    public PluginManagerBase(IPluginKKConnector PluginConnector) {
+        currentFeature = new HashMap<>();
+        connector = PluginConnector;
+    }
+
+    public PluginManagerBase(IPluginBaseInterface BaseConnector) {
+        currentFeature = new HashMap<>();
+        baseConnector = BaseConnector;
+    }
+
+    public void setBaseConnector(IPluginBaseInterface BaseConnector) {
+        baseConnector = BaseConnector;
+    }
+
+    public void setPluginConnector(IPluginKKConnector PluginConnector) {
+        connector = PluginConnector;
+    }
+
+    public IPluginKKConnector getPluginConnector() {
+        return connector;
+    }
+
+    public synchronized void BASE_SendPluginMessage(String FeatureID, String UIContextID, String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessageData(PinData);
         Msg.pinName = PinName;
-        Msg.FeatureID=FeatureID;
-        Msg.UIContextID=UIContextID;
+        Msg.FeatureID = FeatureID;
+        Msg.UIContextID = UIContextID;
 
         connector.sendPinMessage(Msg);
-        
-
     }
-    public synchronized void _BASE_SendPluginMessageDirect(String FeatureID,String UIContextID,String PluginUUID,String PinName, PinData PinData) {
+
+    public synchronized void _BASE_SendPluginMessageDirect(String FeatureID, String UIContextID, String PluginUUID, String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessageData(PinData);
         Msg.pinName = PinName;
-        Msg.FeatureID=FeatureID;
-        Msg.UIContextID=UIContextID;
+        Msg.FeatureID = FeatureID;
+        Msg.UIContextID = UIContextID;
 
         baseConnector._executePinCommandDirect(PluginUUID, Msg);
 
     }
- 
-    public synchronized void NOTIFY_SendNotifyMessage(String FeatureID,NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
-            _NOTIFY_SendNotifyMessage(null, FeatureID,NotifyType,  NotifyMethod,NotifyText);
+
+    public synchronized void NOTIFY_SendNotifyMessage(String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+        _NOTIFY_SendNotifyMessage(null, FeatureID, NotifyType, NotifyMethod, NotifyText);
     }
-    
-    
-     public synchronized void _NOTIFY_SendNotifyMessage(String SenderPluginUUID,String FeatureID,NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+
+    public synchronized void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
         PinDataNotify PD;
-        PD=new PinDataNotify();
-        PD.notifyText=NotifyText;
-        PD.notifyMethod=NotifyMethod;
-        PD.notifyType=NotifyType;
-        
+        PD = new PinDataNotify();
+        PD.notifyText = NotifyText;
+        PD.notifyMethod = NotifyMethod;
+        PD.notifyType = NotifyType;
+
         PluginMessage Msg = new PluginMessageData_Notify(PD);
         Msg.pinName = PluginConsts.KK_PLUGIN_BASE_NOTIFY_DATA;
-        Msg.FeatureID=FeatureID;
-        if (SenderPluginUUID!=null)
-            Msg.SenderUID=SenderPluginUUID;
+        Msg.FeatureID = FeatureID;
+        if (SenderPluginUUID != null) {
+            Msg.SenderUID = SenderPluginUUID;
+        }
 
-        if (connector==null)
+        if (connector == null) {
             baseConnector.executePinCommand(Msg);
-        else
+        } else {
             connector.sendPinMessage(Msg);
+        }
     }
 }

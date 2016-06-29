@@ -23,9 +23,11 @@ public interface IKKControllerUtils {
         PLUGINS_GetLoadedPlugins,
         DISPLAY_GetUIDisplayPages,
         DISPLAY_GetUIDisplayPage,
+        DISPLAY_GetActivePages,
         UICONTEXT_AddUIContext,
         UICONTEXT_GetUIContext,
-        UICONTEXT_UpdateUIContext
+        UICONTEXT_UpdateUIContext,
+        FEATURES_GetFeaturesInfo
     }
     //HWDevices
     public List<RS232Device> HWDEVICES_GetRS232Devices();
@@ -39,5 +41,8 @@ public interface IKKControllerUtils {
     public void UICONTEXT_AddUIContext(String UIContextID);
     public UIContextInfo UICONTEXT_GetUIContextInfo(String ContextID);
     public void UICONTEXT_UpdateDisplayInUIContext(String ContextID,DisplayInfo DI);
+    //Features
+    public UIContextInfo FEATURE_GetFeatureInfo(String ContextID);
+    //public void UICONTEXT_UpdateDisplayInUIContext(String ContextID,DisplayInfo DI);
      
 }

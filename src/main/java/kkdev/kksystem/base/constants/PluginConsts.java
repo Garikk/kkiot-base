@@ -25,6 +25,7 @@ public final class PluginConsts {
     //
     public final static String KK_PLUGIN_BASE_BASIC_TAGGEDINT_DATA="PIN_KK_BASIC_TAGGED_INT";
     public final static String KK_PLUGIN_BASE_BASIC_TAGGEDOBJ_DATA="PIN_KK_BASIC_TAGGED_OBJ";
+    public final static String KK_PLUGIN_BASE_BASIC_TAGGEDSTR_DATA="PIN_KK_BASIC_TAGGED_STR";
     //
     // Default KKController
     public final static String KK_KKCONTROLLER_UTIL="PIN_KKTRLR_UTILITY";

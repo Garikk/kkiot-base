@@ -31,7 +31,7 @@ public class PageMaker {
 
     public PageMaker(String FeatureID,String UIContext, IPluginKKConnector PluginConnector, IPageMakerExecCommand PageExecCallback) {
         PManager = new PluginManagerDataProcessor();
-        PManager.connector = PluginConnector;
+        PManager.setPluginConnector(PluginConnector);
         currentFeature = FeatureID;
         currentContext=UIContext;
         callback = PageExecCallback;

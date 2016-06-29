@@ -67,7 +67,7 @@ public class MenuMaker {
         sendNotifications=SendNarratorNotifications;
         callback = MenuCallback;
         PManager = new PluginManagerDataProcessor();
-        PManager.baseConnector = BaseConnector;
+        PManager.setBaseConnector(BaseConnector);
         inSystemMode = true;
         systemLCD = SystemLCD_ID;
         menuFeatureID = FeatureID;
@@ -87,7 +87,7 @@ public class MenuMaker {
           sendNotifications=SendNarratorNotifications;
         callback = MenuCallback;
         PManager = new PluginManagerDataProcessor();
-        PManager.connector = PluginConnector;
+        PManager.setPluginConnector(PluginConnector);
         inSystemMode = false;
         menuFeatureID = FeatureID;
         menuContextID = UIContextID;

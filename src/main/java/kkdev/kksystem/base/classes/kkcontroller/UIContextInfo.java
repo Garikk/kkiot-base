@@ -14,7 +14,6 @@ import kkdev.kksystem.base.classes.display.DisplayInfo;
     public class UIContextInfo {
         public String UIContextID;
         public DisplayInfo UIDisplay;
-        //public ControlsInfo[] UIControls;
         public UIContextInfo(String ContextID)
         {
             this.UIContextID=ContextID;
