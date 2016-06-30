@@ -53,22 +53,22 @@ public class PluginManagerBase {
         return connector;
     }
 
-    public synchronized void BASE_SendPluginMessage(String FeatureID, String UIContextID, String PinName, PinData PinData) {
+    public synchronized PluginMessage BASE_SendPluginMessage(String FeatureID, String UIContextID, String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessageData(PinData);
         Msg.pinName = PinName;
         Msg.FeatureID = FeatureID;
         Msg.UIContextID = UIContextID;
 
-        connector.sendPinMessage(Msg);
+       return connector.sendPinMessage(Msg);
     }
 
-    public synchronized void _BASE_SendPluginMessageDirect(String FeatureID, String UIContextID, String PluginUUID, String PinName, PinData PinData) {
+    public synchronized PluginMessage _BASE_SendPluginMessageDirect(String FeatureID, String UIContextID, String PluginUUID, String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessageData(PinData);
         Msg.pinName = PinName;
         Msg.FeatureID = FeatureID;
         Msg.UIContextID = UIContextID;
 
-        baseConnector._executePinCommandDirect(PluginUUID, Msg);
+        return baseConnector._executePinCommandDirect(PluginUUID, Msg);
 
     }
 

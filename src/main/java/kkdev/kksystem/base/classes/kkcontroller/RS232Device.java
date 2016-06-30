@@ -5,22 +5,11 @@
  */
 package kkdev.kksystem.base.classes.kkcontroller;
 
-import kkdev.kksystem.base.classes.display.DisplayInfo;
-
 /**
  *
  * @author blinov_is
  */
-public class KKController_Utils
-{
- public static class RS232Device {
-
-        public String PortName;
-        public RS232DevType PortType;
-        public RS232Device(String PName) {
-            PortName = PName;
-        }
-    }
+ public class RS232Device {
 
     public static enum RS232DevType {
         Dev3GModem,
@@ -31,7 +20,9 @@ public class KKController_Utils
     }
     
 
-    
-    
-    public static final String KKController_Util_Act_RS232Devices="1";
-}
+        public String PortName;
+        public RS232DevType PortType;
+        public RS232Device(String PName) {
+            PortName = PName;
+        }
+    }

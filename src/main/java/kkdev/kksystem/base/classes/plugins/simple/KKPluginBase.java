@@ -37,9 +37,9 @@ public class KKPluginBase implements IPluginKKConnector{
     }
 
     @Override
-    public void sendPinMessage(PluginMessage Pin) {
+    public PluginMessage sendPinMessage(PluginMessage Pin) {
         Pin.SenderUID=pluginInfo.getPluginInfo().PluginUUID;
-        connector.executePinCommand(Pin);
+        return connector.executePinCommand(Pin);
     }
 
     @Override

@@ -17,7 +17,7 @@ public interface IPluginKKConnector {
     public PluginInfo getPluginInfo();
     
     public PluginMessage executePin(PluginMessage Pin);
-    public void sendPinMessage(PluginMessage Pin);
+    public PluginMessage sendPinMessage(PluginMessage Pin);
     
     public void pluginInit(IPluginBaseInterface BaseConnector, String GlobalConfUID);
     public void pluginStart();

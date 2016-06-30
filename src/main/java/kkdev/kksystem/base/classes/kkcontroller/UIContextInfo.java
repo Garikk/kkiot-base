@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.kkcontroller;
 
+import java.util.Map;
 import kkdev.kksystem.base.classes.display.DisplayInfo;
 
 /**
@@ -14,6 +15,9 @@ import kkdev.kksystem.base.classes.display.DisplayInfo;
     public class UIContextInfo {
         public String UIContextID;
         public DisplayInfo UIDisplay;
+        public String  ActiveFeature; 
+        public Map<String,String> ActivePage;
+        
         public UIContextInfo(String ContextID)
         {
             this.UIContextID=ContextID;

@@ -22,6 +22,4 @@ public class PinDataFtrCtx extends PinData {
     public FCManagementCommand managementCommand;
     public String manageUIContextID;
     public String manageFeatureID;
-    
-    public Map<String,String> FeaturesInfo;
 }
