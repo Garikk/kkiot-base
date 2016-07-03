@@ -5,6 +5,8 @@
  */
 package kkdev.kksystem.base.classes.plugins;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
 import kkdev.kksystem.base.classes.base.PinData;
 
 /**
@@ -13,7 +15,7 @@ import kkdev.kksystem.base.classes.base.PinData;
  */
 public abstract class PluginMessage {
     public String SenderUID;    //Sender plugin ID
-    public String FeatureID;    //Feature ID
+    public Set<String> FeatureID;    //Feature ID
     public String UIContextID;
     public String pinName; 
     private PinData pinData;
@@ -21,6 +23,7 @@ public abstract class PluginMessage {
     public PluginMessage(PinData newPinData)
     {
         pinData=newPinData;
+        FeatureID=new LinkedHashSet<>();
     }
     
     public PluginMessage cloneMessage()

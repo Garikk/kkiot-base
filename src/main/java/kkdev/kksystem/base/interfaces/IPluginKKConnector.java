@@ -16,8 +16,8 @@ import kkdev.kksystem.base.classes.plugins.PluginMessage;
 public interface IPluginKKConnector {
     public PluginInfo getPluginInfo();
     
-    public PluginMessage executePin(PluginMessage Pin);
-    public PluginMessage sendPinMessage(PluginMessage Pin);
+    public void executePin(PluginMessage Pin);
+    public void sendPinMessage(PluginMessage Pin);
     
     public void pluginInit(IPluginBaseInterface BaseConnector, String GlobalConfUID);
     public void pluginStart();

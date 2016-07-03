@@ -5,13 +5,21 @@
  */
 package kkdev.kksystem.base.classes.base;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 /**
  *
  * @author blinov_is
  */
 public abstract class PinData {
 
-    public String featureID;
+    public Set<String> featureID;
     public String dataDescription;
+    
+    public PinData()
+    {
+        featureID=new LinkedHashSet<>();
+    }
 
 }
