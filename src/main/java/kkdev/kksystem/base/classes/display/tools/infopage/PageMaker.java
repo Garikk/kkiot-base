@@ -27,6 +27,8 @@ public class PageMaker {
 
         public void execCommand(String PageCMD);
         public void pageSelected(String PageName);
+        public void pageStepFwd();
+        public void pageStepBwd();
     }
 
     public PageMaker(String FeatureID,String UIContext, IPluginKKConnector PluginConnector, IPageMakerExecCommand PageExecCallback) {
@@ -70,10 +72,12 @@ public class PageMaker {
 
     public void selectNextPage() {
         showPage(PViewer.movePageNext());
+        callback.pageStepFwd();
     }
 
     public void selectPrevPage() {
         showPage(PViewer.movePagePrev());
+        callback.pageStepBwd();
     }
 
     public void execCommand() {
@@ -88,7 +92,7 @@ public class PageMaker {
 
     private void updateUIFrames(String PageName) {
         MKPageItem Page = PViewer.getPage();
-        PManager.DISPLAY_UpdateUIFrames(currentFeature,currentContext, Page.pageName, Page.pageFrames);
+        PManager.DISPLAY_UpdateUIFrames(currentFeature, currentContext, Page.pageName, Page.pageFrames);
     }
 
     private void showPage(MKPageItem Page) {
