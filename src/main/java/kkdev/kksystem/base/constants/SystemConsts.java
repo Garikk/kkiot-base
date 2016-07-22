@@ -12,7 +12,10 @@ package kkdev.kksystem.base.constants;
 public final class SystemConsts {
 
     
-    public static final String KK_BASE_VERSION="0.9.test";
+    public static final String KK_BASE_VERSION_STR="0.9.test";
+    public static final int KK_BASE_VERSION=1;
+    public static final int KK_BASE_VERSION_MINIMAL=1;
+    
     
     public static final String KK_BASE_CONFPATH="./etc";
     public static final String KK_BASE_PLUGINPATH="./plugins";
