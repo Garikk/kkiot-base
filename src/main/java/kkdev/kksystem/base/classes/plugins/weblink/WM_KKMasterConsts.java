@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kkdev.kksystem.base.classes.plugins.webkkmaster;
+package kkdev.kksystem.base.classes.plugins.weblink;
 
 /**
  *
  * @author blinov_is
  */
 public final  class WM_KKMasterConsts {
+    public final static String WEBMASTER_REQUEST_CHECK = "check";
     public final static String WEBMASTER_REQUEST_ACT = "action";
     public final static String WEBMASTER_REQUEST_MYUUID = "myid";
+    public final static String WEBMASTER_REQUEST_CLIENTINFO = "clientinfo";
     public final static String WEBMASTER_REQUEST_CONFUUID = "confuid";
     public final static String WEBMASTER_REQUEST_JSON_OBJ = "json_object";
     public final static String WEBMASTER_REQUEST_REQFILESBIN = "reqfilesbin";
