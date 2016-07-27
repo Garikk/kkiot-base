@@ -18,7 +18,8 @@ public final  class WM_KKMasterConsts {
     public final static String WEBMASTER_REQUEST_JSON_OBJ = "json_object";
     public final static String WEBMASTER_REQUEST_REQFILESBIN = "reqfilesbin";
     public final static String WEBMASTER_REQUEST_EXTCONN_PINDATA = "pindata";
-
+    
+    public final static String WEBMASTER_REQUEST_GET_SYSSTATE = "0"; 
     public final static String WEBMASTER_REQUEST_GET_MYCONF_INFO = "1";           //get ctrlr configuration, ID, stamp
     public final static String WEBMASTER_REQUEST_GET_MYCONF_DATA = "2";           //get ctrlr configuration
     public final static String WEBMASTER_REQUEST_GET_PLUGINS_INFO = "5";          //get plugins id, version and config stamp
