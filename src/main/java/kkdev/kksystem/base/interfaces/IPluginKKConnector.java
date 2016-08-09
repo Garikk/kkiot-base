@@ -5,7 +5,7 @@
  */
 package kkdev.kksystem.base.interfaces;
 
-import kkdev.kksystem.base.classes.base.PluginMessageData;
+import kkdev.kksystem.base.classes.plugins.PluginConfiguration;
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 
@@ -15,6 +15,11 @@ import kkdev.kksystem.base.classes.plugins.PluginMessage;
  */
 public interface IPluginKKConnector {
     public PluginInfo getPluginInfo();
+    public PluginConfiguration getQuickParameters();
+    
+    public void setQuickParameter(String Name,boolean Value);
+    public void setQuickParameter(String Name,Integer Value);
+    public void setQuickParameter(String Name,String Value);
     
     public void executePin(PluginMessage Pin);
     public void sendPinMessage(PluginMessage Pin);
