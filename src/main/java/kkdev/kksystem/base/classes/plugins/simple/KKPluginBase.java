@@ -5,6 +5,7 @@
  */
 package kkdev.kksystem.base.classes.plugins.simple;
 
+import kkdev.kksystem.base.classes.plugins.PluginConfiguration;
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
@@ -14,7 +15,7 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
  *
  * @author blinov_is
  */
-public class KKPluginBase implements IPluginKKConnector{
+public abstract class KKPluginBase implements IPluginKKConnector{
     public String globalConfID;
     
     public IPluginInfoRequest pluginInfo;
@@ -55,6 +56,26 @@ public class KKPluginBase implements IPluginKKConnector{
 
     @Override
     public void pluginStop() {
+       //Must be override
+    }
+
+    @Override
+    public PluginConfiguration getQuickParameters() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setQuickParameter(String Name, boolean Value) {
+        //Must be override
+    }
+
+    @Override
+    public void setQuickParameter(String Name, Integer Value) {
+       //Must be override
+    }
+
+    @Override
+    public void setQuickParameter(String Name, String Value) {
        //Must be override
     }
     
