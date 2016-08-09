@@ -42,14 +42,24 @@ public class PluginConfiguration {
         return stringParameters.get(Name);
     }
     
-    public Integer getParametersInteger(String Name)
-    {
-        return intParameters.get(Name);    
+    public Integer getParameterInteger(String Name) {
+        return intParameters.get(Name);
     }
-    public Integer getParametersBoolean(String Name)
-    {
-        return intParameters.get(Name);    
+
+    public boolean getParameterBoolean(String Name) {
+        return boolParameters.get(Name);
     }
-    
-    
+
+    public String[] getParametrsString() {
+        return (String[]) stringParameters.keySet().toArray();
+    }
+
+    public String[] getParametrsInt() {
+        return (String[]) intParameters.keySet().toArray();
+    }
+
+    public String[] getParametrsBoolean() {
+        return (String[]) boolParameters.keySet().toArray();
+    }
+
 }
