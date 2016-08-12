@@ -19,6 +19,8 @@ public class PluginConfiguration {
     Map<String, Boolean> boolParameters;
     Map<String, Integer> intParameters;
 
+    
+    
     public PluginConfiguration() {
         stringParameters = new HashMap<>();
         boolParameters = new HashMap<>();
@@ -61,5 +63,10 @@ public class PluginConfiguration {
     public String[] getParametrsBoolean() {
         return (String[]) boolParameters.keySet().toArray();
     }
-
+    
+    public QuickParameterInfo[] getQuickParametersInfo()
+    {
+        QuickParameterInfo[] Ret=new QuickParameterInfo[0];
+        return Ret;
+    }
 }

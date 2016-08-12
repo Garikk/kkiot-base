@@ -11,6 +11,7 @@ import kkdev.kksystem.base.classes.display.pages.DisplayPage;
 import kkdev.kksystem.base.classes.kkcontroller.RS232Device;
 import kkdev.kksystem.base.classes.kkcontroller.UIContextInfo;
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
+import kkdev.kksystem.base.classes.plugins.QuickParameterInfo;
 
 /**
  *
@@ -32,6 +33,7 @@ public interface IKKControllerUtils {
     public List<RS232Device> HWDEVICES_GetRS232Devices();
     // Plugin information
     public List<PluginInfo> PLUGINS_GetLoadedPlugins();
+    public List<QuickParameterInfo> PLUGINS_GetPluginQuickParameters(String UUID);
     // Display pages
     public List<DisplayPage> DISPLAY_GetUIDisplayPages();
     public DisplayPage DISPLAY_GetUIDisplayPage(String Page);
