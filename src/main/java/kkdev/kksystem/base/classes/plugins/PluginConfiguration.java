@@ -7,6 +7,7 @@ package kkdev.kksystem.base.classes.plugins;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -52,16 +53,16 @@ public class PluginConfiguration {
         return boolParameters.get(Name);
     }
 
-    public String[] getParametrsString() {
-        return (String[]) stringParameters.keySet().toArray();
+    public  Set<String> getParametrsString() {
+        return  stringParameters.keySet();
     }
 
-    public String[] getParametrsInt() {
-        return (String[]) intParameters.keySet().toArray();
+    public  Set<String> getParametrsInt() {
+        return  intParameters.keySet();
     }
 
-    public String[] getParametrsBoolean() {
-        return (String[]) boolParameters.keySet().toArray();
+    public Set<String> getParametersBoolean() {
+        return boolParameters.keySet();
     }
     
     public QuickParameterInfo[] getQuickParametersInfo()
