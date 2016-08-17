@@ -5,7 +5,9 @@
  */
 package kkdev.kksystem.base.classes.plugins;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -65,9 +67,9 @@ public class PluginConfiguration {
         return boolParameters.keySet();
     }
     
-    public QuickParameterInfo[] getQuickParametersInfo()
+    public List<QuickParameterInfo> getQuickParametersInfo()
     {
-        QuickParameterInfo[] Ret=new QuickParameterInfo[0];
+        List<QuickParameterInfo> Ret=new  ArrayList<>();
         return Ret;
     }
 }
