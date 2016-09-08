@@ -55,14 +55,14 @@ public class PluginManagerBase {
         return connector;
     }
 
-    public synchronized void BASE_SendPluginMessage(String FeatureID, String UIContextID, String PinName, PinData PinData) {
+    public  void BASE_SendPluginMessage(String FeatureID, String UIContextID, String PinName, PinData PinData) {
         LinkedHashSet<String> Ftr;
         Ftr = new LinkedHashSet<>();
         Ftr.add(FeatureID);
 
         BASE_SendPluginMessage(Ftr, UIContextID, PinName, PinData);
     }
-    public synchronized void BASE_SendPluginMessage(Set<String> FeatureID, String UIContextID, String PinName, PinData PinData) {
+    public  void BASE_SendPluginMessage(Set<String> FeatureID, String UIContextID, String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessageData(PinData);
         Msg.pinName = PinName;
         Msg.FeatureID = FeatureID;
@@ -71,7 +71,7 @@ public class PluginManagerBase {
        connector.sendPinMessage(Msg);
     }
 
-    public synchronized void _BASE_SendPluginMessageDirect(Set<String> FeatureID, String UIContextID, String PluginUUID, String PinName, PinData PinData) {
+    public  void _BASE_SendPluginMessageDirect(Set<String> FeatureID, String UIContextID, String PluginUUID, String PinName, PinData PinData) {
         PluginMessage Msg = new PluginMessageData(PinData);
         Msg.pinName = PinName;
         Msg.FeatureID = FeatureID;
@@ -81,23 +81,23 @@ public class PluginManagerBase {
 
     }
 
-    public synchronized void NOTIFY_SendNotifyMessage(String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+    public  void NOTIFY_SendNotifyMessage(String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
         LinkedHashSet<String> Ftr = new LinkedHashSet();
         Ftr.add(FeatureID);
         NOTIFY_SendNotifyMessage(Ftr, NotifyType, NotifyMethod, NotifyText);
     }
 
-    public synchronized void NOTIFY_SendNotifyMessage(Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+    public  void NOTIFY_SendNotifyMessage(Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
         _NOTIFY_SendNotifyMessage(null, FeatureID, NotifyType, NotifyMethod, NotifyText);
     }
 
-    public synchronized void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+    public  void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
         LinkedHashSet<String> Ftr = new LinkedHashSet();
         Ftr.add(FeatureID);
         _NOTIFY_SendNotifyMessage(SenderPluginUUID, Ftr, NotifyType, NotifyMethod, NotifyText);
     }
 
-    public synchronized void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+    public  void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
         PinDataNotify PD;
         PD = new PinDataNotify();
         PD.notifyText = NotifyText;

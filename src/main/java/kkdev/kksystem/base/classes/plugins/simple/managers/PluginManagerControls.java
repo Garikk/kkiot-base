@@ -17,7 +17,7 @@ import static kkdev.kksystem.base.constants.PluginConsts.KK_PLUGIN_BASE_CONTROL_
  */
 public class PluginManagerControls extends PluginManagerBase {
 
-    public synchronized void CONTROL_SendPluginMessageData(Set<String> FeatureID,String UIContextID , Set<String> TargetFeatures, Set<String> ControlID, KK_CONTROL_DATA EventType, int IntValue) {
+    public  void CONTROL_SendPluginMessageData(Set<String> FeatureID,String UIContextID , Set<String> TargetFeatures, Set<String> ControlID, KK_CONTROL_DATA EventType, int IntValue) {
 
         PinDataControl PData = CONTROL_SendPluginMessageData_PData(TargetFeatures,UIContextID, ControlID, EventType, IntValue);
         //
@@ -25,7 +25,7 @@ public class PluginManagerControls extends PluginManagerBase {
         this.BASE_SendPluginMessage(FeatureID, UIContextID,KK_PLUGIN_BASE_CONTROL_DATA, PData);
     }
 
-    public static synchronized PinDataControl CONTROL_SendPluginMessageData_PData(Set<String> FeatureID,String UIContextID, Set<String> ControlID, KK_CONTROL_DATA EventType, int IntValue) {
+    public static  PinDataControl CONTROL_SendPluginMessageData_PData(Set<String> FeatureID,String UIContextID, Set<String> ControlID, KK_CONTROL_DATA EventType, int IntValue) {
 
         PinDataControl PData = new PinDataControl();
         //
