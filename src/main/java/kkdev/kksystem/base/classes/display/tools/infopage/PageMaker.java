@@ -9,7 +9,7 @@ import java.util.Set;
 import kkdev.kksystem.base.classes.controls.PinDataControl;
 import kkdev.kksystem.base.classes.display.pages.framesKeySet;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
-import kkdev.kksystem.base.interfaces.IPluginKKConnector;
+import kkdev.kksystem.base.interfaces.IPluginConnection;
 
 /**
  *
@@ -31,7 +31,7 @@ public class PageMaker {
         public void pageStepBwd();
     }
 
-    public PageMaker(String FeatureID,String UIContext, IPluginKKConnector PluginConnector, IPageMakerExecCommand PageExecCallback) {
+    public PageMaker(String FeatureID,String UIContext, IPluginConnection PluginConnector, IPageMakerExecCommand PageExecCallback) {
         PManager = new PluginManagerDataProcessor();
         PManager.setPluginConnector(PluginConnector);
         currentFeature = FeatureID;

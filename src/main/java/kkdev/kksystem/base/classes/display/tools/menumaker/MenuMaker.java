@@ -13,9 +13,9 @@ import kkdev.kksystem.base.classes.display.pages.PageConsts;
 import kkdev.kksystem.base.classes.notify.NotifyConsts;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.constants.PluginConsts;
-import kkdev.kksystem.base.interfaces.IKKControllerUtils;
-import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
-import kkdev.kksystem.base.interfaces.IPluginKKConnector;
+import kkdev.kksystem.base.interfaces.IPluginBaseConnection;
+import kkdev.kksystem.base.interfaces.IPluginConnection;
+import kkdev.kksystem.base.interfaces.IControllerUtils;
 
 /**
  *
@@ -39,7 +39,7 @@ public class MenuMaker {
     String currentBackCMD;
     String specialPluginUUID;
     boolean sendNotifications;
-    private IKKControllerUtils utils;
+    private IControllerUtils utils;
     //
     public String getActivePage()
     {
@@ -56,7 +56,7 @@ public class MenuMaker {
         specialPluginUUID=UUID;
     }
 
-    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseInterface BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID, boolean SendNarratorNotifications) {
+    public MenuMaker(IControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseConnection BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID, boolean SendNarratorNotifications) {
       
         if (MenuTargetPage == null) {
             targetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;
@@ -76,7 +76,7 @@ public class MenuMaker {
 
     }
 
-    public MenuMaker(IKKControllerUtils KKUtils, String FeatureID, String UIContextID, String MenuTargetPage, IPluginKKConnector PluginConnector, IMenuMakerItemSelected MenuCallback, boolean SendNarratorNotifications) {
+    public MenuMaker(IControllerUtils KKUtils, String FeatureID, String UIContextID, String MenuTargetPage, IPluginConnection PluginConnector, IMenuMakerItemSelected MenuCallback, boolean SendNarratorNotifications) {
         if (MenuTargetPage == null | "".equals(MenuTargetPage)) {
             targetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX ;
         } else {

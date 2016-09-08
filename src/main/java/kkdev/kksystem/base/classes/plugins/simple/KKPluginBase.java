@@ -8,18 +8,18 @@ package kkdev.kksystem.base.classes.plugins.simple;
 import kkdev.kksystem.base.classes.plugins.PluginConfiguration;
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
-import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
-import kkdev.kksystem.base.interfaces.IPluginKKConnector;
+import kkdev.kksystem.base.interfaces.IPluginBaseConnection;
+import kkdev.kksystem.base.interfaces.IPluginConnection;
 
 /**
  *
  * @author blinov_is
  */
-public abstract class KKPluginBase implements IPluginKKConnector{
+public abstract class KKPluginBase implements IPluginConnection{
     public String globalConfID;
     
     public IPluginInfoRequest pluginInfo;
-    IPluginBaseInterface connector;
+    IPluginBaseConnection connector;
     
     public KKPluginBase(IPluginInfoRequest PluginInfoClass)
     {
@@ -44,7 +44,7 @@ public abstract class KKPluginBase implements IPluginKKConnector{
     }
 
     @Override
-    public void pluginInit(IPluginBaseInterface BaseConnector,String GlobalConfUID) {
+    public void pluginInit(IPluginBaseConnection BaseConnector,String GlobalConfUID) {
         connector=BaseConnector;
         globalConfID=GlobalConfUID;
     }

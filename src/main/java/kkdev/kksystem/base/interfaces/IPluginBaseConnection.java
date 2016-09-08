@@ -11,8 +11,8 @@ import kkdev.kksystem.base.classes.plugins.PluginMessage;
  *
  * @author blinov_is
  */
-public interface IPluginBaseInterface {
+public interface IPluginBaseConnection {
     public  void executePinCommand(PluginMessage PP);
     public  void _executePinCommandDirect(String PluginUUID,PluginMessage PP);
-    public IKKControllerUtils systemUtilities();
+    public IControllerUtils systemUtilities();
 }

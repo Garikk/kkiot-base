@@ -16,8 +16,8 @@ import kkdev.kksystem.base.classes.notify.PinDataNotify;
 import kkdev.kksystem.base.classes.notify.PluginMessageData_Notify;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import kkdev.kksystem.base.constants.PluginConsts;
-import kkdev.kksystem.base.interfaces.IPluginBaseInterface;
-import kkdev.kksystem.base.interfaces.IPluginKKConnector;
+import kkdev.kksystem.base.interfaces.IPluginBaseConnection;
+import kkdev.kksystem.base.interfaces.IPluginConnection;
 
 /**
  *
@@ -26,32 +26,32 @@ import kkdev.kksystem.base.interfaces.IPluginKKConnector;
 public class PluginManagerBase {
 
     public Map<String, String> currentFeature; // UIContext => Feature
-    private IPluginKKConnector connector;
-    private IPluginBaseInterface baseConnector;
+    private IPluginConnection connector;
+    private IPluginBaseConnection baseConnector;
 
     public PluginManagerBase() {
         currentFeature = new HashMap<>();
     }
 
-    public PluginManagerBase(IPluginKKConnector PluginConnector) {
+    public PluginManagerBase(IPluginConnection PluginConnector) {
         currentFeature = new HashMap<>();
         connector = PluginConnector;
     }
 
-    public PluginManagerBase(IPluginBaseInterface BaseConnector) {
+    public PluginManagerBase(IPluginBaseConnection BaseConnector) {
         currentFeature = new HashMap<>();
         baseConnector = BaseConnector;
     }
 
-    public void setBaseConnector(IPluginBaseInterface BaseConnector) {
+    public void setBaseConnector(IPluginBaseConnection BaseConnector) {
         baseConnector = BaseConnector;
     }
 
-    public void setPluginConnector(IPluginKKConnector PluginConnector) {
+    public void setPluginConnector(IPluginConnection PluginConnector) {
         connector = PluginConnector;
     }
 
-    public IPluginKKConnector getPluginConnector() {
+    public IPluginConnection getPluginConnector() {
         return connector;
     }
 

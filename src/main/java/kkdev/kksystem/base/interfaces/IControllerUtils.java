@@ -17,7 +17,7 @@ import kkdev.kksystem.base.classes.plugins.QuickParameterInfo;
  *
  * @author blinov_is
  */
-public interface IKKControllerUtils {
+public interface IControllerUtils {
     public enum ControllerUtilsPinRequestTypes
     {
         HWDev_GetRS232Devices,
