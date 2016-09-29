@@ -14,5 +14,5 @@ import kkdev.kksystem.base.classes.kkcontroller.RS232Device;
  */
 public interface IHWDevicesUtils {
         //HWDevices
-    public List<RS232Device> GetRS232Devices();
+    public List<RS232Device> getRS232Devices();
 }

@@ -9,7 +9,7 @@ package kkdev.kksystem.base.interfaces;
  *
  * @author blinov_is
  */
-public class ControllerUtils {
+public interface IControllerUtils {
     public enum ControllerUtilsPinRequestTypes
     {
         HWDev_GetRS232Devices,
@@ -21,10 +21,10 @@ public class ControllerUtils {
         UICONTEXT_GetUIContext,
         UICONTEXT_UpdateUIContext
     }
-    public IContextUtils ContextFunctions;
-    public IDisplayUtils DisplayFunctions;
-    public IHWDevicesUtils HWManager;
-    public IPluginUtils PluginManager;
+    public IContextUtils ContextFunctions();
+    public IDisplayUtils DisplayFunctions();
+    public IHWDevicesUtils HWManager();
+    public IPluginUtils PluginManager();
    
      
 }
