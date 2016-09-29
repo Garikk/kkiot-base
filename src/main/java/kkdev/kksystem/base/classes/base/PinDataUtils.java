@@ -5,7 +5,7 @@
  */
 package kkdev.kksystem.base.classes.base;
 
-import kkdev.kksystem.base.interfaces.IControllerUtils.ControllerUtilsPinRequestTypes;
+import kkdev.kksystem.base.interfaces.ControllerUtils.ControllerUtilsPinRequestTypes;
 
 /**
  *

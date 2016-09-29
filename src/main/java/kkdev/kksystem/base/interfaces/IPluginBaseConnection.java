@@ -14,5 +14,5 @@ import kkdev.kksystem.base.classes.plugins.PluginMessage;
 public interface IPluginBaseConnection {
     public  void executePinCommand(PluginMessage PP);
     public  void _executePinCommandDirect(String PluginUUID,PluginMessage PP);
-    public IControllerUtils systemUtilities();
+    public ControllerUtils systemUtilities();
 }
