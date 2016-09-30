@@ -5,7 +5,6 @@
  */
 package kkdev.kksystem.base.classes.plugins.simple;
 
-import kkdev.kksystem.base.classes.plugins.PluginConfiguration;
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import kkdev.kksystem.base.interfaces.IPluginBaseConnection;
@@ -59,24 +58,4 @@ public abstract class KKPluginBase implements IPluginConnection{
        //Must be override
     }
 
-    @Override
-    public PluginConfiguration getQuickParameters() {
-       return null;
-    }
-
-    @Override
-    public void setQuickParameter(String Name, boolean Value) {
-        //Must be override
-    }
-
-    @Override
-    public void setQuickParameter(String Name, Integer Value) {
-       //Must be override
-    }
-
-    @Override
-    public void setQuickParameter(String Name, String Value) {
-       //Must be override
-    }
-    
 }

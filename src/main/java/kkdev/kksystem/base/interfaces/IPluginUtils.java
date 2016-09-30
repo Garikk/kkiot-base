@@ -6,6 +6,8 @@
 package kkdev.kksystem.base.interfaces;
 
 import java.util.List;
+import java.util.Map;
+import kkdev.kksystem.base.classes.plugins.PluginConfiguration;
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
 
 /**
@@ -14,5 +16,6 @@ import kkdev.kksystem.base.classes.plugins.PluginInfo;
  */
 public interface IPluginUtils {
       // Plugin information
-    public List<PluginInfo> GetLoadedPlugins();
+    public List<PluginInfo> getPluginsInfo();
+    public Map<PluginInfo,PluginConfiguration> getPluginsParameters();
 }
