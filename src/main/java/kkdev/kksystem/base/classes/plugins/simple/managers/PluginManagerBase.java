@@ -16,8 +16,8 @@ import kkdev.kksystem.base.classes.notify.PinDataNotify;
 import kkdev.kksystem.base.classes.notify.PluginMessageData_Notify;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
 import kkdev.kksystem.base.constants.PluginConsts;
-import kkdev.kksystem.base.interfaces.IPluginBaseConnection;
 import kkdev.kksystem.base.interfaces.IPluginConnection;
+import kkdev.kksystem.base.interfaces.IBaseConnection;
 
 /**
  *
@@ -27,7 +27,7 @@ public class PluginManagerBase {
 
     public Map<String, String> currentFeature; // UIContext => Feature
     private IPluginConnection connector;
-    private IPluginBaseConnection baseConnector;
+    private IBaseConnection baseConnector;
 
     public PluginManagerBase() {
         currentFeature = new HashMap<>();
@@ -38,12 +38,12 @@ public class PluginManagerBase {
         connector = PluginConnector;
     }
 
-    public PluginManagerBase(IPluginBaseConnection BaseConnector) {
+    public PluginManagerBase(IBaseConnection BaseConnector) {
         currentFeature = new HashMap<>();
         baseConnector = BaseConnector;
     }
 
-    public void setBaseConnector(IPluginBaseConnection BaseConnector) {
+    public void setBaseConnector(IBaseConnection BaseConnector) {
         baseConnector = BaseConnector;
     }
 

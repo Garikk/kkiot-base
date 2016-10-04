@@ -20,7 +20,7 @@ public interface IPluginConnection {
     public void executePin(PluginMessage Pin);
     public void sendPinMessage(PluginMessage Pin);
     
-    public void pluginInit(IPluginBaseConnection BaseConnector, String GlobalConfUID);
+    public void pluginInit(IBaseConnection BaseConnector, String GlobalConfUID);
     public void pluginStart();
     public void pluginStop();
 }

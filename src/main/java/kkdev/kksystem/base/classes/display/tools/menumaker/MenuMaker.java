@@ -13,9 +13,9 @@ import kkdev.kksystem.base.classes.display.pages.PageConsts;
 import kkdev.kksystem.base.classes.notify.NotifyConsts;
 import kkdev.kksystem.base.classes.plugins.simple.managers.PluginManagerDataProcessor;
 import kkdev.kksystem.base.constants.PluginConsts;
-import kkdev.kksystem.base.interfaces.IPluginBaseConnection;
 import kkdev.kksystem.base.interfaces.IPluginConnection;
 import kkdev.kksystem.base.interfaces.IControllerUtils;
+import kkdev.kksystem.base.interfaces.IBaseConnection;
 
 /**
  *
@@ -56,7 +56,7 @@ public class MenuMaker {
         specialPluginUUID=UUID;
     }
 
-    public MenuMaker(IControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IPluginBaseConnection BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID, boolean SendNarratorNotifications) {
+    public MenuMaker(IControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IBaseConnection BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID, boolean SendNarratorNotifications) {
       
         if (MenuTargetPage == null) {
             targetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;

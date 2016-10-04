@@ -7,8 +7,8 @@ package kkdev.kksystem.base.classes.plugins.simple;
 
 import kkdev.kksystem.base.classes.plugins.PluginInfo;
 import kkdev.kksystem.base.classes.plugins.PluginMessage;
-import kkdev.kksystem.base.interfaces.IPluginBaseConnection;
 import kkdev.kksystem.base.interfaces.IPluginConnection;
+import kkdev.kksystem.base.interfaces.IBaseConnection;
 
 /**
  *
@@ -18,7 +18,7 @@ public abstract class KKPluginBase implements IPluginConnection{
     public String globalConfID;
     
     public IPluginInfoRequest pluginInfo;
-    IPluginBaseConnection connector;
+    IBaseConnection connector;
     
     public KKPluginBase(IPluginInfoRequest PluginInfoClass)
     {
@@ -43,7 +43,7 @@ public abstract class KKPluginBase implements IPluginConnection{
     }
 
     @Override
-    public void pluginInit(IPluginBaseConnection BaseConnector,String GlobalConfUID) {
+    public void pluginInit(IBaseConnection BaseConnector,String GlobalConfUID) {
         connector=BaseConnector;
         globalConfID=GlobalConfUID;
     }

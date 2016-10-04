@@ -17,10 +17,13 @@ public class PinDataSystemOperations extends PinData {
         SYSTEM_REBOOT_HW,
         SYSTEM_POWEROFF,
         SYSTEM_RESTORE_BACKUP,
-        SYSTEM_RESTORE_EMERGENCY
+        SYSTEM_RESTORE_EMERGENCY,
+        SYSTEM_CHANGE_MANAGEDPARAMETER
       
     }
      public SystemOperationsCommand CommandType;
+     public String ParameterName;
+     public Object ParameterValue;
      
 
 }
