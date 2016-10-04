@@ -209,8 +209,11 @@ public class MenuMaker {
         
         switch (CMD) {
             case KK_MENUMAKER_SPECIALCMD_SUBMENU:
-                currentBackCMD=Item.itemBackFromSubItemCommand;
-                updateMenuItems(Item.subItems,currentBackCMD, false);
+                if (Item.subItems.length!=0)
+                {
+                    currentBackCMD=Item.itemBackFromSubItemCommand;
+                    updateMenuItems(Item.subItems,currentBackCMD, false);
+                }
                 return RetCMD;
         }
 

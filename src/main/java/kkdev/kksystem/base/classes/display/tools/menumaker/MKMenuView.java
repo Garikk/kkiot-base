@@ -5,7 +5,6 @@
  */
 package kkdev.kksystem.base.classes.display.tools.menumaker;
 
-import static kkdev.kksystem.base.classes.display.pages.PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;
 import kkdev.kksystem.base.classes.display.pages.framesKeySet;
 
 /**
@@ -79,8 +78,8 @@ public class MKMenuView {
         if (menuRowCount==1)
             return getView();
         
-        
-        if ((selectorPosition < viewRowCount - 1) & (selectorPosition<menuRowCount)) {
+
+        if ((selectorPosition < viewRowCount - 1) & (selectorPosition<menuRowCount-1)) {
             selectorPosition++;
         } else {
             if (((currentViewPosition + viewRowCount) > menuRowCount - 1) | (selectorPosition==menuRowCount-1)) {
