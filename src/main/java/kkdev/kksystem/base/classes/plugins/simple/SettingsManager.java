@@ -11,7 +11,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import kkdev.kksystem.base.classes.plugins.ManagedParameter;
+import kkdev.kksystem.base.classes.plugins.PluginConfiguration;
 import kkdev.kksystem.base.constants.SystemConsts;
 
 /**
@@ -28,7 +33,7 @@ public class SettingsManager {
         configurationFile = FileName;
     }
 
-    public void saveConfig(Object Configuration) {
+    public void saveConfig(PluginConfiguration Configuration) {
         try {
             Gson gson = new Gson();
 
@@ -45,8 +50,8 @@ public class SettingsManager {
         }
     }
 
-    public Object loadConfig() {
-        Object Ret;
+    public PluginConfiguration loadConfig() {
+        PluginConfiguration Ret;
         try {
             Gson gson = new Gson();
             //
@@ -65,6 +70,22 @@ public class SettingsManager {
               return null;
         }
 
+    }
+    
+    //ONLY BOOLEAN PARAMETER SUPPORTED BY NOW!!
+    public void setManagedParameterValue__BoolOnly(PluginConfiguration Settings, String ParameterName,Object value)
+    {
+         for (Field F : Settings.getClass().getDeclaredFields()) {
+                if (F.isAnnotationPresent(ManagedParameter.class) & F.getName().equals(ParameterName)) {
+                    try {
+                        F.setBoolean(Settings, ((String)value).toLowerCase().equals("true"));
+                    } catch (IllegalArgumentException ex) {
+                        Logger.getLogger(SettingsManager.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IllegalAccessException ex) {
+                        Logger.getLogger(SettingsManager.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+         }
     }
 
 }

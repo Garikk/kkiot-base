@@ -11,8 +11,7 @@ import kkdev.kksystem.base.classes.display.tools.menumaker.MKMenuItem;
  *
  * @author blinov_is
  */
-public class ControllerConfiguration {
-    public String configurationUID;
+public class ControllerConfiguration extends PluginConfiguration{
     public String configurationStamp;
     public FeatureConfiguration[] features;
     //

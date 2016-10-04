@@ -10,7 +10,7 @@ package kkdev.kksystem.base.classes.plugins;
  * @author blinov_is
  */
 public class PluginConfiguration {
-    public String configurationUUID;
+    public String configurationUID;
     
     
     public PluginConfiguration() {
