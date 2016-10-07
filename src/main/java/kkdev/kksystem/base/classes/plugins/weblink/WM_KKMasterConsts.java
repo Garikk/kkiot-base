@@ -19,16 +19,18 @@ public final  class WM_KKMasterConsts {
     public final static String WEBMASTER_REQUEST_REQFILESBIN = "reqfilesbin";
     public final static String WEBMASTER_REQUEST_EXTCONN_PINDATA = "pindata";
     
-    public final static String WEBMASTER_REQUEST_GET_SYSSTATE = "0"; 
-    public final static String WEBMASTER_REQUEST_GET_MYCONF_INFO = "1";           //get ctrlr configuration, ID, stamp
-    public final static String WEBMASTER_REQUEST_GET_MYCONF_DATA = "2";           //get ctrlr configuration
-    public final static String WEBMASTER_REQUEST_GET_PLUGINS_INFO = "5";          //get plugins id, version and config stamp
-    public final static String WEBMASTER_REQUEST_GET_PLUGINS_DATA = "6";          //get extended plugins info (with file names)
-    public final static String WEBMASTER_REQUEST_GET_FILES_INFO_BIN = "10";          //get extended plugins info (with file names)
-    public final static String WEBMASTER_REQUEST_GET_FILES_INFO_EXTCONF = "11";          //get extended plugins info (with file names)
-    public final static String WEBMASTER_REQUEST_CTRLR_DATA_KKPIN = "50";               //KKSystem PIN
+    public final static int WEBMASTER_REQUEST_GET_SYSSTATE = 0;           //check server available
+    public final static int WEBMASTER_REQUEST_GET_MYCONF_INFO = 1;           //get ctrlr configuration, ID, stamp
+    public final static int WEBMASTER_REQUEST_GET_MYCONF_DATA = 2;           //get ctrlr configuration
+    public final static int WEBMASTER_REQUEST_GET_PLUGINS_INFO = 5;          //get plugins id, version and config stamp
+    public final static int WEBMASTER_REQUEST_GET_PLUGINS_DATA = 6;          //get extended plugins info (with file names)
+    public final static int WEBMASTER_REQUEST_GET_FILES_INFO_BIN = 10;          //get extended plugins info (with file names)
+    public final static int WEBMASTER_REQUEST_GET_FILES_INFO_EXTCONF = 11;          //get extended plugins info (with file names)
+    public final static int WEBMASTER_REQUEST_CTRLR_DATA_KKPIN = 50;               //KKSystem PIN
 
     
-    public final static String WEBMASTER_REQUEST_EXTCONN_GETPIN = "70";               //KKSystem PIN
-    public final static String WEBMASTER_REQUEST_EXTCONN_PUTPIN = "71";               //KKSystem PIN
+    public final static int WEBMASTER_REQUEST_EXTCONN_GETPIN = 70;               //KKSystem PIN
+    public final static int WEBMASTER_REQUEST_EXTCONN_PUTPIN = 71;               //KKSystem PIN
+    
+
 }
