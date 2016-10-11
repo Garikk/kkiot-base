@@ -32,5 +32,10 @@ public final  class WM_KKMasterConsts {
     public final static int WEBMASTER_REQUEST_EXTCONN_GETPIN = 70;               //KKSystem PIN
     public final static int WEBMASTER_REQUEST_EXTCONN_PUTPIN = 71;               //KKSystem PIN
     
+    
+    public final static int WEBMASTER_SYSSTATE_STATE_MAIN=1;
+    public final static int WEBMASTER_SYSSTATE_STATE_BETA=2;
+    public final static int WEBMASTER_SYSSTATE_STATE_DEV=3;
+    public final static int WEBMASTER_SYSSTATE_STATE_SPECIAL=10;
 
 }

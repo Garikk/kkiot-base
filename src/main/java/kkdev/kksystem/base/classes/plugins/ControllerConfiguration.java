@@ -6,6 +6,7 @@
 package kkdev.kksystem.base.classes.plugins;
 
 import kkdev.kksystem.base.classes.display.tools.menumaker.MKMenuItem;
+import static kkdev.kksystem.base.classes.plugins.weblink.WM_KKMasterConsts.WEBMASTER_SYSSTATE_STATE_MAIN;
 
 /**
  *
@@ -20,6 +21,6 @@ public class ControllerConfiguration extends PluginConfiguration{
     //
     public String defaultFeature;
     public MKMenuItem[] systemMenuItems;
-    
     //
+    public int WeblinkMaxlevel=WEBMASTER_SYSSTATE_STATE_MAIN;
 }
