@@ -9,7 +9,7 @@ package kkdev.kksystem.base.classes.plugins.weblink;
  *
  * @author blinov_is
  */
-public class WM_Configuration_Data {
+public class WM_Configuration_Data  extends WM_Answer_Data {
     public String uid;
     public String data;
     public int configurationtype;

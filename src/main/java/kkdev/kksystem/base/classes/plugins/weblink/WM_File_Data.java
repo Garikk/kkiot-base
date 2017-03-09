@@ -9,7 +9,7 @@ package kkdev.kksystem.base.classes.plugins.weblink;
  *
  * @author blinov_is
  */
-public class WM_File_Data {
+public class WM_File_Data  extends WM_Answer_Data {
     public String name;
     public String url;
 }

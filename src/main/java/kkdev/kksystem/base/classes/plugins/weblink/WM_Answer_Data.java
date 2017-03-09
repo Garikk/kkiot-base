@@ -9,6 +9,7 @@ package kkdev.kksystem.base.classes.plugins.weblink;
  *
  * @author sayma_000
  */
-public class WM_Answer_Configuration_Data extends WM_Answer_Data {
-    public WM_Configuration_Data[] configurations;
+public class WM_Answer_Data {
+       public String kkcaruuid;
+    
 }
