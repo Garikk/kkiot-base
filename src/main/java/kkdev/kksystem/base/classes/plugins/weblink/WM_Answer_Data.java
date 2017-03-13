@@ -11,5 +11,4 @@ package kkdev.kksystem.base.classes.plugins.weblink;
  */
 public class WM_Answer_Data {
        public String kkcaruuid;
-    
 }
