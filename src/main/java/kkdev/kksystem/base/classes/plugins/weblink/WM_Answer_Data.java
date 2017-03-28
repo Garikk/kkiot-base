@@ -10,5 +10,5 @@ package kkdev.kksystem.base.classes.plugins.weblink;
  * @author sayma_000
  */
 public class WM_Answer_Data {
-       public String kkcaruuid;
+       public String kkiotuuid;
 }
