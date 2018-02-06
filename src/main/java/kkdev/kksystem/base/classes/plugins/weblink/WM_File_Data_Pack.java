@@ -7,8 +7,8 @@ package kkdev.kksystem.base.classes.plugins.weblink;
 
 /**
  *
- * @author sayma_000
+ * @author blinov_is
  */
-public class WM_Answer_Data {
-       public String kkiotuuid;
+public class WM_File_Data_Pack  extends WM_Answer_Data {
+    public WM_File_Data[] Pack;
 }
