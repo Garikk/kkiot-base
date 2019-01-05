@@ -16,6 +16,7 @@ public abstract class PinData {
 
     public Set<String> featureID;
     public String dataDescription;
+    public String ServiceSession;
     
     public PinData()
     {
