@@ -6,7 +6,9 @@
 package kkdev.kksystem.base.classes.display.tools.menumaker;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 import java.util.Set;
 import kkdev.kksystem.base.classes.controls.PinDataControl;
 import kkdev.kksystem.base.classes.display.pages.PageConsts;
@@ -40,51 +42,53 @@ public class MenuMaker {
     String specialPluginUUID;
     boolean sendNotifications;
     private IControllerUtils utils;
+
     //
-    public String getActivePage()
-    {
+    public String getActivePage() {
         return activePage;
     }
+
     public interface IMenuMakerItemSelected {
 
         public void selectedItem(String ItemCMD);
+
         public void stepBack(String BackCMD);
-        public void activeMenuElement(String ItemText,String ItemCMD);
-    }
-    public void setPluginUUID(String UUID)
-    {
-        specialPluginUUID=UUID;
+
+        public void activeMenuElement(String ItemText, String ItemCMD);
     }
 
-    public MenuMaker(IControllerUtils KKUtils, String FeatureID,String UIContextID, String MenuTargetPage, IBaseConnection BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID, boolean SendNarratorNotifications) {
-      
+    public void setPluginUUID(String UUID) {
+        specialPluginUUID = UUID;
+    }
+
+    public MenuMaker(IControllerUtils KKUtils, String FeatureID, String UIContextID, String MenuTargetPage, IBaseConnection BaseConnector, IMenuMakerItemSelected MenuCallback, String SystemLCD_ID, boolean SendNarratorNotifications) {
+
         if (MenuTargetPage == null) {
             targetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;
         } else {
             targetPage = MenuTargetPage;
         }
-        utils=KKUtils;
-        sendNotifications=SendNarratorNotifications;
+        utils = KKUtils;
+        sendNotifications = SendNarratorNotifications;
         callback = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.setBaseConnector(BaseConnector);
         inSystemMode = true;
         systemLCD = SystemLCD_ID;
         menuFeatureID = FeatureID;
-        menuContextID=UIContextID;
-        
+        menuContextID = UIContextID;
 
     }
 
     public MenuMaker(IControllerUtils KKUtils, String FeatureID, String UIContextID, String MenuTargetPage, IPluginConnection PluginConnector, IMenuMakerItemSelected MenuCallback, boolean SendNarratorNotifications) {
         if (MenuTargetPage == null | "".equals(MenuTargetPage)) {
-            targetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX ;
+            targetPage = PageConsts.KK_DISPLAY_PAGES_SIMPLEMENU_TXT_C1RX_PREFIX;
         } else {
             targetPage = MenuTargetPage;
         }
         //        
-        utils=KKUtils;
-          sendNotifications=SendNarratorNotifications;
+        utils = KKUtils;
+        sendNotifications = SendNarratorNotifications;
         callback = MenuCallback;
         PManager = new PluginManagerDataProcessor();
         PManager.setPluginConnector(PluginConnector);
@@ -93,11 +97,11 @@ public class MenuMaker {
         menuContextID = UIContextID;
     }
 
-    public void addMenuItems(MKMenuItem[] Items)
-    {
-       addMenuItems(utils.ContextFunctions().GetUIContextInfo(menuContextID).UIDisplay.textMode_Rows,Items);
+    public void addMenuItems(MKMenuItem[] Items) {
+        addMenuItems(utils.ContextFunctions().GetUIContextInfo(menuContextID).UIDisplay.textMode_Rows, Items);
     }
-    public void addMenuItems(int PageRows,MKMenuItem[] Items) {
+
+    public void addMenuItems(int PageRows, MKMenuItem[] Items) {
         menuTree = new ArrayDeque<>();
         menuItems = Items;
         MViewer = new MKMenuView(PageRows, Items.length);
@@ -107,7 +111,7 @@ public class MenuMaker {
         }
     }
 
-    public void updateMenuItems(MKMenuItem[] Items,String BackCMD, boolean IsBackCommand) {
+    public void updateMenuItems(MKMenuItem[] Items, String BackCMD, boolean IsBackCommand) {
         if (!IsBackCommand) {
             menuTree.push(menuItems);
         }
@@ -115,8 +119,9 @@ public class MenuMaker {
         menuItems = Items;
         MViewer.resetMenuView(Items.length);
         for (int i = 0; i < Items.length; i++) {
-            if (Items[i].itemBackFromSubItemCommand==null || Items[i].itemBackFromSubItemCommand.equals(""))
-                Items[i].itemBackFromSubItemCommand=BackCMD;
+            if (Items[i].itemBackFromSubItemCommand == null || Items[i].itemBackFromSubItemCommand.equals("")) {
+                Items[i].itemBackFromSubItemCommand = BackCMD;
+            }
             //
             MViewer.setItemData(i, Items[i]);
         }
@@ -126,40 +131,40 @@ public class MenuMaker {
     public void showMenu() {
 
         if (inSystemMode) {
-            activePage=targetPage;
-            PManager._DISPLAY_ActivatePageDirect(menuFeatureID,menuContextID,systemLCD, targetPage);
-            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID,menuContextID, systemLCD, targetPage, MViewer.getMenu());
-            
+            activePage = targetPage;
+            PManager._DISPLAY_ActivatePageDirect(menuFeatureID, menuContextID, systemLCD, targetPage);
+            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID, menuContextID, systemLCD, targetPage, MViewer.getMenu());
+
         } else {
-            activePage=targetPage;
-            PManager.DISPLAY_ActivatePage(menuFeatureID,menuContextID, targetPage);
-            PManager.DISPLAY_UpdateUIFrames(menuFeatureID,menuContextID, targetPage, MViewer.getMenu());
+            activePage = targetPage;
+            PManager.DISPLAY_ActivatePage(menuFeatureID, menuContextID, targetPage);
+            PManager.DISPLAY_UpdateUIFrames(menuFeatureID, menuContextID, targetPage, MViewer.getMenu());
 
         }
     }
 
     public void menuRefreshDisplay() {
         if (inSystemMode) {
-            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID,menuContextID, systemLCD, targetPage, MViewer.getMenu());
+            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID, menuContextID, systemLCD, targetPage, MViewer.getMenu());
         } else {
-            PManager.DISPLAY_UpdateUIFrames(menuFeatureID,menuContextID, targetPage, MViewer.getMenu());
+            PManager.DISPLAY_UpdateUIFrames(menuFeatureID, menuContextID, targetPage, MViewer.getMenu());
         }
     }
 
     public void menuSelectUp() {
 
         if (inSystemMode) {
-            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID,menuContextID, systemLCD, targetPage, MViewer.moveMenuUP());
+            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID, menuContextID, systemLCD, targetPage, MViewer.moveMenuUP());
         } else {
-            PManager.DISPLAY_UpdateUIFrames(menuFeatureID,menuContextID, targetPage, MViewer.moveMenuUP());
+            PManager.DISPLAY_UpdateUIFrames(menuFeatureID, menuContextID, targetPage, MViewer.moveMenuUP());
         }
     }
 
     public void menuSelectDown() {
         if (inSystemMode) {
-            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID,menuContextID, systemLCD, targetPage, MViewer.moveMenuDown());
+            PManager._DISPLAY_UpdateUIFramesDirect(menuFeatureID, menuContextID, systemLCD, targetPage, MViewer.moveMenuDown());
         } else {
-            PManager.DISPLAY_UpdateUIFrames(menuFeatureID,menuContextID, targetPage, MViewer.moveMenuDown());
+            PManager.DISPLAY_UpdateUIFrames(menuFeatureID, menuContextID, targetPage, MViewer.moveMenuDown());
         }
     }
 
@@ -167,20 +172,18 @@ public class MenuMaker {
         if (menuTree.size() > 0) {
             MKMenuItem[] MI;
             callback.stepBack(currentBackCMD);
-            MI=menuTree.pop();
-            currentBackCMD=MI[0].itemBackFromSubItemCommand;
-            updateMenuItems(MI,currentBackCMD, true);
-            
-        }
-        else
-        {
+            MI = menuTree.pop();
+            currentBackCMD = MI[0].itemBackFromSubItemCommand;
+            updateMenuItems(MI, currentBackCMD, true);
+
+        } else {
             callback.selectedItem("LEAVE");
         }
 
     }
 
     public void menuExec() {
-        String CMD=execSpecialCommand(getCurrentSelection());
+        String CMD = execSpecialCommand(getCurrentSelection());
         if (!CMD.equals("")) {
             callback.selectedItem(CMD);
         }
@@ -188,31 +191,26 @@ public class MenuMaker {
     }
 
     private String execSpecialCommand(MKMenuItem Item) {
-        if (Item.itemCommand==null)
+        if (Item.itemCommand == null) {
             return "";
-        
+        }
+
         String CMD;
         String RetCMD;
-               
-                
-        
-        if (Item.itemCommand.contains(" "))
-        {
-            CMD=Item.itemCommand.split(" ")[0];
-            RetCMD=Item.itemCommand.substring(CMD.length()+1);
+
+        if (Item.itemCommand.contains(" ")) {
+            CMD = Item.itemCommand.split(" ")[0];
+            RetCMD = Item.itemCommand.substring(CMD.length() + 1);
+        } else {
+            CMD = Item.itemCommand;
+            RetCMD = "";
         }
-        else 
-        {
-            CMD=Item.itemCommand;
-            RetCMD="";
-        }
-        
+
         switch (CMD) {
             case KK_MENUMAKER_SPECIALCMD_SUBMENU:
-                if (Item.subItems.length!=0)
-                {
-                    currentBackCMD=Item.itemBackFromSubItemCommand;
-                    updateMenuItems(Item.subItems,currentBackCMD, false);
+                if (Item.subItems.length != 0) {
+                    currentBackCMD = Item.itemBackFromSubItemCommand;
+                    updateMenuItems(Item.subItems, currentBackCMD, false);
                 }
                 return RetCMD;
         }
@@ -255,10 +253,13 @@ public class MenuMaker {
         }
         NotifyConsts.NOTIFY_METHOD[] NM = new NotifyConsts.NOTIFY_METHOD[1];
         NM[0] = NotifyConsts.NOTIFY_METHOD.VOICE;
+        List<String> Tag = new ArrayList<>();
+        Tag.add("menu");
+        
         if (inSystemMode) {
-            PManager._NOTIFY_SendNotifyMessage(PluginConsts.KK_PLUGIN_BASE_PLUGIN_UUID, menuFeatureID, NotifyConsts.NOTIFY_TYPE.SYSTEM_INFO, NM, Text);
+            PManager._NOTIFY_SendNotifyMessage(PluginConsts.KK_PLUGIN_BASE_PLUGIN_UUID, menuFeatureID, NotifyConsts.NOTIFY_TYPE.SYSTEM_INFO, NM, Tag, Text, null);
         } else {
-            PManager.NOTIFY_SendNotifyMessage(menuFeatureID, NotifyConsts.NOTIFY_TYPE.SYSTEM_INFO, NM, Text);
+            PManager.NOTIFY_SendNotifyMessage(menuFeatureID, NotifyConsts.NOTIFY_TYPE.SYSTEM_INFO, NM, Tag, Text, null);
         }
 
     }
