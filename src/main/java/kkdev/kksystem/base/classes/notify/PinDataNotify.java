@@ -5,6 +5,8 @@
  */
 package kkdev.kksystem.base.classes.notify;
 
+import java.util.List;
+import java.util.Map;
 import kkdev.kksystem.base.classes.base.PinData;
 import kkdev.kksystem.base.classes.notify.NotifyConsts.NOTIFY_METHOD;
 import kkdev.kksystem.base.classes.notify.NotifyConsts.NOTIFY_TYPE;
@@ -17,5 +19,5 @@ public class PinDataNotify extends PinData{
     public NOTIFY_TYPE notifyType;
     public NOTIFY_METHOD[] notifyMethod;
     
-    public String notifyText;
+    public List<String[]> notifyText;
 }
