@@ -84,41 +84,42 @@ public class PluginManagerBase {
 
     }
 
-    public void NOTIFY_SendNotifyMessage(String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+    public void NOTIFY_SendNotifyMessage(String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String> Tags, String NotifyText) {
         LinkedHashSet<String> Ftr = new LinkedHashSet();
         Ftr.add(FeatureID);
         List<String[]> lstNotify = new ArrayList<>();
         String[] notifList = {NotifyText};
         lstNotify.add(notifList);
-        NOTIFY_SendNotifyMessage(Ftr, NotifyType, NotifyMethod, lstNotify);
+        NOTIFY_SendNotifyMessage(Ftr, NotifyType, NotifyMethod, Tags, lstNotify);
     }
 
-    public void NOTIFY_SendNotifyMessage(String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String[]> NotifyText) {
+    public void NOTIFY_SendNotifyMessage(String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String> Tags, List<String[]> NotifyText) {
         LinkedHashSet<String> Ftr = new LinkedHashSet();
         Ftr.add(FeatureID);
-        NOTIFY_SendNotifyMessage(Ftr, NotifyType, NotifyMethod, NotifyText);
+        NOTIFY_SendNotifyMessage(Ftr, NotifyType, NotifyMethod, Tags, NotifyText);
     }
 
-    public void NOTIFY_SendNotifyMessage(Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String[]> NotifyText) {
-        _NOTIFY_SendNotifyMessage(null, FeatureID, NotifyType, NotifyMethod, NotifyText);
+    public void NOTIFY_SendNotifyMessage(Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String> Tags, List<String[]> NotifyText) {
+        _NOTIFY_SendNotifyMessage(null, FeatureID, NotifyType, NotifyMethod, Tags, NotifyText);
     }
 
-    public void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, String NotifyText) {
+    public void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String> Tags, String NotifyText) {
         List<String[]> lstNotify = new ArrayList<>();
         String[] notifList = {NotifyText};
         lstNotify.add(notifList);
-        _NOTIFY_SendNotifyMessage(SenderPluginUUID, FeatureID, NotifyType, NotifyMethod, lstNotify);
+        _NOTIFY_SendNotifyMessage(SenderPluginUUID, FeatureID, NotifyType, NotifyMethod, Tags, lstNotify);
     }
 
-    public void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String[]> NotifyText) {
+    public void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, String FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String> Tags, List<String[]> NotifyText) {
         LinkedHashSet<String> Ftr = new LinkedHashSet();
         Ftr.add(FeatureID);
-        _NOTIFY_SendNotifyMessage(SenderPluginUUID, Ftr, NotifyType, NotifyMethod, NotifyText);
+        _NOTIFY_SendNotifyMessage(SenderPluginUUID, Ftr, NotifyType, NotifyMethod, Tags, NotifyText);
     }
 
-    public void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String[]> NotifyText) {
+    public void _NOTIFY_SendNotifyMessage(String SenderPluginUUID, Set<String> FeatureID, NotifyConsts.NOTIFY_TYPE NotifyType, NotifyConsts.NOTIFY_METHOD[] NotifyMethod, List<String> Tags, List<String[]> NotifyText) {
         PinDataNotify PD;
         PD = new PinDataNotify();
+        PD.notifyTags = Tags;
         PD.notifyText = NotifyText;
         PD.notifyMethod = NotifyMethod;
         PD.notifyType = NotifyType;
