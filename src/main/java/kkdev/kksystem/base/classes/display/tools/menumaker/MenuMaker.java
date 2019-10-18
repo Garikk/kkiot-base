@@ -253,8 +253,9 @@ public class MenuMaker {
         }
         NotifyConsts.NOTIFY_METHOD[] NM = new NotifyConsts.NOTIFY_METHOD[1];
         NM[0] = NotifyConsts.NOTIFY_METHOD.VOICE;
-        List<String> Tag = new ArrayList<>();
-        Tag.add("menu");
+        String[] Tag = new String[2];
+        Tag[0] = "GUI_MENU";
+        Tag[1] = "SELECT_ITEM";
         
         if (inSystemMode) {
             PManager._NOTIFY_SendNotifyMessage(PluginConsts.KK_PLUGIN_BASE_PLUGIN_UUID, menuFeatureID, NotifyConsts.NOTIFY_TYPE.SYSTEM_INFO, NM, Tag, Text, null);

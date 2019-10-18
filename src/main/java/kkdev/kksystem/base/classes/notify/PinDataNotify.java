@@ -18,8 +18,8 @@ import kkdev.kksystem.base.classes.notify.NotifyConsts.NOTIFY_TYPE;
 public class PinDataNotify extends PinData{
     public NOTIFY_TYPE notifyType;
     public NOTIFY_METHOD[] notifyMethod;
-    public List<String> notifyTags;
+    public String[] notifyTags;
     
     public List<String[]> notifyText;
-    public List<Object> notifyObject;
+    public Object[] notifyObject;
 }
