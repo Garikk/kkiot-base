@@ -5,6 +5,8 @@
  */
 package kkdev.kksystem.base.classes.plugins;
 
+import java.util.List;
+
 /**
  *
  * @author blinov_is
@@ -15,7 +17,7 @@ public class FeatureConfiguration {
     public String DefaultUIContext;
     public boolean IsSystemFeature;
     public boolean ShowInSystemMenu;
-    public PluginConnection[] Connections;
+    public List<PluginConnection> Connections;
     public int MinVersion;
     public String[] RequiredConfigurations;
     //
